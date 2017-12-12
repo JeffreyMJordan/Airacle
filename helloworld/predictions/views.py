@@ -20,7 +20,7 @@ def home(request):
     try: 
       json_object = json.loads(json_arr)
     except ValueError:
-      return HttpResponse("Not valid JSON")
+      return JsonResponse({'error': "Not valid JSON"})
 
     arr = json.loads(json_arr)
     if (isinstance(arr, list)):
@@ -29,10 +29,10 @@ def home(request):
         prediction = est.estimator.predict([arr])
         return JsonResponse({'prediction': prediction[0]})
       else:
-        return HttpResponse("Not the correct length (4)")
+        return JsonResponse({'error': "Not the correct length (4)"})
       
     else:
-      return HttpResponse("Not an array")
+      return JsonResponse({"error": "Not an array"})
     
   else:
     return HttpResponse("GET")
