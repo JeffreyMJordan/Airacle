@@ -4,6 +4,7 @@ from django.http import JsonResponse
 from estimators.models import Estimator
 from django.views.decorators.csrf import csrf_exempt
 import json
+import pickle 
 
 
 # It needs to be an array of 4
@@ -25,8 +26,8 @@ def home(request):
     arr = json.loads(json_arr)
     if (isinstance(arr, list)):
       if (len(arr) == 4):
-        est = Estimator.objects.last()
-        prediction = est.estimator.predict([arr])
+        estimator = pickle.load(open( 'trained_model.sav','rb'))
+        prediction = estimator.predict([arr])
         return JsonResponse({'prediction': prediction[0]})
       else:
         return JsonResponse({'error': "Not the correct length (4)"})
