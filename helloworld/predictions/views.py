@@ -5,6 +5,7 @@ from django.views.decorators.csrf import csrf_exempt
 import json
 
 
+# It needs to be an array of 4
 @csrf_exempt
 def home(request):
   
