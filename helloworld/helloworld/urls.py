@@ -13,7 +13,7 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url
+from django.conf.urls import url, include
 from django.contrib import admin
 from predictions import views
 
@@ -32,14 +32,15 @@ class ReactAppView(View):
         except :
             return HttpResponse(
                 """
-                react broken _-_
+                react broken :(
                 """,
                 status=501,
             )
 
 
 urlpatterns = [
-    url(r'^$', views.home, name="home"),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    url(r'^api/', views.home, name="home"),
     url(r'^admin/', admin.site.urls),
     url(r'^',ReactAppView.as_view())
 ]

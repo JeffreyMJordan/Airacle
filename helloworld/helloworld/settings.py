@@ -26,6 +26,13 @@ SECRET_KEY = "t*$qld+j+a%9e4n_76$dwo)2i$%vzpm(z%3r=y=zc^3g-g!u3%"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES':
+    ['rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly']
+}
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -41,6 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'estimators',
     'predictions',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [

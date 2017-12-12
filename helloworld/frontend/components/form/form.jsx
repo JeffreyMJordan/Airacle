@@ -15,6 +15,8 @@ export default class Form extends React.Component {
         <input type="date" placeholder="Date"></input>
         <input type="time" placeholder="Time"></input>
         <button type="submit">Analyze Flight</button>
+        {/* Hey Eden sorry to mess w your front end, just tryna test the estimator we have rn below */}
+        <input type="text" />
       </div>
     );
   }
