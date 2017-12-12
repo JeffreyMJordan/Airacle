@@ -1,0 +1,5 @@
+I'm currently thinking I can dump the database to a json file, then we can just load it up again for whatever branch 
+Or I could dump the estimator and store it in a fixtures folder
+
+Dump the database using 'python manage.py dumpdata --exclude auth.permission --exclude contenttypes > db.json'
+load the database using 'python manage.py loaddata db.json'
