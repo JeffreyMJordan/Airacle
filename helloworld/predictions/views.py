@@ -12,8 +12,15 @@ import json
 def home(request):
   
   if request.method == "POST":
+
+
     json_arr = request.POST.get('key', 'N/A')
     
+    try: 
+      json_object = json.loads(json_arr)
+    except ValueError:
+      return HttpResponse("Not valid JSON")
+
     arr = json.loads(json_arr)
     if (isinstance(arr, list)):
       if (len(arr) == 4):
