@@ -11,6 +11,9 @@ def home(request):
   if request.method == "POST":
     thing = request.POST.get('key', 'N/A')
     json_object = json.loads(thing)
-    return HttpResponse("POST")
+    est = Estimator.objects.last()
+    thing = est.estimator.predict([json_object])
+    print(thing)
+    return HttpResponse(thing[0])
   else:
     return HttpResponse("GET")
