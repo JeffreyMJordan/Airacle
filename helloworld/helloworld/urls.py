@@ -32,7 +32,7 @@ class ReactAppView(View):
         except :
             return HttpResponse(
                 """
-                index.html not found ! build your React app !!
+                react broken _-_
                 """,
                 status=501,
             )
