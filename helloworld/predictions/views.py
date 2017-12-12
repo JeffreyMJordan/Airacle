@@ -16,9 +16,13 @@ def home(request):
     
     arr = json.loads(json_arr)
     if (isinstance(arr, list)):
-      est = Estimator.objects.last()
-      prediction = est.estimator.predict([arr])
-      return HttpResponse(prediction[0])
+      if (len(arr) == 4):
+        est = Estimator.objects.last()
+        prediction = est.estimator.predict([arr])
+        return HttpResponse(prediction[0])
+      else:
+        return HttpResponse("Not the correct length (4)")
+      
     else:
       return HttpResponse("Not an array")
     
