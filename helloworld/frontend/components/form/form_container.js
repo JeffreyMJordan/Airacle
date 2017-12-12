@@ -1,5 +1,4 @@
 import Form from './form';
-console.log('test3');
 
 const mapStateToProps = (state) => ({
 

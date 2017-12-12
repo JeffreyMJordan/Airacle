@@ -18288,8 +18288,6 @@ var _app2 = _interopRequireDefault(_app);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-console.log('test1');
-
 var Root = function Root() {
   return _react2.default.createElement(_app2.default, null);
 };
@@ -18316,8 +18314,6 @@ var _form = __webpack_require__(29);
 var _form2 = _interopRequireDefault(_form);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-console.log('test2');
 
 var App = function App() {
   return _react2.default.createElement(
@@ -18354,8 +18350,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-console.log('test4');
-
 var Form = function (_React$Component) {
   _inherits(Form, _React$Component);
 
@@ -18366,7 +18360,7 @@ var Form = function (_React$Component) {
   }
 
   _createClass(Form, [{
-    key: 'render',
+    key: "render",
 
     // constructor(props) {
     //   super(props);
@@ -18375,17 +18369,17 @@ var Form = function (_React$Component) {
 
     value: function render() {
       return _react2.default.createElement(
-        'div',
-        { className: 'form-cont' },
-        _react2.default.createElement('input', { type: 'text', placeholder: 'Origin Airport' }),
-        _react2.default.createElement('input', { type: 'text', placeholder: 'Destination Airport' }),
-        _react2.default.createElement('input', { type: 'text', placeholder: 'Airline' }),
-        _react2.default.createElement('input', { type: 'date', placeholder: 'Date' }),
-        _react2.default.createElement('input', { type: 'time', placeholder: 'Time' }),
+        "div",
+        { className: "form-cont" },
+        _react2.default.createElement("input", { type: "text", placeholder: "Origin Airport" }),
+        _react2.default.createElement("input", { type: "text", placeholder: "Destination Airport" }),
+        _react2.default.createElement("input", { type: "text", placeholder: "Airline" }),
+        _react2.default.createElement("input", { type: "date", placeholder: "Date" }),
+        _react2.default.createElement("input", { type: "time", placeholder: "Time" }),
         _react2.default.createElement(
-          'button',
-          { type: 'submit' },
-          'Analyze Flight'
+          "button",
+          { type: "submit" },
+          "Analyze Flight"
         )
       );
     }

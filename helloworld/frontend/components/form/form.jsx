@@ -1,5 +1,4 @@
 import React from 'react';
-console.log('test4');
 
 export default class Form extends React.Component {
   // constructor(props) {

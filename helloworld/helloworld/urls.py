@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from predictions import views
 
 from django.views.generic import View
 from django.http import HttpResponse
@@ -38,6 +39,7 @@ class ReactAppView(View):
 
 
 urlpatterns = [
+    url(r'^$', views.home, name="home"),
     url(r'^admin/', admin.site.urls),
     url(r'^',ReactAppView.as_view())
 ]

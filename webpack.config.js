@@ -4,7 +4,7 @@ var path = require('path');
     context: __dirname,
     entry: './helloworld/frontend/entry.jsx',
     output: {
-      path: path.resolve(__dirname, 'helloworld', 'frontend','static','js'),
+      path: path.resolve(__dirname, 'helloworld', 'frontend', 'static','js'),
       filename: 'bundle.js'
     },
     resolve: {
