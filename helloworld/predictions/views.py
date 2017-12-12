@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse 
+from django.http import JsonResponse
 from estimators.models import Estimator
 from django.views.decorators.csrf import csrf_exempt
 import json
@@ -26,7 +27,7 @@ def home(request):
       if (len(arr) == 4):
         est = Estimator.objects.last()
         prediction = est.estimator.predict([arr])
-        return HttpResponse(prediction[0])
+        return JsonResponse({'prediction': prediction[0]})
       else:
         return HttpResponse("Not the correct length (4)")
       
