@@ -1,3 +1,4 @@
+import { connect } from 'react-redux';
 import Form from './form';
 import { fetchPrediction } from '../../actions/predictor_actions';
 
@@ -9,4 +10,7 @@ const mapDispatchToProps = (dispatch) => ({
   fetchPrediction: paramsArr => dispatch(fetchPrediction(paramsArr))
 });
 
-export default (mapStateToProps, mapDispatchToProps)(Form);
+export default connect(
+  null, 
+  mapDispatchToProps
+)(Form);

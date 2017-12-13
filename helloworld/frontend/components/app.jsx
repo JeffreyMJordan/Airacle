@@ -1,9 +1,9 @@
 import React from 'react';
-import Form from './form/form';
+import FormContainer from './form/form_container';
 
 const App = () => (
   <div>
-    <Form />
+    <FormContainer />
   </div>
 );
 

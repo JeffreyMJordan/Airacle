@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class Form extends React.Component {
+class Form extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -15,6 +15,7 @@ export default class Form extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     let paramsArr = [ this.state.spLength, this.state.spWidth, this.state.ptLength, this.state.ptWidth ];
+    console.log(this.props.fetchPrediction);
     this.props.fetchPrediction(paramsArr);
   }
 
@@ -73,3 +74,6 @@ export default class Form extends React.Component {
     );
   }
 }
+
+
+export default Form;

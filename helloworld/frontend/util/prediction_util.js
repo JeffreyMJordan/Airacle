@@ -1,3 +1,4 @@
+import $ from 'jquery';
 export const fetchPrediction = (paramsArr) => (
   $.ajax({
     url: "getprediction/",
