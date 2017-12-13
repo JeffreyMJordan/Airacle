@@ -30,9 +30,9 @@ def home(request):
         classes = estimator.classes_.tolist()
         predictions = estimator.predict_proba([arr])[0].tolist()
         pred_obj = {}
-        for x in range(0, 3):
+        for x in range(0, len(classes)):
           pred_obj[classes[x]] = predictions[x]
-        return JsonResponse({'prediction': pred_obj})
+        return JsonResponse({'probabilities': pred_obj, 'highest': estimator.predict([arr])[0]})
       else:
         return JsonResponse({'error': "Not the correct length (4)"})
       
