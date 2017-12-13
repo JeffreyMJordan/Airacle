@@ -1,1 +1,0 @@
-[{"model": "estimators.estimator", "pk": 3, "fields": {"create_date": "2017-12-12T18:53:30.982Z", "object_hash": "862629c1c1f5b52b653f5e1a18aa2784", "object_file": "estimators/862629c1c1f5b52b653f5e1a18aa2784_udarfy5", "description": "KNN for flowers"}}]
