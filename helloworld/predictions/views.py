@@ -15,7 +15,7 @@ def home(request):
   
   if request.method == "POST":
 
-    print(request.POST)
+    
     json_arr = request.POST.get('key', 'N/A')
     
     try: 
