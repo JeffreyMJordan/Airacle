@@ -18344,6 +18344,8 @@ var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -18353,33 +18355,79 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var Form = function (_React$Component) {
   _inherits(Form, _React$Component);
 
-  function Form() {
+  function Form(props) {
     _classCallCheck(this, Form);
 
-    return _possibleConstructorReturn(this, (Form.__proto__ || Object.getPrototypeOf(Form)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (Form.__proto__ || Object.getPrototypeOf(Form)).call(this, props));
+
+    _this.state = {
+      spLength: 0,
+      spWidth: 0,
+      ptLength: 0,
+      ptWidth: 0
+    };
+    _this.handleSubmit = _this.handleSubmit.bind(_this);
+    return _this;
   }
 
   _createClass(Form, [{
+    key: "handleSubmit",
+    value: function handleSubmit(e) {
+      e.preventDefault();
+      var paramsArr = [this.state.spLength, this.state.spWidth, this.state.ptLength, this.state.ptWidth];
+      this.props.fetchPrediction(paramsArr);
+    }
+  }, {
+    key: "update",
+    value: function update(input) {
+      var _this2 = this;
+
+      return function (e) {
+        return _this2.setState(_defineProperty({}, input, e.currentTarget.value));
+      };
+    }
+  }, {
     key: "render",
-
-    // constructor(props) {
-    //   super(props);
-    //
-    // }
-
     value: function render() {
       return _react2.default.createElement(
         "div",
         { className: "form-cont" },
-        _react2.default.createElement("input", { type: "text", placeholder: "Origin Airport" }),
-        _react2.default.createElement("input", { type: "text", placeholder: "Destination Airport" }),
-        _react2.default.createElement("input", { type: "text", placeholder: "Airline" }),
-        _react2.default.createElement("input", { type: "date", placeholder: "Date" }),
-        _react2.default.createElement("input", { type: "time", placeholder: "Time" }),
         _react2.default.createElement(
-          "button",
-          { type: "submit" },
-          "Analyze Flight"
+          "form",
+          { onSubmit: this.handleSubmit, className: "params-form" },
+          _react2.default.createElement(
+            "div",
+            null,
+            _react2.default.createElement("input", {
+              // className="session-input"
+              type: "number",
+              value: this.state.spLength,
+              onChange: this.update("spLength"),
+              placeholder: "sepal-length"
+            }),
+            _react2.default.createElement("input", {
+              // className="session-input"
+              type: "number",
+              value: this.state.spWidth,
+              onChange: this.update("spWidth"),
+              placeholder: "sepal-width"
+            }),
+            _react2.default.createElement("input", {
+              // className="session-input"
+              type: "number",
+              value: this.state.ptLength,
+              onChange: this.update("ptLength"),
+              placeholder: "petal-length"
+            }),
+            _react2.default.createElement("input", {
+              // className="session-input"
+              type: "number",
+              value: this.state.ptWidth,
+              onChange: this.update("ptWidth"),
+              placeholder: "petal-width"
+            }),
+            _react2.default.createElement("input", { className: "session-submit", type: "submit", value: "Let's find out!" })
+          )
         )
       );
     }
