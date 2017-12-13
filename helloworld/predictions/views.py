@@ -14,7 +14,11 @@ import pickle
 def home(request):
   if request.method == "POST":
 
+<<<<<<< HEAD
+    
+=======
     print(request.POST)
+>>>>>>> 487670bd3ad0f1a88bdcbd11dd000fab8e218b9f
     json_arr = request.POST.get('key', 'N/A')
     
     try: 
@@ -26,8 +30,12 @@ def home(request):
     if (isinstance(arr, list)):
       if (len(arr) == 4):
         estimator = pickle.load(open( 'trained_model.sav','rb'))
-        prediction = estimator.predict([arr])
-        return JsonResponse({'prediction': prediction[0]})
+        classes = estimator.classes_.tolist()
+        predictions = estimator.predict_proba([arr])[0].tolist()
+        pred_obj = {}
+        for x in range(0, len(classes)):
+          pred_obj[classes[x]] = predictions[x]
+        return JsonResponse({'probabilities': pred_obj, 'highest': estimator.predict([arr])[0]})
       else:
         return JsonResponse({'error': "Not the correct length (4)"})
       
