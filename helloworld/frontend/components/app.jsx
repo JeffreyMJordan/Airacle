@@ -1,9 +1,10 @@
 import React from 'react';
 import Form from './form/form';
+import Graph from './graph/graph';
 
 const App = () => (
   <div>
-    <Form />
+    <Graph />
   </div>
 );
 
