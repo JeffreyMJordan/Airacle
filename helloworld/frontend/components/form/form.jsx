@@ -15,7 +15,7 @@ class Form extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     let paramsArr = [ this.state.spLength, this.state.spWidth, this.state.ptLength, this.state.ptWidth ];
-    console.log(this.props.fetchPrediction);
+    console.log(paramsArr);
     this.props.fetchPrediction(paramsArr);
   }
 
@@ -65,7 +65,7 @@ class Form extends React.Component {
               onChange={this.update("ptWidth")}
               placeholder="petal-width"
             />
-            <input className="session-submit" type="submit" value="Let's find out!" />
+            <input className="session-submit" type="submit" value="Predict flower" />
 
           </div>
          

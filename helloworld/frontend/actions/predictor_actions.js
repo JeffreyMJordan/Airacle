@@ -7,6 +7,6 @@ const receivePrediction = (prediction) => ({
   prediction
 });
 
-export const fetchPrediction = () => dispatch => (
-  ApiUtil.fetchPrediction().then(prediction => dispatch(receivePrediction(prediction)))
+export const fetchPrediction = (paramsArr) => dispatch => (
+  ApiUtil.fetchPrediction(paramsArr).then(prediction => dispatch(receivePrediction(prediction)))
 );

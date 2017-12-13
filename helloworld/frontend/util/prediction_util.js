@@ -1,8 +1,9 @@
 import $ from 'jquery';
-export const fetchPrediction = (paramsArr) => (
-  $.ajax({
+export const fetchPrediction = (paramsArr) => {
+  console.log(paramsArr);
+  return $.ajax({
     url: "getprediction/",
     method: "POST",
-    key: paramsArr
-  })
-);
+    data: { "key": `${JSON.stringify(paramsArr)}` }
+  });
+};
