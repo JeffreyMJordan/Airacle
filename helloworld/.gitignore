@@ -2,6 +2,10 @@ venv
 *.pyc
 staticfiles
 .env
+<<<<<<< HEAD
+node_modules/
+=======
 node_modules/
 bundle.js
 bundle.js.map
+>>>>>>> ced29495597bd7f4f45946c1fffaac985b2dbe61

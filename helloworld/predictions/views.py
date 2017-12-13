@@ -1,8 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponse 
+from django.http import JsonResponse
 from estimators.models import Estimator
 from django.views.decorators.csrf import csrf_exempt
 import json
+import pickle 
 
 
 # It needs to be an array of 4
@@ -19,19 +21,19 @@ def home(request):
     try: 
       json_object = json.loads(json_arr)
     except ValueError:
-      return HttpResponse("Not valid JSON")
+      return JsonResponse({'error': "Not valid JSON"})
 
     arr = json.loads(json_arr)
     if (isinstance(arr, list)):
       if (len(arr) == 4):
-        est = Estimator.objects.last()
-        prediction = est.estimator.predict([arr])
-        return HttpResponse(prediction[0])
+        estimator = pickle.load(open( 'trained_model.sav','rb'))
+        prediction = estimator.predict([arr])
+        return JsonResponse({'prediction': prediction[0]})
       else:
-        return HttpResponse("Not the correct length (4)")
+        return JsonResponse({'error': "Not the correct length (4)"})
       
     else:
-      return HttpResponse("Not an array")
+      return JsonResponse({"error": "Not an array"})
     
   else:
     return HttpResponse("GET")
