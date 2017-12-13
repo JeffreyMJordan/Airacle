@@ -31757,7 +31757,7 @@ exports.default = function () {
   Object.freeze(state);
   switch (action.type) {
     case _predictor_actions.RECEIVE_PREDICTION:
-      newState = (0, _lodash.merge)({}, state, action.prediction);
+      newState = (0, _lodash.merge)({}, state, action);
       return newState;
     default:
       return state;
