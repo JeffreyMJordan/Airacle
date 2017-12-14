@@ -39,4 +39,4 @@ def home(request):
       return JsonResponse({"error": "Not an array"})
     
   else:
-    return HttpResponse("GET")
+    return HttpResponse("you sent a GET request lmao")
