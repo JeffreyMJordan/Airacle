@@ -17,6 +17,9 @@ const styles = {
   padding: 30
 };
 
+
+//What to do on refresh? 
+//Don says maybe push the component back to index
 export default class Graph extends React.Component {
   constructor(props) {
     super(props);

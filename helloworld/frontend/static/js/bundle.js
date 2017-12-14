@@ -41599,6 +41599,9 @@ var styles = {
   padding: 30
 };
 
+//What to do on refresh? 
+//Don says maybe push the component back to index
+
 var Graph = function (_React$Component) {
   _inherits(Graph, _React$Component);
 
@@ -76545,7 +76548,7 @@ var PredictionIndex = function (_React$Component) {
           'ul',
           null,
           Object.keys(this.props.probabilities).map(function (clas) {
-            return _react2.default.createElement(_prediction_index_item2.default, { probability: _this2.props.probabilities[clas], clas: clas });
+            return _react2.default.createElement(_prediction_index_item2.default, { key: clas, probability: _this2.props.probabilities[clas], clas: clas });
           })
         )
       );

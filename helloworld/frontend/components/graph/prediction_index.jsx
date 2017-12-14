@@ -1,6 +1,7 @@
 import React from 'react';
 import PredictionIndexItem from './prediction_index_item';
 
+
 class PredictionIndex extends React.Component{
   constructor(props){
     super(props);
@@ -13,7 +14,7 @@ class PredictionIndex extends React.Component{
     return (
       <h3>
         <ul>
-          {Object.keys(this.props.probabilities).map( (clas) => <PredictionIndexItem probability={this.props.probabilities[clas]} clas={clas}/>)}
+          {Object.keys(this.props.probabilities).map( (clas) => <PredictionIndexItem key={clas} probability={this.props.probabilities[clas]} clas={clas}/>)}
         </ul>
       </h3>
     );
