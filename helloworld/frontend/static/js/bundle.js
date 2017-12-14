@@ -31162,6 +31162,8 @@ var _react = __webpack_require__(5);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _reactRouterDom = __webpack_require__(567);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -31193,18 +31195,22 @@ var Form = function (_React$Component) {
   _createClass(Form, [{
     key: "handleSubmit",
     value: function handleSubmit(e) {
+      var _this2 = this;
+
       e.preventDefault();
       var paramsArr = [this.state.spLength, this.state.spWidth, this.state.ptLength, this.state.ptWidth];
       console.log(paramsArr);
-      this.props.fetchPrediction(paramsArr);
+      this.props.fetchPrediction(paramsArr).then(function (e) {
+        return _this2.props.history.push("/graph");
+      });
     }
   }, {
     key: "update",
     value: function update(input) {
-      var _this2 = this;
+      var _this3 = this;
 
       return function (e) {
-        return _this2.setState(_defineProperty({}, input, e.currentTarget.value));
+        return _this3.setState(_defineProperty({}, input, e.currentTarget.value));
       };
     }
   }, {
@@ -31257,7 +31263,7 @@ var Form = function (_React$Component) {
   return Form;
 }(_react2.default.Component);
 
-exports.default = Form;
+exports.default = (0, _reactRouterDom.withRouter)(Form);
 
 /***/ }),
 /* 246 */
