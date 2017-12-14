@@ -8,7 +8,7 @@ export default (state = {}, action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_PREDICTION:
-      newState = merge({}, state, action.prediction);
+      newState = merge({}, state, action);
       return newState;
     default:
       return state;
