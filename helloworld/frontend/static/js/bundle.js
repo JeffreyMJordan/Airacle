@@ -54924,7 +54924,7 @@ exports.default = function (props) {
   console.log(props);
 
   var line = d3.path();
-  line.strokeStyle = 'rgb(89, 89, 89)';
+  line.strokeStyle = 'rgb(255, 23, 23)';
   line.moveTo(props.data[0][0], props.data[0][1]);
   line.lineTo(props.data[1][0], props.data[1][1]);
   line.lineTo(props.data[2][0], props.data[2][1]);
@@ -54932,10 +54932,10 @@ exports.default = function (props) {
   line.lineTo(props.data[4][0], props.data[4][1]);
   // line.closePath();
 
-
+  console.log(line);
   return _react2.default.createElement(
     'g',
-    { className: 'line' },
+    null,
     _react2.default.createElement('path', { d: line._ })
   );
 };
