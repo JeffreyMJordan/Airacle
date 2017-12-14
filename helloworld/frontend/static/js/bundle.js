@@ -8956,36 +8956,36 @@ var Graph = function (_React$Component) {
     key: 'render',
     value: function render() {
       // console.log(this.props);
+      var keys = [10, 30, 50];
+      var values = [0, 0, 0];
+      var pairs = [];
       if (!(JSON.stringify(this.state.probabilities) === "{}")) {
         // let keys = Object.keys(this.state.probabilities);
-        var keys = [10, 30, 50];
-        var values = Object.values(this.state.probabilities);
-        var pairs = [];
-        for (var index = 0; index < keys.length; index++) {
-          var key = keys[index];
-          var value = values[index];
-          pairs.push([key, value]);
-        }
+        values = Object.values(this.state.probabilities);
         // console.log(this.state.probabilities);
         // console.log(this.state.probabilities === '{}');
         // console.log(pairs);
-
-        var stats = {
-          data: pairs
-
-        };
-        return _react2.default.createElement(
-          'div',
-          null,
-          _react2.default.createElement(
-            'h1',
-            null,
-            'Predicted Delay Times'
-          ),
-          _react2.default.createElement(_prediction_index2.default, { probabilities: this.props.probabilities, highest: this.props.highest }),
-          _react2.default.createElement(_line_graph2.default, _extends({}, stats, styles))
-        );
       }
+      for (var index = 0; index < keys.length; index++) {
+        var key = keys[index];
+        var value = values[index];
+        pairs.push([key, value]);
+      }
+      var stats = {
+        data: pairs
+
+      };
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(
+          'h1',
+          null,
+          'Predicted Delay Times'
+        ),
+        _react2.default.createElement(_prediction_index2.default, { probabilities: this.props.probabilities, highest: this.props.highest }),
+        _react2.default.createElement(_line_graph2.default, _extends({}, stats, styles))
+      );
     }
   }]);
 
