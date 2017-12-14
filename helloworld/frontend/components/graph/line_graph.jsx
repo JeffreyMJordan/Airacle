@@ -14,14 +14,14 @@ const xScale = (props) => {
 const yScale = (props) => {
   return d3.scaleLinear()
   .domain([0, 1])
-  .range([props.height, props.padding - props.padding]);
+  .range([props.height - props.padding, props.padding]);
 };
 
 export default(props) => {
   const scales = { xScale: xScale(props), yScale: yScale(props) };
   return <svg width={props.width} height={props.height}>
+    <Line {...props} />
     <DataPoints {...props} {...scales} />
     <Axis {...props} {...scales} />
-    <Line {...props} {...scales} />
   </svg>;
 };
