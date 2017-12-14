@@ -1,5 +1,5 @@
 import React from 'react';
-import d3 from 'd3';
+import * as d3 from 'd3';
 
 export default class Axis extends React.Component {
   componentDidMount() {
@@ -11,8 +11,13 @@ export default class Axis extends React.Component {
   }
 
   renderAxis() {
+    let axis;
+    if(this.props.orient === 'left') {
+      axis = d3.axisLeft().ticks(5).scale(this.props.scale);
+    } else {
+      axis = d3.axisBottom().ticks(5).scale(this.props.scale);
+    }
     let node = this.refs.axis;
-    let axis = d3.svg.axis().orient(this.props.orient).ticks(5).scale(this.props.scale);
     d3.select(node).call(axis);
   }
 
