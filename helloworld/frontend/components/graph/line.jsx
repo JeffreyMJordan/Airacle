@@ -1,19 +1,22 @@
 import React from 'react';
-import * as d3 from 'd3';
-
 
 export default(props) => {
-  console.log(props);
+  const xFunc = (x) => {
+    // x + neg offset * width / units + padding
+    return (((x + 1) * (410/61)) + 30);
+  };
+  const yFunc = (y) => {
+    // height + padding * y * 100 * height / units
+    return (370 - ((y * 100) * 3.4));
+  };
+  let dPath = "M ";
+  for(let i = 0; i < props.data.length; i++) {
+    dPath += (xFunc(props.data[i][0]) + " ");
+    dPath += (yFunc(props.data[i][1]) + " L ");
+  }
 
-  const line = d3.path();
-  line.strokeStyle = 'rgb(255, 23, 23)';
-  line.moveTo(props.data[0][0], props.data[0][1]);
-  line.lineTo(props.data[1][0], props.data[1][1]);
-  line.lineTo(props.data[2][0], props.data[2][1]);
-  line.lineTo(props.data[3][0], props.data[3][1]);
-  line.lineTo(props.data[4][0], props.data[4][1]);
-  // line.closePath();
+  dPath = dPath.slice(0,-2);
 
-  console.log(line);
-  return <g><path d={line._} /></g>;
+
+  return (<g><path stroke="rgb(2, 175, 182)" strokeWidth="2" fill="none" d={dPath} /></g>);
 };
