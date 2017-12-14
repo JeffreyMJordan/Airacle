@@ -6,15 +6,17 @@ const mapStateToProps = (state) => {
   // console.log(state);
   let probabilities = {};
   let highest = undefined;
+  let prediction = undefined;
   if(state.prediction){
     probabilities = state.prediction.probabilities;
     highest = state.prediction.highest;
-    
+    prediction = state.prediction;
   }
   return {
     data: state.data,
     probabilities,
-    highest
+    highest,
+    prediction
   };
 };
 

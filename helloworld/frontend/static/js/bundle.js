@@ -8944,6 +8944,15 @@ var Graph = function (_React$Component) {
   }
 
   _createClass(Graph, [{
+    key: 'componentWillMount',
+    value: function componentWillMount() {
+
+      // let prediction = this.props.prediction;
+      // window.prediction = prediction;
+      document.cookie = 'prediction=' + JSON.stringify(this.props.prediction);
+      console.log(document.cookie);
+    }
+  }, {
     key: 'render',
     value: function render() {
       // console.log(this.props);
@@ -13430,8 +13439,38 @@ var _store2 = _interopRequireDefault(_store);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+//Store the prediction in a cookie
+var getCookie = function getCookie(name) {
+  name += "=";
+  var arr = document.cookie.split(";");
+  console.log(arr);
+  console.log(name);
+  for (var i = 0; i < arr.length; i++) {
+    var key = arr[i];
+    while (key.charAt(0) == ' ') {
+      key = key.slice(1);
+    }
+    if (key.indexOf(name) == 0) {
+      return key.slice(name.length, key.length);
+    }
+  }
+  return undefined;
+};
+
 document.addEventListener("DOMContentLoaded", function () {
-  var store = (0, _store2.default)();
+  var prediction = undefined;
+  if (document.cookie) {
+    prediction = JSON.parse(getCookie("prediction"));
+  }
+  var store = undefined;
+  if (prediction) {
+    console.log(prediction);
+    var preloadedState = { prediction: prediction };
+    console.log(preloadedState);
+    store = (0, _store2.default)(preloadedState);
+  } else {
+    store = (0, _store2.default)();
+  }
   var root = document.getElementById("root");
   _reactDom2.default.render(_react2.default.createElement(_root2.default, { store: store }), root);
 });
@@ -59443,14 +59482,17 @@ var mapStateToProps = function mapStateToProps(state) {
   // console.log(state);
   var probabilities = {};
   var highest = undefined;
+  var prediction = undefined;
   if (state.prediction) {
     probabilities = state.prediction.probabilities;
     highest = state.prediction.highest;
+    prediction = state.prediction;
   }
   return {
     data: state.data,
     probabilities: probabilities,
-    highest: highest
+    highest: highest,
+    prediction: prediction
   };
 };
 

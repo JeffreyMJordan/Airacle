@@ -29,7 +29,14 @@ export default class Graph extends React.Component {
     };
   
   }
- 
+  componentWillMount() {
+    
+    // let prediction = this.props.prediction;
+    // window.prediction = prediction;
+    document.cookie=`prediction=${JSON.stringify(this.props.prediction)}`;
+    console.log(document.cookie);
+    
+  }
   render() {
     // console.log(this.props);
     let keys = [10, 30, 50];
