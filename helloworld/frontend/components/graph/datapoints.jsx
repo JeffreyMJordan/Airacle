@@ -1,7 +1,7 @@
 import React from 'react';
 
 const renderPoints = (props) => {
-  const points = props.data;
+  const points = props.pairs;
   return (coords, index) => {
     const pointProps = {
       cx: props.xScale(coords[0]),

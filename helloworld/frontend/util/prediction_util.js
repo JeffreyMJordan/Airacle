@@ -1,6 +1,6 @@
 import $ from 'jquery';
 export const fetchPrediction = (paramsArr) => {
-  console.log(paramsArr);
+  // console.log(paramsArr);
   return $.ajax({
     url: "getprediction/",
     method: "POST",
