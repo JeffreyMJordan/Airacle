@@ -10,9 +10,9 @@ export default(props) => {
     return (370 - ((y * 100) * 3.4));
   };
   let dPath = "M ";
-  for(let i = 0; i < props.data.length; i++) {
-    dPath += (xFunc(props.data[i][0]) + " ");
-    dPath += (yFunc(props.data[i][1]) + " L ");
+  for(let i = 0; i < props.probabilities.length; i++) {
+    dPath += (xFunc(props.probabilities[i][0]) + " ");
+    dPath += (yFunc(props.probabilities[i][1]) + " L ");
   }
 
   dPath = dPath.slice(0,-2);

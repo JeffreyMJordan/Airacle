@@ -36,6 +36,6 @@ const renderPoints = (props) => {
 
 export default(props) => {
   return <g>
-    { props.data.map(renderPoints(props))}
+    { props.probabilities.map(renderPoints(props))}
   </g>;
 };
