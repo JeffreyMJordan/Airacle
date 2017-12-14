@@ -29,37 +29,35 @@ export default class Graph extends React.Component {
     };
   
   }
-  componentWillMount() {
-    
-  }
+ 
   render() {
     // console.log(this.props);
+    let keys = [10, 30, 50];
+    let values = [0, 0, 0];
+    let pairs = [];
     if (!(JSON.stringify(this.state.probabilities) === "{}")) {
       // let keys = Object.keys(this.state.probabilities);
-      let keys = [10, 30, 50];
-      let values = Object.values(this.state.probabilities);
-      let pairs = [];
-      for (let index = 0; index < keys.length; index++) {
-        const key = keys[index];
-        const value = values[index];
-        pairs.push([key, value]);
-        
-      }
+      values = Object.values(this.state.probabilities);
       // console.log(this.state.probabilities);
       // console.log(this.state.probabilities === '{}');
       // console.log(pairs);
-     
-      let stats = {
-        data: pairs,
-
-      };
-      return (
-        <div>
-          <h1>Predicted Delay Times</h1>
-          <PredictionIndex probabilities={this.props.probabilities} highest={this.props.highest}/>
-          <LineGraph {...stats} {...styles}/>
-        </div>
-      );
+    } 
+    for (let index = 0; index < keys.length; index++) {
+      const key = keys[index];
+      const value = values[index];
+      pairs.push([key, value]);
+      
     }
+    let stats = {
+      data: pairs,
+
+    };
+    return (
+      <div>
+        <h1>Predicted Delay Times</h1>
+        <PredictionIndex probabilities={this.props.probabilities} highest={this.props.highest}/>
+        <LineGraph {...stats} {...styles}/>
+      </div>
+    );
   }
 }
