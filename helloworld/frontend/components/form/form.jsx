@@ -1,4 +1,5 @@
 import React from 'react';
+import {withRouter} from "react-router-dom";
 
 class Form extends React.Component {
   constructor(props) {
@@ -16,7 +17,7 @@ class Form extends React.Component {
     e.preventDefault();
     let paramsArr = [ this.state.spLength, this.state.spWidth, this.state.ptLength, this.state.ptWidth ];
     console.log(paramsArr);
-    this.props.fetchPrediction(paramsArr);
+    this.props.fetchPrediction(paramsArr).then((e) => this.props.history.push("/graph"));
   }
 
   update(input) {
@@ -76,4 +77,4 @@ class Form extends React.Component {
 }
 
 
-export default Form;
+export default withRouter(Form);
