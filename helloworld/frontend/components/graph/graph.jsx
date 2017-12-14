@@ -25,7 +25,7 @@ export default class Graph extends React.Component {
   render() {
     return (
       <div>
-        <h1>Test Graph</h1>
+        <h1>Predicted Delay Times</h1>
         <LineGraph {...this.state} {...styles}/>
       </div>
     );

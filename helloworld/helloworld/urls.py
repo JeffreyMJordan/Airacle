@@ -40,7 +40,7 @@ class ReactAppView(View):
 
 urlpatterns = [
     # url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-    url(r'^getprediction/', views.home, name="home"),
+    # url(r'^getprediction/', views.home, name="home"),
     url(r'^admin/', admin.site.urls),
     url(r'^',ReactAppView.as_view())
 ]
