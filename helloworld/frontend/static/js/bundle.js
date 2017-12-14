@@ -8944,12 +8944,15 @@ var Graph = function (_React$Component) {
   }
 
   _createClass(Graph, [{
+    key: 'componentWillMount',
+    value: function componentWillMount() {}
+  }, {
     key: 'render',
     value: function render() {
       // console.log(this.props);
-      if (this.state.probabilities) {
+      if (!(JSON.stringify(this.state.probabilities) === "{}")) {
         // let keys = Object.keys(this.state.probabilities);
-        var keys = [15, 30, 45];
+        var keys = [10, 30, 50];
         var values = Object.values(this.state.probabilities);
         var pairs = [];
         for (var index = 0; index < keys.length; index++) {
@@ -8957,8 +8960,9 @@ var Graph = function (_React$Component) {
           var value = values[index];
           pairs.push([key, value]);
         }
-        console.log(this.state.probabilities);
-        console.log(pairs);
+        // console.log(this.state.probabilities);
+        // console.log(this.state.probabilities === '{}');
+        // console.log(pairs);
 
         var stats = {
           data: pairs
@@ -32640,6 +32644,7 @@ var Form = function (_React$Component) {
       e.preventDefault();
       var paramsArr = [this.state.spLength, this.state.spWidth, this.state.ptLength, this.state.ptWidth];
       console.log(paramsArr);
+      // this.state.params = paramsArr;
       this.props.fetchPrediction(paramsArr).then(function (e) {
         return _this2.props.history.push("/graph");
       });
@@ -32667,30 +32672,30 @@ var Form = function (_React$Component) {
             null,
             _react2.default.createElement("input", {
               // className="session-input"
-              type: "number",
-              value: this.state.spLength,
-              onChange: this.update("spLength"),
+              type: "number"
+              // value={this.state.spLength}
+              , onChange: this.update("spLength"),
               placeholder: "sepal-length"
             }),
             _react2.default.createElement("input", {
               // className="session-input"
-              type: "number",
-              value: this.state.spWidth,
-              onChange: this.update("spWidth"),
+              type: "number"
+              // value={this.state.spWidth}
+              , onChange: this.update("spWidth"),
               placeholder: "sepal-width"
             }),
             _react2.default.createElement("input", {
               // className="session-input"
-              type: "number",
-              value: this.state.ptLength,
-              onChange: this.update("ptLength"),
+              type: "number"
+              // value={this.state.ptLength}
+              , onChange: this.update("ptLength"),
               placeholder: "petal-length"
             }),
             _react2.default.createElement("input", {
               // className="session-input"
-              type: "number",
-              value: this.state.ptWidth,
-              onChange: this.update("ptWidth"),
+              type: "number"
+              // value={this.state.ptWidth}
+              , onChange: this.update("ptWidth"),
               placeholder: "petal-width"
             }),
             _react2.default.createElement("input", { className: "session-submit", type: "submit", value: "Predict flower" })

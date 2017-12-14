@@ -17,6 +17,7 @@ class Form extends React.Component {
     e.preventDefault();
     let paramsArr = [ this.state.spLength, this.state.spWidth, this.state.ptLength, this.state.ptWidth ];
     console.log(paramsArr);
+    // this.state.params = paramsArr;
     this.props.fetchPrediction(paramsArr).then((e) => this.props.history.push("/graph"));
   }
 
@@ -41,28 +42,28 @@ class Form extends React.Component {
             <input
               // className="session-input"
               type="number"
-              value={this.state.spLength}
+              // value={this.state.spLength}
               onChange={this.update("spLength")}
               placeholder="sepal-length"
             />
             <input
               // className="session-input"
               type="number"
-              value={this.state.spWidth}
+              // value={this.state.spWidth}
               onChange={this.update("spWidth")}
               placeholder="sepal-width"
             />
             <input
               // className="session-input"
               type="number"
-              value={this.state.ptLength}
+              // value={this.state.ptLength}
               onChange={this.update("ptLength")}
               placeholder="petal-length"
             />
             <input
               // className="session-input"
               type="number"
-              value={this.state.ptWidth}
+              // value={this.state.ptWidth}
               onChange={this.update("ptWidth")}
               placeholder="petal-width"
             />

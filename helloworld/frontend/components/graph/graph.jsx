@@ -29,12 +29,14 @@ export default class Graph extends React.Component {
     };
   
   }
-  
+  componentWillMount() {
+    
+  }
   render() {
     // console.log(this.props);
-    if (this.state.probabilities) {
+    if (!(JSON.stringify(this.state.probabilities) === "{}")) {
       // let keys = Object.keys(this.state.probabilities);
-      let keys = [15, 30, 45]
+      let keys = [10, 30, 50];
       let values = Object.values(this.state.probabilities);
       let pairs = [];
       for (let index = 0; index < keys.length; index++) {
@@ -43,8 +45,9 @@ export default class Graph extends React.Component {
         pairs.push([key, value]);
         
       }
-      console.log(this.state.probabilities);
-      console.log(pairs);
+      // console.log(this.state.probabilities);
+      // console.log(this.state.probabilities === '{}');
+      // console.log(pairs);
      
       let stats = {
         data: pairs,

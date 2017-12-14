@@ -9,6 +9,7 @@ const mapStateToProps = (state) => {
   if(state.prediction){
     probabilities = state.prediction.probabilities;
     highest = state.prediction.highest;
+    
   }
   return {
     data: state.data,
