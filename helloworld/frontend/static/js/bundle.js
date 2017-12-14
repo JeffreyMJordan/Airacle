@@ -8948,10 +8948,22 @@ var Graph = function (_React$Component) {
     value: function render() {
       // console.log(this.props);
       if (this.state.probabilities) {
-        var keys = Object.keys(this.state.probabilities);
+        // let keys = Object.keys(this.state.probabilities);
+        var keys = [15, 30, 45];
         var values = Object.values(this.state.probabilities);
-        console.log(values);
+        var pairs = [];
+        for (var index = 0; index < keys.length; index++) {
+          var key = keys[index];
+          var value = values[index];
+          pairs.push([key, value]);
+        }
+        console.log(this.state.probabilities);
+        console.log(pairs);
 
+        var stats = {
+          data: pairs
+
+        };
         return _react2.default.createElement(
           'div',
           null,
@@ -8961,7 +8973,7 @@ var Graph = function (_React$Component) {
             'Predicted Delay Times'
           ),
           _react2.default.createElement(_prediction_index2.default, { probabilities: this.props.probabilities, highest: this.props.highest }),
-          _react2.default.createElement(_line_graph2.default, _extends({}, this.state, styles))
+          _react2.default.createElement(_line_graph2.default, _extends({}, stats, styles))
         );
       }
     }
@@ -59204,7 +59216,7 @@ var _react2 = _interopRequireDefault(_react);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var renderPoints = function renderPoints(props) {
-  var points = props.data;
+  var points = props.pairs;
   return function (coords, index) {
     var pointProps = {
       cx: props.xScale(coords[0]),
@@ -59241,7 +59253,7 @@ exports.default = function (props) {
   return _react2.default.createElement(
     "g",
     null,
-    props.probabilities.map(renderPoints(props))
+    props.data.map(renderPoints(props))
   );
 };
 
@@ -59272,9 +59284,9 @@ exports.default = function (props) {
     return 370 - y * 100 * 3.4;
   };
   var dPath = "M ";
-  for (var i = 0; i < props.probabilities.length; i++) {
-    dPath += xFunc(props.probabilities[i][0]) + " ";
-    dPath += yFunc(props.probabilities[i][1]) + " L ";
+  for (var i = 0; i < props.data.length; i++) {
+    dPath += xFunc(props.data[i][0]) + " ";
+    dPath += yFunc(props.data[i][1]) + " L ";
   }
 
   dPath = dPath.slice(0, -2);
