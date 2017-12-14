@@ -13,10 +13,7 @@ import pickle
 @csrf_exempt
 def home(request):
   if request.method == "POST":
-
-    
     json_arr = request.POST.get('key', 'N/A')
-    
     try: 
       json_object = json.loads(json_arr)
     except ValueError:

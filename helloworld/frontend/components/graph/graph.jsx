@@ -1,6 +1,7 @@
 import React from 'react';
 import d3 from 'd3';
 import LineGraph from './line_graph';
+import PredictionIndex from './prediction_index';
 
 const data = [
   [0,0.12],
@@ -16,6 +17,9 @@ const styles = {
   padding: 30,
 };
 
+
+//What to do on refresh? 
+//Don says maybe push the component back to index
 export default class Graph extends React.Component {
   constructor(props) {
     super(props);
@@ -23,9 +27,11 @@ export default class Graph extends React.Component {
   }
 
   render() {
+    console.log(this.props);
     return (
       <div>
         <h1>Predicted Delay Times</h1>
+        <PredictionIndex probabilities={this.props.probabilities} highest={this.props.highest}/>
         <LineGraph {...this.state} {...styles}/>
       </div>
     );
