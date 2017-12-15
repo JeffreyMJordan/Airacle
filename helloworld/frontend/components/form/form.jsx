@@ -78,7 +78,7 @@ class Form extends React.Component {
               placeholder="Distance"
             />
 
-            <input className="session-submit" type="submit" value="Predict flower" />
+            <input className="session-submit" type="submit" value="Predict delay" />
 
           </div>
          

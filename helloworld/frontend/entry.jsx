@@ -24,20 +24,18 @@ const getCookie = (name) => {
 document.addEventListener("DOMContentLoaded", () => {
   let prediction = undefined;
   if(document.cookie){
-    console.log(document.cookie);
-    console.log(document.cookie);
-    console.log(document.cookie);
+  
     let cookie = getCookie("prediction");
     if (cookie) { 
       prediction = JSON.parse(cookie); 
     }
-    console.log(prediction);
+   
   }
   let store = undefined;
   if(prediction){
-    console.log(prediction);
+    
     const preloadedState = {prediction: prediction};
-    console.log(preloadedState);
+  
     store = configureStore(preloadedState);
   }else{
     store = configureStore();

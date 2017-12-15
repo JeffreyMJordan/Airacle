@@ -13455,20 +13455,17 @@ var getCookie = function getCookie(name) {
 document.addEventListener("DOMContentLoaded", function () {
   var prediction = undefined;
   if (document.cookie) {
-    console.log(document.cookie);
-    console.log(document.cookie);
-    console.log(document.cookie);
+
     var cookie = getCookie("prediction");
     if (cookie) {
       prediction = JSON.parse(cookie);
     }
-    console.log(prediction);
   }
   var store = undefined;
   if (prediction) {
-    console.log(prediction);
+
     var preloadedState = { prediction: prediction };
-    console.log(preloadedState);
+
     store = (0, _store2.default)(preloadedState);
   } else {
     store = (0, _store2.default)();
@@ -32747,7 +32744,7 @@ var Form = function (_React$Component) {
               , onChange: this.update("distance"),
               placeholder: "Distance"
             }),
-            _react2.default.createElement("input", { className: "session-submit", type: "submit", value: "Predict flower" })
+            _react2.default.createElement("input", { className: "session-submit", type: "submit", value: "Predict delay" })
           )
         )
       );

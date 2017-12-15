@@ -26,7 +26,7 @@ class ReactAppView(View):
     def get(self, request):
         try:
 
-            with open(os.path.join('frontend', 'index.html')) as file:
+            with open(os.path.join('helloworld', 'templates/index.html')) as file:
                 return HttpResponse(file.read())
 
         except :
