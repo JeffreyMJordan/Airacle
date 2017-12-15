@@ -5,20 +5,22 @@ class Form extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      spLength: 0,
-      spWidth: 0,
-      ptLength: 0,
-      ptWidth: 0,
+      month: 0,
+      airline: 0,
+      originAirport: 0,
+      destAirport: 0,
+      distance: 0
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    let paramsArr = [ this.state.spLength, this.state.spWidth, this.state.ptLength, this.state.ptWidth ];
-    console.log(paramsArr);
+    let paramsArr = [ this.state.month, this.state.airline, this.state.originAirport, this.state.destAirport, this.state.distance ];
     // this.state.params = paramsArr;
-    this.props.fetchPrediction(paramsArr).then((e) => this.props.history.push("/graph"));
+
+
+    this.props.fetchPrediction(paramsArr.map((el) => parseInt(el))).then((e) => this.props.history.push("/graph"));
   }
 
   update(input) {
@@ -42,31 +44,40 @@ class Form extends React.Component {
             <input
               // className="session-input"
               type="number"
-              // value={this.state.spLength}
-              onChange={this.update("spLength")}
-              placeholder="sepal-length"
+              // value={this.state.month}
+              onChange={this.update("month")}
+              placeholder="Month"
             />
             <input
               // className="session-input"
               type="number"
-              // value={this.state.spWidth}
-              onChange={this.update("spWidth")}
-              placeholder="sepal-width"
+              // value={this.state.airline}
+              onChange={this.update("airline")}
+              placeholder="Airline"
             />
             <input
               // className="session-input"
               type="number"
-              // value={this.state.ptLength}
-              onChange={this.update("ptLength")}
-              placeholder="petal-length"
+              // value={this.state.originAirport}
+              onChange={this.update("originAirport")}
+              placeholder="Origin Airport"
             />
             <input
               // className="session-input"
               type="number"
-              // value={this.state.ptWidth}
-              onChange={this.update("ptWidth")}
-              placeholder="petal-width"
+              // value={this.state.destAirport}
+              onChange={this.update("destAirport")}
+              placeholder="Destination Airport"
             />
+
+            <input
+              // className="session-input"
+              type="number"
+              // value={this.state.destAirport}
+              onChange={this.update("distance")}
+              placeholder="Distance"
+            />
+
             <input className="session-submit" type="submit" value="Predict flower" />
 
           </div>

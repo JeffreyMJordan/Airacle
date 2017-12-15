@@ -22,13 +22,15 @@ def home(request):
     arr = json.loads(json_arr)
     if (isinstance(arr, list)):
       if (len(arr) == 5):
+        
         estimator = pickle.load(open( 'flightdata.sav','rb'))
         classes = estimator.classes_.tolist()
+        print(arr)
         predictions = estimator.predict_proba([arr])[0].tolist()
         print(predictions)
         pred_obj = {}
         for x in range(0, len(classes)):
-          pred_obj[classes[x]] = round(predictions[x], 3)
+          pred_obj[classes[x]] = round(predictions[x], 2)
         return JsonResponse({'probabilities': pred_obj, 'highest': estimator.predict([arr])[0].item()})
       else:
         return JsonResponse({'error': "Not the correct length (4)"})

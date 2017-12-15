@@ -32658,10 +32658,11 @@ var Form = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (Form.__proto__ || Object.getPrototypeOf(Form)).call(this, props));
 
     _this.state = {
-      spLength: 0,
-      spWidth: 0,
-      ptLength: 0,
-      ptWidth: 0
+      month: 0,
+      airline: 0,
+      originAirport: 0,
+      destAirport: 0,
+      distance: 0
     };
     _this.handleSubmit = _this.handleSubmit.bind(_this);
     return _this;
@@ -32673,10 +32674,13 @@ var Form = function (_React$Component) {
       var _this2 = this;
 
       e.preventDefault();
-      var paramsArr = [this.state.spLength, this.state.spWidth, this.state.ptLength, this.state.ptWidth];
-      console.log(paramsArr);
+      var paramsArr = [this.state.month, this.state.airline, this.state.originAirport, this.state.destAirport, this.state.distance];
       // this.state.params = paramsArr;
-      this.props.fetchPrediction(paramsArr).then(function (e) {
+
+
+      this.props.fetchPrediction(paramsArr.map(function (el) {
+        return parseInt(el);
+      })).then(function (e) {
         return _this2.props.history.push("/graph");
       });
     }
@@ -32704,30 +32708,37 @@ var Form = function (_React$Component) {
             _react2.default.createElement("input", {
               // className="session-input"
               type: "number"
-              // value={this.state.spLength}
-              , onChange: this.update("spLength"),
-              placeholder: "sepal-length"
+              // value={this.state.month}
+              , onChange: this.update("month"),
+              placeholder: "Month"
             }),
             _react2.default.createElement("input", {
               // className="session-input"
               type: "number"
-              // value={this.state.spWidth}
-              , onChange: this.update("spWidth"),
-              placeholder: "sepal-width"
+              // value={this.state.airline}
+              , onChange: this.update("airline"),
+              placeholder: "Airline"
             }),
             _react2.default.createElement("input", {
               // className="session-input"
               type: "number"
-              // value={this.state.ptLength}
-              , onChange: this.update("ptLength"),
-              placeholder: "petal-length"
+              // value={this.state.originAirport}
+              , onChange: this.update("originAirport"),
+              placeholder: "Origin Airport"
             }),
             _react2.default.createElement("input", {
               // className="session-input"
               type: "number"
-              // value={this.state.ptWidth}
-              , onChange: this.update("ptWidth"),
-              placeholder: "petal-width"
+              // value={this.state.destAirport}
+              , onChange: this.update("destAirport"),
+              placeholder: "Destination Airport"
+            }),
+            _react2.default.createElement("input", {
+              // className="session-input"
+              type: "number"
+              // value={this.state.destAirport}
+              , onChange: this.update("distance"),
+              placeholder: "Distance"
             }),
             _react2.default.createElement("input", { className: "session-submit", type: "submit", value: "Predict flower" })
           )
