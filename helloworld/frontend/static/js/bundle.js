@@ -7469,7 +7469,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var styles = {
   width: 500,
   height: 400,
-  padding: 30
+  padding: 40
 };
 
 var barStyles = {
@@ -76935,6 +76935,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var xScale = function xScale(props) {
+  console.log(props);
   return d3.scaleLinear().domain([-1, 70]).range([props.padding, props.width - props.padding * 2]);
 };
 
@@ -77014,7 +77015,7 @@ var Bars = function (_React$Component) {
           width: 411 / 7,
           className: 'bar' + index,
           height: 0,
-          y: 370,
+          y: 360,
           x: _this2.props.xScale(coords[0]),
           fill: 'steelblue',
           onMouseOver: function onMouseOver(d) {
@@ -77051,7 +77052,7 @@ var Bars = function (_React$Component) {
       var t = d3.transition().duration(1000).ease(d3.easeLinear);
 
       for (var i = 0; i < this.props.data.length; i++) {
-        d3.select('.bar' + i).transition(t).attr("height", 370 - this.props.yScale(this.props.data[i][1])).attr("y", this.props.yScale(this.props.data[i][1])).style("fill", "rgb(2, 175, 182)");
+        d3.select('.bar' + i).transition(t).attr("height", 360 - this.props.yScale(this.props.data[i][1])).attr("y", this.props.yScale(this.props.data[i][1])).style("fill", "rgb(2, 175, 182)");
       }
     }
   }, {
@@ -77092,16 +77093,23 @@ var _bar_axis2 = _interopRequireDefault(_bar_axis);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = function (props) {
+  console.log(props);
   var xAxis = {
     translate: 'translate(0, ' + (props.height - props.padding) + ')',
     scale: props.xScale,
-    orient: 'bottom'
+    orient: 'bottom',
+    text: "Delay Time (minutes)",
+    titleRotation: "rotate(0)",
+    titleTranslate: 'translate(' + props.width / 2 + ', ' + (props.height - props.padding / 4) + ')'
   };
 
   var yAxis = {
     translate: 'translate(' + props.padding + ', 0)',
     scale: props.yScale,
-    orient: 'left'
+    orient: 'left',
+    text: "Confidence Level",
+    titleRotation: "rotate(-90)",
+    titleTranslate: 'translate(' + props.padding / 3 + ', ' + props.height / 2 + ')'
   };
 
   return _react2.default.createElement(
@@ -77172,7 +77180,10 @@ var Axis = function (_React$Component) {
         axis = d3.axisBottom().ticks(6).scale(this.props.scale);
       }
       var node = this.refs.axis;
+      console.log(this.props);
+
       d3.select(node).call(axis);
+      d3.select(".axis").append("text").attr("transform", this.props.titleTranslate + ' ' + this.props.titleRotation).style("text-anchor", "middle").text('' + this.props.text);
     }
   }, {
     key: 'render',
