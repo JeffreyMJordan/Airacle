@@ -13438,8 +13438,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var getCookie = function getCookie(name) {
   name += "=";
   var arr = document.cookie.split(";");
-  console.log(arr);
-  console.log(name);
   for (var i = 0; i < arr.length; i++) {
     var key = arr[i];
     while (key.charAt(0) == ' ') {
@@ -32729,8 +32727,8 @@ var Form = function (_React$Component) {
               autoFocus: true,
               searchable: true,
               onChange: this.handleChange,
-              value: this.state.dummy,
-              clearable: true
+              value: this.state.dummy
+              // clearable={true}
             }),
             _react2.default.createElement('input', {
               // className="session-input"

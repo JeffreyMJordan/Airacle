@@ -65,7 +65,7 @@ class Form extends React.Component {
             searchable={true}
             onChange={this.handleChange}
             value={this.state.dummy}
-            clearable={true}
+            // clearable={true}
           />
 
             <input

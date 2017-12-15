@@ -135,12 +135,14 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  font-family: "HelveticaNeue-Light", serif
 }
 .Select-input {
   height: 34px;
   padding-left: 10px;
   padding-right: 10px;
   vertical-align: middle;
+  font-family: "HelveticaNeue-Light", serif
 }
 .Select-input > input {
   width: 100%;
@@ -282,6 +284,7 @@
   width: 100%;
   z-index: 1;
   -webkit-overflow-scrolling: touch;
+  font-family: "HelveticaNeue-Light", serif
 }
 .Select-menu {
   max-height: 198px;
