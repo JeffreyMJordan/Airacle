@@ -8924,9 +8924,6 @@ var styles = {
   padding: 30
 };
 
-//What to do on refresh? 
-//Don says maybe push the component back to index
-
 var Graph = function (_React$Component) {
   _inherits(Graph, _React$Component);
 
@@ -8939,18 +8936,16 @@ var Graph = function (_React$Component) {
       probabilities: _this.props.probabilities,
       highest: _this.props.highest
     };
-
     return _this;
   }
 
   _createClass(Graph, [{
     key: 'componentWillMount',
     value: function componentWillMount() {
-
       // let prediction = this.props.prediction;
       // window.prediction = prediction;
       document.cookie = 'prediction=' + JSON.stringify(this.props.prediction);
-      console.log(document.cookie);
+      // console.log(document.cookie); 
     }
   }, {
     key: 'render',
