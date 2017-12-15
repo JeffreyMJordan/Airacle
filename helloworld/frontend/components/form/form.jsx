@@ -1,6 +1,7 @@
 import React from 'react';
 import {withRouter} from "react-router-dom";
 import Select from 'react-select';
+import optionsGenerator from './data/optionsGenerator';
 // import 'react-select/dist/react-select.css';
 
 class Form extends React.Component {
@@ -16,6 +17,9 @@ class Form extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    let allOptions = optionsGenerator();
+    this.airportOptions = allOptions["AirportCodeOptions"];
+    this.nonDropdownChange = this.nonDropdownChange.bind(this);
   }
 
   handleSubmit(e) {
@@ -32,10 +36,17 @@ class Form extends React.Component {
     console.log(this.state.dummy);
   }
 
+  nonDropdownChange(input){
+    return (e) => {
+      this.setState({[input]: e.target.value})
+    };
+  }
+
   update(input) {
-    return e => this.setState({
-      [input]: e.currentTarget.value
-    });
+    return (selectedOption) => {
+      this.setState({[input]: selectedOption.value});
+      console.log(this.state);
+    };
   }
 
   render() {
@@ -52,7 +63,8 @@ class Form extends React.Component {
 
           <div>
           {/* Outside component from a node package. Found here: https://jedwatson.github.io/react-select/ */}
-          <Select
+         
+          {/* <Select
             name="form-field-name"
             options={[
               { value: 'one', label: 'One' },
@@ -63,45 +75,77 @@ class Form extends React.Component {
             ]}
             autoFocus
             searchable={true}
-            onChange={this.handleChange}
-            value={this.state.dummy}
+            onChange={this.update('month')}
+            value={this.state.month}
             // clearable={true}
-          />
+          /> */}
 
             <input
               // className="session-input"
               type="number"
               // value={this.state.month}
-              onChange={this.update("month")}
+              onChange={this.nonDropdownChange("month")}
               placeholder="Month"
             />
             <input
               // className="session-input"
               type="number"
               // value={this.state.airline}
-              onChange={this.update("airline")}
+              onChange={this.nonDropdownChange("airline")}
               placeholder="Airline"
             />
-            <input
+
+
+
+            {/* <input
               // className="session-input"
               type="number"
               // value={this.state.originAirport}
               onChange={this.update("originAirport")}
               placeholder="Origin Airport"
-            />
-            <input
+            /> */}
+            <p>Origin Airport Code</p>
+            <Select
+            name="form-field-name"
+            options={this.airportOptions}
+            autoFocus
+            searchable={true}
+            onChange={this.update('originAirport')}
+            value={this.state.originAirport}
+            // clearable={true}
+          />
+
+          <p>Destination Airport Code</p>
+            <Select
+            name="form-field-name"
+            options={this.airportOptions}
+            autoFocus
+            searchable={true}
+            onChange={this.update('destAirport')}
+            value={this.state.destAirport}
+            // clearable={true}
+          />
+
+
+
+
+
+
+
+
+            {/* <input
               // className="session-input"
               type="number"
               // value={this.state.destAirport}
               onChange={this.update("destAirport")}
               placeholder="Destination Airport"
-            />
+            /> */}
 
             <input
               // className="session-input"
               type="number"
               // value={this.state.destAirport}
-              onChange={this.update("distance")}
+              onChange={this.nonDropdownChange("distance")}
               placeholder="Distance"
             />
 
