@@ -31375,6 +31375,10 @@ var _reactSelect = __webpack_require__(600);
 
 var _reactSelect2 = _interopRequireDefault(_reactSelect);
 
+var _optionsGenerator = __webpack_require__(603);
+
+var _optionsGenerator2 = _interopRequireDefault(_optionsGenerator);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -31405,6 +31409,10 @@ var Form = function (_React$Component) {
     };
     _this.handleSubmit = _this.handleSubmit.bind(_this);
     _this.handleChange = _this.handleChange.bind(_this);
+    var allOptions = (0, _optionsGenerator2.default)();
+    _this.airportOptions = allOptions["AirportCodeOptions"];
+    _this.airlineOptions = allOptions["AirlineCodeOptions"];
+    _this.nonDropdownChange = _this.nonDropdownChange.bind(_this);
     return _this;
   }
 
@@ -31431,12 +31439,22 @@ var Form = function (_React$Component) {
       console.log(this.state.dummy);
     }
   }, {
-    key: 'update',
-    value: function update(input) {
+    key: 'nonDropdownChange',
+    value: function nonDropdownChange(input) {
       var _this3 = this;
 
       return function (e) {
-        return _this3.setState(_defineProperty({}, input, e.currentTarget.value));
+        _this3.setState(_defineProperty({}, input, e.target.value));
+      };
+    }
+  }, {
+    key: 'update',
+    value: function update(input) {
+      var _this4 = this;
+
+      return function (selectedOption) {
+        _this4.setState(_defineProperty({}, input, selectedOption.value));
+        console.log(_this4.state);
       };
     }
   }, {
@@ -31451,48 +31469,60 @@ var Form = function (_React$Component) {
           _react2.default.createElement(
             'div',
             null,
+            _react2.default.createElement('input', {
+              // className="session-input"
+              type: 'number'
+              // value={this.state.month}
+              , onChange: this.nonDropdownChange("month"),
+              placeholder: 'Month'
+            }),
+            _react2.default.createElement(
+              'p',
+              null,
+              'Airline Code'
+            ),
             _react2.default.createElement(_reactSelect2.default, {
               name: 'form-field-name',
-              options: [{ value: 'one', label: 'One' }, { value: 'two', label: 'Two' }, { value: 'three', label: 'Three' }, { value: 'four', label: 'Four' }, { value: 'five', label: 'Five' }],
+              options: this.airlineOptions,
               autoFocus: true,
               searchable: true,
-              onChange: this.handleChange,
-              value: this.state.dummy
+              onChange: this.update('airline'),
+              value: this.state.airline
+              // clearable={true}
+            }),
+            _react2.default.createElement(
+              'p',
+              null,
+              'Origin Airport Code'
+            ),
+            _react2.default.createElement(_reactSelect2.default, {
+              name: 'form-field-name',
+              options: this.airportOptions,
+              autoFocus: true,
+              searchable: true,
+              onChange: this.update('originAirport'),
+              value: this.state.originAirport
+              // clearable={true}
+            }),
+            _react2.default.createElement(
+              'p',
+              null,
+              'Destination Airport Code'
+            ),
+            _react2.default.createElement(_reactSelect2.default, {
+              name: 'form-field-name',
+              options: this.airportOptions,
+              autoFocus: true,
+              searchable: true,
+              onChange: this.update('destAirport'),
+              value: this.state.destAirport
               // clearable={true}
             }),
             _react2.default.createElement('input', {
               // className="session-input"
               type: 'number'
-              // value={this.state.month}
-              , onChange: this.update("month"),
-              placeholder: 'Month'
-            }),
-            _react2.default.createElement('input', {
-              // className="session-input"
-              type: 'number'
-              // value={this.state.airline}
-              , onChange: this.update("airline"),
-              placeholder: 'Airline'
-            }),
-            _react2.default.createElement('input', {
-              // className="session-input"
-              type: 'number'
-              // value={this.state.originAirport}
-              , onChange: this.update("originAirport"),
-              placeholder: 'Origin Airport'
-            }),
-            _react2.default.createElement('input', {
-              // className="session-input"
-              type: 'number'
               // value={this.state.destAirport}
-              , onChange: this.update("destAirport"),
-              placeholder: 'Destination Airport'
-            }),
-            _react2.default.createElement('input', {
-              // className="session-input"
-              type: 'number'
-              // value={this.state.destAirport}
-              , onChange: this.update("distance"),
+              , onChange: this.nonDropdownChange("distance"),
               placeholder: 'Distance'
             }),
             _react2.default.createElement('input', { className: 'session-submit', type: 'submit', value: 'Predict delay' })
@@ -80111,6 +80141,69 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
 	}
 }());
 
+
+/***/ }),
+/* 603 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _AirportcodeToAirportID = __webpack_require__(604);
+
+var _AirportcodeToAirportID2 = _interopRequireDefault(_AirportcodeToAirportID);
+
+var _AirlinecodeToAirlineID = __webpack_require__(605);
+
+var _AirlinecodeToAirlineID2 = _interopRequireDefault(_AirlinecodeToAirlineID);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = function () {
+  var masterObj = {};
+
+  var airportCodeToIDArr = [];
+  Object.keys(_AirportcodeToAirportID2.default).forEach(function (code) {
+    airportCodeToIDArr.push({ label: code, value: _AirportcodeToAirportID2.default[code] });
+  });
+  masterObj["AirportCodeOptions"] = airportCodeToIDArr;
+
+  var airlineCodeToIDArr = [];
+  Object.keys(_AirlinecodeToAirlineID2.default).forEach(function (code) {
+    airlineCodeToIDArr.push({ label: code, value: _AirlinecodeToAirlineID2.default[code] });
+  });
+  masterObj["AirlineCodeOptions"] = airlineCodeToIDArr;
+
+  return masterObj;
+};
+
+/***/ }),
+/* 604 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = { "ABE": 10135, "ABI": 10136, "ABQ": 10140, "ABR": 10141, "ABY": 10146, "ACT": 10155, "ACV": 10157, "ACY": 10158, "ADK": 10165, "ADQ": 10170, "AEX": 10185, "AGS": 10208, "ALB": 10257, "AMA": 10279, "ANC": 10299, "APN": 10333, "ASE": 10372, "ATL": 10397, "ATW": 10408, "AUS": 10423, "AVL": 10431, "AVP": 10434, "AZO": 10469, "BDL": 10529, "BET": 10551, "BFL": 10561, "BGM": 10577, "BHM": 10599, "BIL": 10620, "BIS": 10627, "BJI": 10631, "BLI": 10666, "BMI": 10685, "BNA": 10693, "BOI": 10713, "BOS": 10721, "BPT": 10728, "BQK": 10731, "BQN": 10732, "BRD": 10739, "BRO": 10747, "BRW": 10754, "BTM": 10779, "BTR": 10781, "BTV": 10785, "BUF": 10792, "BUR": 10800, "BWI": 10821, "BZN": 10849, "CAE": 10868, "CAK": 10874, "CDC": 10918, "CDV": 10926, "CHA": 10980, "CHO": 10990, "CHS": 10994, "CID": 11003, "CIU": 11013, "CLE": 11042, "CLL": 11049, "CLT": 11057, "CMH": 11066, "CMX": 11076, "COD": 11097, "COS": 11109, "CPR": 11122, "CRP": 11140, "CRW": 11146, "CSG": 11150, "CVG": 11193, "CWA": 11203, "DAB": 11252, "DAL": 11259, "DAY": 11267, "DCA": 11278, "DEN": 11292, "DFW": 11298, "DHN": 11308, "DLH": 11337, "DRO": 11413, "DSM": 11423, "DTW": 11433, "DVL": 11447, "EAU": 11471, "ECP": 11481, "EGE": 11503, "EKO": 11525, "ELM": 11537, "ELP": 11540, "ERI": 11577, "ESC": 11587, "EUG": 11603, "EVV": 11612, "EWN": 11617, "EWR": 11618, "EYW": 11624, "FAI": 11630, "FAR": 11637, "FAT": 11638, "FAY": 11641, "FCA": 11648, "FLG": 11695, "FLL": 11697, "FNT": 11721, "FSD": 11775, "FSM": 11778, "FWA": 11823, "GCC": 11865, "GCK": 11867, "GEG": 11884, "GFK": 11898, "GGG": 11905, "GJT": 11921, "GNV": 11953, "GPT": 11973, "GRB": 11977, "GRI": 11980, "GRK": 11982, "GRR": 11986, "GSO": 11995, "GSP": 11996, "GTF": 12003, "GTR": 12007, "GUC": 12012, "GUM": 12016, "HDN": 12094, "HIB": 12129, "HLN": 12156, "HNL": 12173, "HOB": 12177, "HOU": 12191, "HPN": 12197, "HRL": 12206, "HSV": 12217, "HYS": 12255, "IAD": 12264, "IAG": 12265, "IAH": 12266, "ICT": 12278, "IDA": 12280, "ILM": 12323, "IMT": 12335, "IND": 12339, "INL": 12343, "ISN": 12389, "ISP": 12391, "ITH": 12397, "ITO": 12402, "JAC": 12441, "JAN": 12448, "JAX": 12451, "JFK": 12478, "JMS": 12519, "JNU": 12523, "KOA": 12758, "KTN": 12819, "LAN": 12884, "LAR": 12888, "LAS": 12889, "LAW": 12891, "LAX": 12892, "LBB": 12896, "LBE": 12898, "LCH": 12915, "LEX": 12945, "LFT": 12951, "LGA": 12953, "LGB": 12954, "LIH": 12982, "LIT": 12992, "LNK": 13029, "LRD": 13061, "LSE": 13076, "LWS": 13127, "MAF": 13158, "MBS": 13184, "MCI": 13198, "MCO": 13204, "MDT": 13230, "MDW": 13232, "MEI": 13241, "MEM": 13244, "MFE": 13256, "MFR": 13264, "MGM": 13277, "MHT": 13296, "MIA": 13303, "MKE": 13342, "MKG": 13344, "MLB": 13360, "MLI": 13367, "MLU": 13377, "MMH": 13388, "MOB": 13422, "MOT": 13433, "MQT": 13459, "MRY": 13476, "MSN": 13485, "MSO": 13486, "MSP": 13487, "MSY": 13495, "MTJ": 13502, "MYR": 13577, "OAJ": 13795, "OAK": 13796, "OGG": 13830, "OKC": 13851, "OMA": 13871, "OME": 13873, "ONT": 13891, "ORD": 13930, "ORF": 13931, "ORH": 13933, "OTH": 13964, "OTZ": 13970, "PAH": 14006, "PBG": 14025, "PBI": 14027, "PDX": 14057, "PGD": 14082, "PHF": 14098, "PHL": 14100, "PHX": 14107, "PIA": 14108, "PIB": 14109, "PIH": 14113, "PIT": 14122, "PLN": 14150, "PNS": 14193, "PPG": 14222, "PSC": 14252, "PSE": 14254, "PSG": 14256, "PSP": 14262, "PVD": 14307, "PWM": 14321, "RAP": 14457, "RDD": 14487, "RDM": 14489, "RDU": 14492, "RHI": 14520, "RIC": 14524, "RKS": 14543, "RNO": 14570, "ROA": 14574, "ROC": 14576, "ROW": 14588, "RST": 14633, "RSW": 14635, "SAF": 14674, "SAN": 14679, "SAT": 14683, "SAV": 14685, "SBA": 14689, "SBN": 14696, "SBP": 14698, "SCC": 14709, "SCE": 14711, "SDF": 14730, "SEA": 14747, "SFO": 14771, "SGF": 14783, "SGU": 14794, "SHV": 14814, "SIT": 14828, "SJC": 14831, "SJT": 14842, "SJU": 14843, "SLC": 14869, "SMF": 14893, "SNA": 14908, "SPI": 14952, "SPS": 14960, "SRQ": 14986, "STL": 15016, "STT": 15024, "STX": 15027, "SUN": 15041, "SWF": 15070, "SYR": 15096, "TKI": 15235, "TLH": 15249, "TPA": 15304, "TRI": 15323, "TTN": 15356, "TUL": 15370, "TUS": 15376, "TVC": 15380, "TWF": 15389, "TXK": 15401, "TYR": 15411, "TYS": 15412, "VLD": 15607, "VPS": 15624, "WRG": 15841, "XNA": 15919, "YAK": 15991, "YUM": 16218 };
+
+/***/ }),
+/* 605 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = { "AA": 19805, "AS": 19930, "B6": 20409, "DL": 19790, "EV": 20366, "F9": 20436, "HA": 19690, "NK": 20416, "OO": 20304, "UA": 19977, "VX": 21171, "WN": 19393 };
 
 /***/ })
 /******/ ]);
