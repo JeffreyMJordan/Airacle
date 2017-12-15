@@ -18,8 +18,6 @@ const styles = {
 };
 
 
-//What to do on refresh? 
-//Don says maybe push the component back to index
 export default class Graph extends React.Component {
   constructor(props) {
     super(props);
@@ -27,16 +25,15 @@ export default class Graph extends React.Component {
       probabilities: this.props.probabilities,
       highest: this.props.highest,
     };
-  
   }
+
   componentWillMount() {
-    
     // let prediction = this.props.prediction;
     // window.prediction = prediction;
     document.cookie=`prediction=${JSON.stringify(this.props.prediction)}`;
-    console.log(document.cookie);
-    
+    // console.log(document.cookie); 
   }
+
   render() {
     // console.log(this.props);
     let keys = [10, 30, 50];
