@@ -13455,7 +13455,14 @@ var getCookie = function getCookie(name) {
 document.addEventListener("DOMContentLoaded", function () {
   var prediction = undefined;
   if (document.cookie) {
-    prediction = JSON.parse(getCookie("prediction"));
+    console.log(document.cookie);
+    console.log(document.cookie);
+    console.log(document.cookie);
+    var cookie = getCookie("prediction");
+    if (cookie) {
+      prediction = JSON.parse(cookie);
+    }
+    console.log(prediction);
   }
   var store = undefined;
   if (prediction) {
