@@ -19,6 +19,7 @@ class Form extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     let allOptions = optionsGenerator();
     this.airportOptions = allOptions["AirportCodeOptions"];
+    this.airlineOptions = allOptions["AirlineCodeOptions"];
     this.nonDropdownChange = this.nonDropdownChange.bind(this);
   }
 
@@ -87,14 +88,25 @@ class Form extends React.Component {
               onChange={this.nonDropdownChange("month")}
               placeholder="Month"
             />
-            <input
+
+
+            {/* <input
               // className="session-input"
               type="number"
               // value={this.state.airline}
               onChange={this.nonDropdownChange("airline")}
               placeholder="Airline"
+            /> */}
+            <p>Airline Code</p>
+            <Select
+              name="form-field-name"
+              options={this.airlineOptions}
+              autoFocus
+              searchable={true}
+              onChange={this.update('airline')}
+              value={this.state.airline}
+              // clearable={true}
             />
-
 
 
             {/* <input

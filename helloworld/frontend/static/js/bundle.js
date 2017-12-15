@@ -32738,6 +32738,7 @@ var Form = function (_React$Component) {
     _this.handleChange = _this.handleChange.bind(_this);
     var allOptions = (0, _optionsGenerator2.default)();
     _this.airportOptions = allOptions["AirportCodeOptions"];
+    _this.airlineOptions = allOptions["AirlineCodeOptions"];
     _this.nonDropdownChange = _this.nonDropdownChange.bind(_this);
     return _this;
   }
@@ -32802,12 +32803,19 @@ var Form = function (_React$Component) {
               , onChange: this.nonDropdownChange("month"),
               placeholder: 'Month'
             }),
-            _react2.default.createElement('input', {
-              // className="session-input"
-              type: 'number'
-              // value={this.state.airline}
-              , onChange: this.nonDropdownChange("airline"),
-              placeholder: 'Airline'
+            _react2.default.createElement(
+              'p',
+              null,
+              'Airline Code'
+            ),
+            _react2.default.createElement(_reactSelect2.default, {
+              name: 'form-field-name',
+              options: this.airlineOptions,
+              autoFocus: true,
+              searchable: true,
+              onChange: this.update('airline'),
+              value: this.state.airline
+              // clearable={true}
             }),
             _react2.default.createElement(
               'p',
@@ -80145,11 +80153,19 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 exports.default = function () {
   var masterObj = {};
+
   var airportCodeToIDArr = [];
   Object.keys(_AirportcodeToAirportID2.default).forEach(function (code) {
     airportCodeToIDArr.push({ label: code, value: _AirportcodeToAirportID2.default[code] });
   });
   masterObj["AirportCodeOptions"] = airportCodeToIDArr;
+
+  var airlineCodeToIDArr = [];
+  Object.keys(_AirlinecodeToAirlineID2.default).forEach(function (code) {
+    airlineCodeToIDArr.push({ label: code, value: _AirlinecodeToAirlineID2.default[code] });
+  });
+  masterObj["AirlineCodeOptions"] = airlineCodeToIDArr;
+
   return masterObj;
 };
 
