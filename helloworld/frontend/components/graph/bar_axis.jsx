@@ -18,7 +18,13 @@ export default class Axis extends React.Component {
       axis = d3.axisBottom().ticks(6).scale(this.props.scale);
     }
     let node = this.refs.axis;
+    console.log(this.props);
+    
     d3.select(node).call(axis);
+    d3.select(".axis").append("text")
+      .attr("transform", `${this.props.titleTranslate} ${this.props.titleRotation}`)
+      .style("text-anchor", "middle")
+      .text(`${this.props.text}`);
   }
 
   render() {

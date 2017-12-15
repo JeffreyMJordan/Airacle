@@ -22,7 +22,7 @@ export default class Bars extends React.Component {
           width: (411/7),
           className: `bar${index}`,
           height: 0,
-          y: 370,
+          y: 360,
           x: this.props.xScale(coords[0]),
           fill: 'steelblue',
           onMouseOver:
@@ -67,7 +67,7 @@ export default class Bars extends React.Component {
 
       for(let i = 0; i < this.props.data.length; i++) {
         d3.select(`.bar${i}`).transition(t)
-        .attr("height", 370  - this.props.yScale(this.props.data[i][1]))
+        .attr("height", 360  - this.props.yScale(this.props.data[i][1]))
         .attr("y", this.props.yScale(this.props.data[i][1]))
         .style("fill", "rgb(2, 175, 182)")
       }

@@ -5,6 +5,7 @@ import Bars from './bars';
 
 
 const xScale = (props) => {
+  console.log(props)
   return d3.scaleLinear()
   .domain([-1, 70])
   .range([props.padding, props.width - props.padding * 2]);
