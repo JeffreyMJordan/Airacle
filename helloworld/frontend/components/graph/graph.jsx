@@ -1,7 +1,8 @@
 import React from 'react';
-import d3 from 'd3';
+import * as d3 from 'd3';
 import LineGraph from './line_graph';
 import PredictionIndex from './prediction_index';
+import BarChart from './barchart';
 
 // const data = [
 //   [0,0.12],
@@ -17,6 +18,12 @@ const styles = {
   padding: 30,
 };
 
+const barStyles = 
+{
+  width: 550,
+  height: 400,
+  padding: 30,
+};
 
 export default class Graph extends React.Component {
   constructor(props) {
@@ -57,11 +64,15 @@ export default class Graph extends React.Component {
 
     };
     return (
-      <div className="graph">
-        <div className="graph-container">
-          <h1>Predicted Delay Times</h1>
-          <PredictionIndex probabilities={this.props.probabilities} highest={this.props.highest}/>
-          <LineGraph {...stats} {...styles}/>
+      <div>
+
+        <div className="graph">
+          <div className="graph-container">
+            <h1>Predicted Delay Times</h1>
+            <PredictionIndex probabilities={this.props.probabilities} highest={this.props.highest}/>
+            <LineGraph {...stats} {...styles}/>
+            <BarChart {...stats} {...styles} /> 
+          </div>
         </div>
       </div>
     );
