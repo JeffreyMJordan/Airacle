@@ -36,47 +36,47 @@ export default class Bars extends React.Component {
           key: index
           };
 
-    return <rect {...pointProps} />;
-    };
-  } 
+      return <rect {...pointProps} />;
+      };
+    } 
 
-select(index, coords) {
-  let t = d3.transition()
-  .duration(500)
-  .ease(d3.easeLinear)
+    select(index, coords) {
+      let t = d3.transition()
+      .duration(500)
+      .ease(d3.easeLinear)
 
-  d3.select(`.bar${index}`).transition(t)
-    .style("fill", "rgb(15, 135, 140)");
+      d3.select(`.bar${index}`).transition(t)
+        .style("fill", "rgb(15, 135, 140)");
+    }
+
+    unSelect(index, coords) {
+      let t = d3.transition()
+      .duration(500)
+      .ease(d3.easeLinear)
+
+      d3.select(`.bar${index}`).transition(t)
+        .style("fill", "rgb(2, 175, 182)");
+    }
+
+    componentDidMount() {
+      const barPoints = this.props.data;
+      console.log(this.props.data)
+      let t = d3.transition()
+        .duration(1000)
+        .ease(d3.easeLinear)
+
+      for(let i = 0; i < this.props.data.length; i++) {
+        d3.select(`.bar${i}`).transition(t)
+        .attr("height", 370  - this.props.yScale(this.props.data[i][1]))
+        .attr("y", this.props.yScale(this.props.data[i][1]))
+        .style("fill", "rgb(2, 175, 182)")
+      }
+    }
+
+
+    render() {
+        return <g>
+        { this.props.data.map(this.renderBars())}
+      </g>;
+    }
 }
-
-unSelect(index, coords) {
-  let t = d3.transition()
-  .duration(500)
-  .ease(d3.easeLinear)
-
-  d3.select(`.bar${index}`).transition(t)
-    .style("fill", "rgb(2, 175, 182)");
-}
-
-componentDidMount() {
-  const barPoints = this.props.data;
-  console.log(this.props.data)
-  let t = d3.transition()
-    .duration(1000)
-    .ease(d3.easeLinear)
-
-  for(let i = 0; i < this.props.data.length; i++) {
-    d3.select(`.bar${i}`).transition(t)
-    .attr("height", 370  - this.props.yScale(this.props.data[i][1]))
-    .attr("y", this.props.yScale(this.props.data[i][1]))
-    .style("fill", "rgb(2, 175, 182)")
-  }
-}
-
-
-render() {
-    return <g>
-    { this.props.data.map(this.renderBars())}
-  </g>;
-};
-};

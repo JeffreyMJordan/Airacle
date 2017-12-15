@@ -9,7 +9,7 @@ class PredictionIndex extends React.Component{
   }
 
   render(){
-    console.log(this.props.probabilities);
+    // console.log(this.props.probabilities);
     let probs = this.props.probabilities;
     return (
       <h3>
