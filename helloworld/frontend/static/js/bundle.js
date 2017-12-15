@@ -9018,10 +9018,10 @@ var Graph = function (_React$Component) {
       };
       return _react2.default.createElement(
         'div',
-        { 'class': 'graph' },
+        { className: 'graph' },
         _react2.default.createElement(
           'div',
-          { 'class': 'graph-container' },
+          { className: 'graph-container' },
           _react2.default.createElement(
             'h1',
             null,
