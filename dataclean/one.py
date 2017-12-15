@@ -309,6 +309,11 @@ lr = LogisticRegression()
 lr.fit(X_train, Y_train) 
 predictions = lr.predict(X_validation)
 
+
+filename = 'finalized_model.sav'
+pickle.dump(model, open(filename, 'wb'))
+
+
 cart = DecisionTreeClassifier()
 cart.fit(X_train, Y_train)
 predictions = cart.predict(X_validation)
