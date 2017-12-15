@@ -9018,14 +9018,18 @@ var Graph = function (_React$Component) {
       };
       return _react2.default.createElement(
         'div',
-        null,
+        { 'class': 'graph' },
         _react2.default.createElement(
-          'h1',
-          null,
-          'Predicted Delay Times'
-        ),
-        _react2.default.createElement(_prediction_index2.default, { probabilities: this.props.probabilities, highest: this.props.highest }),
-        _react2.default.createElement(_line_graph2.default, _extends({}, stats, styles))
+          'div',
+          { 'class': 'graph-container' },
+          _react2.default.createElement(
+            'h1',
+            null,
+            'Predicted Delay Times'
+          ),
+          _react2.default.createElement(_prediction_index2.default, { probabilities: this.props.probabilities, highest: this.props.highest }),
+          _react2.default.createElement(_line_graph2.default, _extends({}, stats, styles))
+        )
       );
     }
   }]);
