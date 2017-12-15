@@ -9006,12 +9006,42 @@ var Graph = function (_React$Component) {
       // console.log(document.cookie); 
     }
   }, {
+    key: 'delayStatus',
+    value: function delayStatus() {
+      var certainty = this.state.probabilities[0] * 10;
+      if (this.state.highest === 0) {
+        return _react2.default.createElement(
+          'h2',
+          null,
+          'I\'m ' + certainty + '0% certain that your flight will',
+          _react2.default.createElement(
+            'span',
+            { className: 'nodelay' },
+            ' not be delayed'
+          )
+        );
+      } else {
+        return _react2.default.createElement(
+          'h2',
+          null,
+          'I\'m ' + (10 - certainty) + '0% certain your flight will',
+          ' ',
+          _react2.default.createElement(
+            'span',
+            { className: 'delay' },
+            ' be delayed'
+          )
+        );
+      }
+    }
+  }, {
     key: 'render',
     value: function render() {
       // console.log(this.props);
       var keys = [10, 30, 50];
       var values = [0, 0, 0];
       var pairs = [];
+
       if (!(JSON.stringify(this.state.probabilities) === "{}")) {
         // let keys = Object.keys(this.state.probabilities);
         values = Object.values(this.state.probabilities);
@@ -9019,15 +9049,18 @@ var Graph = function (_React$Component) {
         // console.log(this.state.probabilities === '{}');
         // console.log(pairs);
       }
+
       for (var index = 0; index < keys.length; index++) {
         var key = keys[index];
         var value = values[index];
         pairs.push([key, value]);
       }
+
       var stats = {
         data: pairs
 
       };
+
       return _react2.default.createElement(
         'div',
         null,
@@ -9038,12 +9071,15 @@ var Graph = function (_React$Component) {
             'div',
             { className: 'graph-container' },
             _react2.default.createElement(
-              'h1',
+              'div',
+              null,
+              this.delayStatus()
+            ),
+            _react2.default.createElement(
+              'h3',
               null,
               'Predicted Delay Times'
             ),
-            _react2.default.createElement(_prediction_index2.default, { probabilities: this.props.probabilities, highest: this.props.highest }),
-            _react2.default.createElement(_line_graph2.default, _extends({}, stats, styles)),
             _react2.default.createElement(_barchart2.default, _extends({}, stats, styles))
           )
         )
