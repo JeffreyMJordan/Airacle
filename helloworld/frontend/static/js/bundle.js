@@ -9009,14 +9009,14 @@ var Graph = function (_React$Component) {
     key: 'delayStatus',
     value: function delayStatus() {
       var certainty = this.state.probabilities[0] * 10;
-      if (this.state.highest === 0) {
+      if (certainty > 49) {
         return _react2.default.createElement(
           'h2',
           null,
           'I\'m ' + certainty + '0% certain that your flight will',
           _react2.default.createElement(
             'span',
-            { className: 'nodelay' },
+            { className: 'no-delay' },
             ' not be delayed'
           )
         );
@@ -9024,12 +9024,12 @@ var Graph = function (_React$Component) {
         return _react2.default.createElement(
           'h2',
           null,
-          'I\'m ' + (10 - certainty) + '0% certain your flight will',
+          'I\'m ' + (10 - certainty) + '0% certain your flight',
           ' ',
           _react2.default.createElement(
             'span',
             { className: 'delay' },
-            ' be delayed'
+            ' will be delayed'
           )
         );
       }
@@ -9072,7 +9072,7 @@ var Graph = function (_React$Component) {
             { className: 'graph-container' },
             _react2.default.createElement(
               'div',
-              null,
+              { className: 'delay-container' },
               this.delayStatus()
             ),
             _react2.default.createElement(

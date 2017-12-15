@@ -13,3 +13,16 @@
   flex-direction: column;
   justify-content: center;
 }
+
+.delay-container {
+  background-color: white;
+  text-align: center;
+}
+
+.no-delay {
+  color: green;
+}
+
+.delay {
+  color: red;
+}

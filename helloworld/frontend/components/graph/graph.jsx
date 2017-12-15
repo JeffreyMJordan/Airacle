@@ -44,16 +44,16 @@ export default class Graph extends React.Component {
 
   delayStatus() {
     let certainty = this.state.probabilities[0] * 10;
-    if (this.state.highest === 0) {
+    if (certainty > 49) {
       return (
         <h2>
-          {`I'm ${certainty}0% certain that your flight will`}<span className="nodelay"> not be delayed</span>
+          {`I'm ${certainty}0% certain that your flight will`}<span className="no-delay"> not be delayed</span>
         </h2>
       );
     } else {
       return (
         <h2>
-          {`I'm ${10 - certainty}0% certain your flight will`} <span className="delay"> be delayed</span>
+          {`I'm ${10 - certainty}0% certain your flight`} <span className="delay"> will be delayed</span>
         </h2>
       );
     }
@@ -91,7 +91,7 @@ export default class Graph extends React.Component {
 
         <div className="graph">
           <div className="graph-container">
-            <div>
+            <div className="delay-container">
               {this.delayStatus()}
             </div>
             {/* <PredictionIndex probabilities={this.props.probabilities} highest={this.props.highest}/> */}
