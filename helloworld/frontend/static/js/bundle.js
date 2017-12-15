@@ -32643,6 +32643,10 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouterDom = __webpack_require__(68);
 
+var _reactSelect = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"react-select\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
+var _reactSelect2 = _interopRequireDefault(_reactSelect);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -32666,22 +32670,22 @@ var Form = function (_React$Component) {
       airline: 0,
       originAirport: 0,
       destAirport: 0,
-      distance: 0
+      distance: 0,
+      dummy: "Lol"
     };
     _this.handleSubmit = _this.handleSubmit.bind(_this);
+    _this.handleChange = _this.handleChange.bind(_this);
     return _this;
   }
 
   _createClass(Form, [{
-    key: "handleSubmit",
+    key: 'handleSubmit',
     value: function handleSubmit(e) {
       var _this2 = this;
 
       e.preventDefault();
       var paramsArr = [this.state.month, this.state.airline, this.state.originAirport, this.state.destAirport, this.state.distance];
       // this.state.params = paramsArr;
-
-
       this.props.fetchPrediction(paramsArr.map(function (el) {
         return parseInt(el);
       })).then(function (e) {
@@ -32689,7 +32693,13 @@ var Form = function (_React$Component) {
       });
     }
   }, {
-    key: "update",
+    key: 'handleChange',
+    value: function handleChange(selectedOption) {
+      this.setState({ dummy: selectedOption.value });
+      console.log(this.state.dummy);
+    }
+  }, {
+    key: 'update',
     value: function update(input) {
       var _this3 = this;
 
@@ -32698,53 +32708,62 @@ var Form = function (_React$Component) {
       };
     }
   }, {
-    key: "render",
+    key: 'render',
     value: function render() {
       return _react2.default.createElement(
-        "div",
-        { className: "form-cont" },
+        'div',
+        { className: 'form-cont' },
         _react2.default.createElement(
-          "form",
-          { onSubmit: this.handleSubmit, className: "params-form" },
+          'form',
+          { onSubmit: this.handleSubmit, className: 'params-form' },
           _react2.default.createElement(
-            "div",
+            'div',
             null,
-            _react2.default.createElement("input", {
+            _react2.default.createElement(_reactSelect2.default, {
+              name: 'form-field-name',
+              options: [{ value: 'one', label: 'One' }, { value: 'two', label: 'Two' }, { value: 'three', label: 'Three' }, { value: 'four', label: 'Four' }, { value: 'five', label: 'Five' }],
+              autoFocus: true,
+              searchable: true,
+              onChange: this.handleChange,
+              value: this.state.dummy,
+              clearable: true
+            }),
+            _react2.default.createElement('input', {
               // className="session-input"
-              type: "number"
+              type: 'number'
               // value={this.state.month}
               , onChange: this.update("month"),
-              placeholder: "Month"
+              placeholder: 'Month'
             }),
-            _react2.default.createElement("input", {
+            _react2.default.createElement('input', {
               // className="session-input"
-              type: "number"
+              type: 'number'
               // value={this.state.airline}
               , onChange: this.update("airline"),
-              placeholder: "Airline"
+              placeholder: 'Airline'
             }),
-            _react2.default.createElement("input", {
+            _react2.default.createElement('input', {
               // className="session-input"
-              type: "number"
+              type: 'number'
               // value={this.state.originAirport}
               , onChange: this.update("originAirport"),
-              placeholder: "Origin Airport"
+              placeholder: 'Origin Airport'
             }),
-            _react2.default.createElement("input", {
+            _react2.default.createElement('input', {
               // className="session-input"
-              type: "number"
+              type: 'number'
               // value={this.state.destAirport}
               , onChange: this.update("destAirport"),
-              placeholder: "Destination Airport"
+              placeholder: 'Destination Airport'
             }),
-            _react2.default.createElement("input", {
+            _react2.default.createElement('input', {
               // className="session-input"
-              type: "number"
+              type: 'number'
               // value={this.state.destAirport}
               , onChange: this.update("distance"),
-              placeholder: "Distance"
+              placeholder: 'Distance'
             }),
-            _react2.default.createElement("input", { className: "session-submit", type: "submit", value: "Predict delay" })
+            _react2.default.createElement('input', { className: 'session-submit', type: 'submit', value: 'Predict delay' })
           )
         )
       );

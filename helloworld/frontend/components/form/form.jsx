@@ -1,5 +1,6 @@
 import React from 'react';
 import {withRouter} from "react-router-dom";
+import Select from 'react-select';
 
 class Form extends React.Component {
   constructor(props) {
@@ -9,18 +10,23 @@ class Form extends React.Component {
       airline: 0,
       originAirport: 0,
       destAirport: 0,
-      distance: 0
+      distance: 0,
+      dummy: "Lol"
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   handleSubmit(e) {
     e.preventDefault();
     let paramsArr = [ this.state.month, this.state.airline, this.state.originAirport, this.state.destAirport, this.state.distance ];
     // this.state.params = paramsArr;
-
-
     this.props.fetchPrediction(paramsArr.map((el) => parseInt(el))).then((e) => this.props.history.push("/graph"));
+  }
+
+  handleChange(selectedOption){
+    this.setState({ dummy: selectedOption.value});
+    console.log(this.state.dummy);
   }
 
   update(input) {
@@ -40,7 +46,25 @@ class Form extends React.Component {
         <button type="submit">Analyze Flight</button> */}
         {/* Hey Eden sorry to mess w your front end, just tryna test the estimator we have rn below */}
         <form onSubmit={this.handleSubmit} className="params-form">
+
           <div>
+          {/* Outside component from a node package. Found here: https://jedwatson.github.io/react-select/ */}
+          <Select
+            name="form-field-name"
+            options={[
+              { value: 'one', label: 'One' },
+              { value: 'two', label: 'Two' },
+              { value: 'three', label: 'Three' },
+              { value: 'four', label: 'Four' },
+              { value: 'five', label: 'Five' },
+            ]}
+            autoFocus
+            searchable={true}
+            onChange={this.handleChange}
+            value={this.state.dummy}
+            clearable={true}
+          />
+
             <input
               // className="session-input"
               type="number"
