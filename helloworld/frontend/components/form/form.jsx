@@ -1,6 +1,7 @@
 import React from 'react';
 import {withRouter} from "react-router-dom";
 import Select from 'react-select';
+// import 'react-select/dist/react-select.css';
 
 class Form extends React.Component {
   constructor(props) {
@@ -64,7 +65,7 @@ class Form extends React.Component {
             searchable={true}
             onChange={this.handleChange}
             value={this.state.dummy}
-            clearable={true}
+            // clearable={true}
           />
 
             <input

@@ -13488,8 +13488,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var getCookie = function getCookie(name) {
   name += "=";
   var arr = document.cookie.split(";");
-  console.log(arr);
-  console.log(name);
   for (var i = 0; i < arr.length; i++) {
     var key = arr[i];
     while (key.charAt(0) == ' ') {
@@ -32661,6 +32659,8 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+// import 'react-select/dist/react-select.css';
+
 var Form = function (_React$Component) {
   _inherits(Form, _React$Component);
 
@@ -32731,8 +32731,8 @@ var Form = function (_React$Component) {
               autoFocus: true,
               searchable: true,
               onChange: this.handleChange,
-              value: this.state.dummy,
-              clearable: true
+              value: this.state.dummy
+              // clearable={true}
             }),
             _react2.default.createElement('input', {
               // className="session-input"
