@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'estimators',
     'predictions',
+    'helloworld',
     # 'rest_framework',
 ]
 

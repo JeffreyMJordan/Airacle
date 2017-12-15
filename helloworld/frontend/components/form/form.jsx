@@ -21,6 +21,8 @@ class Form extends React.Component {
     e.preventDefault();
     let paramsArr = [ this.state.month, this.state.airline, this.state.originAirport, this.state.destAirport, this.state.distance ];
     // this.state.params = paramsArr;
+    
+
     this.props.fetchPrediction(paramsArr.map((el) => parseInt(el))).then((e) => this.props.history.push("/graph"));
   }
 
@@ -102,7 +104,7 @@ class Form extends React.Component {
               placeholder="Distance"
             />
 
-            <input className="session-submit" type="submit" value="Predict flower" />
+            <input className="session-submit" type="submit" value="Predict delay" />
 
           </div>
          

@@ -1,0 +1,20 @@
+.form-cont {
+  display:flex; 
+  justify-content: center;
+  background-size: cover;
+  height: -webkit-fill-available;
+  /* min-height: 500px; */
+  background-image: url("https://static.pexels.com/photos/728824/pexels-photo-728824.jpeg");
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.params-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
