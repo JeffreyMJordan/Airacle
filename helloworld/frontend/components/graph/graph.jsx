@@ -1,7 +1,8 @@
 import React from 'react';
-import d3 from 'd3';
+import * as d3 from 'd3';
 import LineGraph from './line_graph';
 import PredictionIndex from './prediction_index';
+import BarChart from './barchart';
 
 const data = [
   [0,0.12],
@@ -17,6 +18,12 @@ const styles = {
   padding: 30,
 };
 
+const barStyles = 
+{
+  width: 550,
+  height: 400,
+  padding: 30,
+};
 
 //What to do on refresh? 
 //Don says maybe push the component back to index
@@ -33,6 +40,7 @@ export default class Graph extends React.Component {
         <h1>Predicted Delay Times</h1>
         <PredictionIndex probabilities={this.props.probabilities} highest={this.props.highest}/>
         <LineGraph {...this.state} {...styles}/>
+        <BarChart {...this.state} {...styles} /> 
       </div>
     );
   }
