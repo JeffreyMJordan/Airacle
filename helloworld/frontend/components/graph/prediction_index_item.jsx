@@ -3,7 +3,7 @@ import React from 'react';
 class PredictionIndexItem extends React.Component{
   constructor(props){
     super(props);
-    console.log("here");
+    // console.log("here");
   }
 
   render(){
