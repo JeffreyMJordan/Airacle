@@ -13455,6 +13455,7 @@ var getCookie = function getCookie(name) {
 document.addEventListener("DOMContentLoaded", function () {
   var prediction = undefined;
   if (document.cookie) {
+    console.log(document.cookie);
     prediction = JSON.parse(getCookie("prediction"));
   }
   var store = undefined;
@@ -32676,8 +32677,6 @@ var Form = function (_React$Component) {
       e.preventDefault();
       var paramsArr = [this.state.month, this.state.airline, this.state.originAirport, this.state.destAirport, this.state.distance];
       // this.state.params = paramsArr;
-
-
       this.props.fetchPrediction(paramsArr.map(function (el) {
         return parseInt(el);
       })).then(function (e) {
