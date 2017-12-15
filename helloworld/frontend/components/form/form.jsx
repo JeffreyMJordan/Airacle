@@ -48,7 +48,7 @@ class Form extends React.Component {
         <form onSubmit={this.handleSubmit} className="params-form">
 
           <div>
-
+          {/* Outside component from a node package. Found here: https://jedwatson.github.io/react-select/ */}
           <Select
             name="form-field-name"
             options={[
