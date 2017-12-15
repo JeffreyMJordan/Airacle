@@ -1,7 +1,6 @@
 import React from 'react';
 import * as d3 from 'd3';
 
-<<<<<<< HEAD
 export default class DataPoints extends React.Component {
   constructor(props) {
     super(props);
@@ -22,19 +21,6 @@ export default class DataPoints extends React.Component {
         // onMouseOut: hideToolTip
       };
       return <circle {...pointProps} />;
-=======
-const renderPoints = (props) => {
-  const points = props.pairs;
-  return (coords, index) => {
-    const pointProps = {
-      cx: props.xScale(coords[0]),
-      cy: props.yScale(coords[1]),
-      r: 6,
-      fill: "rgb(224, 8, 194)",
-      key: index,
-      // onMouseOver: renderToolTip(),
-      // onMouseOut: hideToolTip
->>>>>>> 486cd61599a6ce9d6955504fdcae8eb055544a56
     };
   };
 
