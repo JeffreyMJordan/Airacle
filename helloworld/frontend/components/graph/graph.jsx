@@ -57,10 +57,12 @@ export default class Graph extends React.Component {
 
     };
     return (
-      <div>
-        <h1>Predicted Delay Times</h1>
-        <PredictionIndex probabilities={this.props.probabilities} highest={this.props.highest}/>
-        <LineGraph {...stats} {...styles}/>
+      <div class="graph">
+        <div class="graph-container">
+          <h1>Predicted Delay Times</h1>
+          <PredictionIndex probabilities={this.props.probabilities} highest={this.props.highest}/>
+          <LineGraph {...stats} {...styles}/>
+        </div>
       </div>
     );
   }

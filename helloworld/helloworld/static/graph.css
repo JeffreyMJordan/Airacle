@@ -1,0 +1,13 @@
+.graph {
+  background-color: orange;
+  display: flex;
+  justify-content: center;
+  background-image: url("https://static.pexels.com/photos/728824/pexels-photo-728824.jpeg");
+  font-family: 'Roboto', sans-serif;
+}
+
+.graph-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

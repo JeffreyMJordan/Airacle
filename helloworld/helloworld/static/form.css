@@ -2,9 +2,9 @@
   display:flex; 
   justify-content: center;
   background-size: cover;
-  height: -webkit-fill-available;
+  min-height: 1010px;
   /* min-height: 500px; */
-  background-image: url("https://static.pexels.com/photos/728824/pexels-photo-728824.jpeg");
+  background-image: url("https://static.pexels.com/photos/6511/flying-airplane-plane-landing.jpg");
 }
 
 body {
