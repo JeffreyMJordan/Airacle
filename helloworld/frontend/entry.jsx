@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if(document.cookie){
   
     let cookie = getCookie("prediction");
-    if (cookie) { 
+    if (cookie){ 
       prediction = JSON.parse(cookie); 
     }
    
