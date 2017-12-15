@@ -25,17 +25,13 @@ document.addEventListener("DOMContentLoaded", () => {
   let prediction = undefined;
   if(document.cookie){
     console.log(document.cookie);
-<<<<<<< HEAD
-    prediction = JSON.parse(getCookie("prediction")); 
-=======
     console.log(document.cookie);
     console.log(document.cookie);
     let cookie = getCookie("prediction");
-    if (cookie) { 
+    if (cookie){ 
       prediction = JSON.parse(cookie); 
     }
     console.log(prediction);
->>>>>>> c0ed06f2ec2d29f86950e7df5ab1f5e446b43ace
   }
   let store = undefined;
   if(prediction){
