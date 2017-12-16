@@ -1,0 +1,1 @@
+export default {"American": 19805, "Alaska": 19930, "JetBlue": 20409, "Delta": 19790, "ExpressJet": 20366, "Frontier": 20436, "Hawaiian": 19690, "Spirit": 20416, "SkyWest": 20304, "United": 19977, "Virgin America": 21171, "Southwest": 19393}

@@ -7,8 +7,6 @@ import configureStore from './store/store';
 const getCookie = (name) => {
   name += "=";
   let arr = document.cookie.split(";");
-  console.log(arr);
-  console.log(name);
   for(let i = 0; i <arr.length; i++) {
     let key = arr[i];
     while (key.charAt(0) == ' ') {

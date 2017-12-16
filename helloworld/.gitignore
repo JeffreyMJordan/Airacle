@@ -1,6 +1,8 @@
 venv
 *.pyc
+__pycache__/
 staticfiles
 .env
 node_modules/
-
+bundle.js
+bundle.js.map

@@ -1,6 +1,9 @@
 import React from 'react';
 import {withRouter} from "react-router-dom";
 import Select from 'react-select';
+import optionsGenerator from './data/optionsGenerator';
+import codesToDistance from './data/CombinedCodesToDistance';
+// import 'react-select/dist/react-select.css';
 
 class Form extends React.Component {
   constructor(props) {
@@ -15,10 +18,18 @@ class Form extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    let allOptions = optionsGenerator();
+    this.airportOptions = allOptions["AirportCodeOptions"];
+    this.airlineOptions = allOptions["AirlineCodeOptions"];
+    this.monthOptions = allOptions["MonthOptions"];
+    this.nonDropdownChange = this.nonDropdownChange.bind(this);
+    this.combinedCode = {"destAirport": "", "originAirport": ""};
+    this.regex = /\((.+)\)/;
   }
 
   handleSubmit(e) {
     e.preventDefault();
+    console.log(this.state);
     let paramsArr = [ this.state.month, this.state.airline, this.state.originAirport, this.state.destAirport, this.state.distance ];
     // this.state.params = paramsArr;
     
@@ -31,10 +42,34 @@ class Form extends React.Component {
     console.log(this.state.dummy);
   }
 
+  nonDropdownChange(input){
+    return (e) => {
+      this.setState({[input]: e.target.value});
+    };
+  }
+
   update(input) {
-    return e => this.setState({
-      [input]: e.currentTarget.value
-    });
+    return (selectedOption) => {
+      this.setState({[input]: selectedOption.value});
+      console.log(this.state);
+
+      if(input==="originAirport" || input==="destAirport"){
+        
+        this.combinedCode[input] = this.regex.exec(selectedOption.label)[1]
+        let codeStr = this.combinedCode["destAirport"] + this.combinedCode["originAirport"];
+        
+        if(codeStr.length===6){
+          console.log(codesToDistance["ABEATL"]);
+          console.log(codeStr);
+          if(codesToDistance[codeStr]){
+            this.setState({distance: codesToDistance[codeStr]});
+          }else{
+            this.setState({distance: 0});
+          }
+        }
+      }
+
+    };
   }
 
   render() {
@@ -50,8 +85,16 @@ class Form extends React.Component {
         <form onSubmit={this.handleSubmit} className="params-form">
 
           <div>
+            <div className="welcome">
+              <h2>No more delays</h2>
+              <p>With the power of machine learning, find out if your flight will be delayed before you book your flight!</p>
+            </div>
+
+            <div className="flight-input">
+
           {/* Outside component from a node package. Found here: https://jedwatson.github.io/react-select/ */}
-          <Select
+         
+          {/* <Select
             name="form-field-name"
             options={[
               { value: 'one', label: 'One' },
@@ -62,52 +105,113 @@ class Form extends React.Component {
             ]}
             autoFocus
             searchable={true}
-            onChange={this.handleChange}
-            value={this.state.dummy}
-            clearable={true}
-          />
-
-            <input
+            onChange={this.update('month')}
+            value={this.state.month}
+            // clearable={true}
+          /> */}
+            {/* <div className="input-form">
+              <input
               // className="session-input"
-              type="number"
+              type="date"
               // value={this.state.month}
-              onChange={this.update("month")}
+              onChange={this.nonDropdownChange("month")}
               placeholder="Month"
-            />
-            <input
-              // className="session-input"
-              type="number"
-              // value={this.state.airline}
-              onChange={this.update("airline")}
-              placeholder="Airline"
-            />
-            <input
-              // className="session-input"
-              type="number"
-              // value={this.state.originAirport}
-              onChange={this.update("originAirport")}
-              placeholder="Origin Airport"
-            />
-            <input
-              // className="session-input"
-              type="number"
-              // value={this.state.destAirport}
-              onChange={this.update("destAirport")}
-              placeholder="Destination Airport"
-            />
+              />
+              
+            </div> */}
+              <div className="input-form">
 
-            <input
-              // className="session-input"
-              type="number"
-              // value={this.state.destAirport}
-              onChange={this.update("distance")}
-              placeholder="Distance"
-            />
+                <Select
+                  name="form-field-name"
+                  options={this.monthOptions}
+                  autoFocus
+                  searchable={true}
+                  onChange={this.update('month')}
+                  value={this.state.month}
+                // clearable={true}
+                />
+              </div>
 
-            <input className="session-submit" type="submit" value="Predict delay" />
 
+              {/* <input
+                // className="session-input"
+                type="number"
+                // value={this.state.airline}
+                onChange={this.nonDropdownChange("airline")}
+                placeholder="Airline"
+              /> */}
+              <div className="input-form">
+
+                {/* <p>Airline Code</p> */}
+                <Select
+                  name="form-field-name"
+                  options={this.airlineOptions}
+                  autoFocus
+                  searchable={true}
+                  onChange={this.update('airline')}
+                  value={this.state.airline}
+                  // clearable={true}
+                  />
+              </div>
+
+
+              {/* <input
+                // className="session-input"
+                type="number"
+                // value={this.state.originAirport}
+                onChange={this.update("originAirport")}
+                placeholder="Origin Airport"
+              /> */}
+              <div className="input-form">
+                {/* <p>Origin Airport Code</p> */}
+                <Select
+                name="form-field-name"
+                options={this.airportOptions}
+                autoFocus
+                searchable={true}
+                onChange={this.update('originAirport')}
+                value={this.state.originAirport}
+                // clearable={true}
+                />
+              </div>
+              <div className="input-form">
+                {/* <p>Destination Airport Code</p> */}
+                  <Select
+                  name="form-field-name"
+                  options={this.airportOptions}
+                  autoFocus
+                  searchable={true}
+                  onChange={this.update('destAirport')}
+                  value={this.state.destAirport}
+                  // clearable={true}
+                  />
+              </div>
+
+              {/* <input
+                // className="session-input"
+                type="number"
+                // value={this.state.destAirport}
+                onChange={this.update("destAirport")}
+                placeholder="Destination Airport"
+              /> */}
+              {/* <div className="input-form">
+
+<input
+// className="session-input"
+type="number"
+// value={this.state.destAirport}
+onChange={this.nonDropdownChange("distance")}
+placeholder="Distance"
+/>
+</div> */}
+
+              <input className="session-submit" type="submit" value="Predict delay" />
+
+            </div>
+          </div> 
+          <div className="subtitle">
+            <p>Select your flight</p>
           </div>
-         
         </form>
       </div>
     );
