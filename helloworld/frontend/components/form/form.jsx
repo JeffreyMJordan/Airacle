@@ -112,7 +112,7 @@ class Form extends React.Component {
             value={this.state.month}
             // clearable={true}
           /> */}
-            <div className="input-form">
+            {/* <div className="input-form">
               <input
                 // className="session-input"
                 type="date"
@@ -121,7 +121,19 @@ class Form extends React.Component {
                 placeholder="Month"
                 />
 
-            </div>
+            </div> */}
+              <div className="input-form">
+
+                <Select
+                  name="form-field-name"
+                  options={this.monthOptions}
+                  autoFocus
+                  searchable={true}
+                  onChange={this.update('month')}
+                  value={this.state.month}
+                // clearable={true}
+                />
+              </div>
 
 
               {/* <input
@@ -185,7 +197,7 @@ class Form extends React.Component {
                 onChange={this.update("destAirport")}
                 placeholder="Destination Airport"
               /> */}
-              <div className="input-form">
+              {/* <div className="input-form">
 
                 <input
                   // className="session-input"
@@ -194,7 +206,7 @@ class Form extends React.Component {
                   onChange={this.nonDropdownChange("distance")}
                   placeholder="Distance"
                   />
-              </div>
+              </div> */}
 
               <input className="session-submit" type="submit" value="Predict delay" />
 

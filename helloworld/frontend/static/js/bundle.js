@@ -32866,12 +32866,14 @@ var Form = function (_React$Component) {
               _react2.default.createElement(
                 'div',
                 { className: 'input-form' },
-                _react2.default.createElement('input', {
-                  // className="session-input"
-                  type: 'date'
-                  // value={this.state.month}
-                  , onChange: this.nonDropdownChange("month"),
-                  placeholder: 'Month'
+                _react2.default.createElement(_reactSelect2.default, {
+                  name: 'form-field-name',
+                  options: this.monthOptions,
+                  autoFocus: true,
+                  searchable: true,
+                  onChange: this.update('month'),
+                  value: this.state.month
+                  // clearable={true}
                 })
               ),
               _react2.default.createElement(
@@ -32911,17 +32913,6 @@ var Form = function (_React$Component) {
                   onChange: this.update('destAirport'),
                   value: this.state.destAirport
                   // clearable={true}
-                })
-              ),
-              _react2.default.createElement(
-                'div',
-                { className: 'input-form' },
-                _react2.default.createElement('input', {
-                  // className="session-input"
-                  type: 'number'
-                  // value={this.state.destAirport}
-                  , onChange: this.nonDropdownChange("distance"),
-                  placeholder: 'Distance'
                 })
               ),
               _react2.default.createElement('input', { className: 'session-submit', type: 'submit', value: 'Predict delay' })
