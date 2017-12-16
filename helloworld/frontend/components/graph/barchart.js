@@ -25,11 +25,11 @@ export default(props) => {
     <Bars {...props} {...scales} />
     <BarAxis {...props} {...scales} />
     <g className="xValues">
-      <text y={(props.height - props.padding/2) - 3} x={1.5 * props.padding}>0 mins</text>
-      <text y={(props.height - props.padding/2) - 3} x={1.5 * props.padding + props.width / 6}>15 mins</text>
-      <text y={(props.height - props.padding/2) - 3} x={1.5 * props.padding + props.width / 3}>30 mins</text>
-      <text y={(props.height - props.padding/2) - 3} x={1.5 * props.padding + props.width / 2}>45 mins</text>
-      <text y={(props.height - props.padding/2) - 3} x={1.5 * props.padding + 2 * props.width / 3}>60+ mins</text>
+      <text y={(props.height - props.padding/2) - 3} x={1.5 * props.padding}>No delay</text>
+      <text y={(props.height - props.padding/2) - 3} x={1.5 * props.padding + props.width / 6}> &lt;15 mins</text>
+      <text y={(props.height - props.padding/2) - 3} x={1.5 * props.padding + props.width / 3}>&lt;30 mins</text>
+      <text y={(props.height - props.padding/2) - 3} x={1.5 * props.padding + props.width / 2}>&lt;45 mins</text>
+      <text y={(props.height - props.padding/2) - 3} x={1.5 * props.padding + 2 * props.width / 3}>&gt;45 mins</text>
     </g>
   </svg>;
 };

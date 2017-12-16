@@ -9083,11 +9083,6 @@ var Graph = function (_React$Component) {
                 'div',
                 { className: 'actual-graph' },
                 _react2.default.createElement(_prediction_index2.default, { probabilities: this.props.probabilities, highest: this.props.highest }),
-                _react2.default.createElement(
-                  'h3',
-                  { className: 'graph-h3' },
-                  'Predicted Delay Times'
-                ),
                 _react2.default.createElement(_barchart2.default, _extends({}, stats, styles))
               ),
               _react2.default.createElement(
@@ -67798,27 +67793,27 @@ exports.default = function (props) {
       _react2.default.createElement(
         'text',
         { y: props.height - props.padding / 2 - 3, x: 1.5 * props.padding },
-        '0 mins'
+        'No delay'
       ),
       _react2.default.createElement(
         'text',
         { y: props.height - props.padding / 2 - 3, x: 1.5 * props.padding + props.width / 6 },
-        '15 mins'
+        ' <15 mins'
       ),
       _react2.default.createElement(
         'text',
         { y: props.height - props.padding / 2 - 3, x: 1.5 * props.padding + props.width / 3 },
-        '30 mins'
+        '<30 mins'
       ),
       _react2.default.createElement(
         'text',
         { y: props.height - props.padding / 2 - 3, x: 1.5 * props.padding + props.width / 2 },
-        '45 mins'
+        '<45 mins'
       ),
       _react2.default.createElement(
         'text',
         { y: props.height - props.padding / 2 - 3, x: 1.5 * props.padding + 2 * props.width / 3 },
-        '60+ mins'
+        '>45 mins'
       )
     )
   );
