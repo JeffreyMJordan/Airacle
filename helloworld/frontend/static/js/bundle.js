@@ -9014,7 +9014,7 @@ var Graph = function (_React$Component) {
         return _react2.default.createElement(
           'h2',
           null,
-          'I\'m ' + certainty + '% certain that your flight will',
+          'Airacle is ' + certainty + '% certain that your flight will',
           _react2.default.createElement(
             'span',
             { className: 'no-delay' },
@@ -9025,7 +9025,7 @@ var Graph = function (_React$Component) {
         return _react2.default.createElement(
           'h2',
           null,
-          'I\'m ' + (100 - certainty) + '% certain your flight',
+          'Airacle is ' + (100 - certainty) + '% certain your flight',
           ' ',
           _react2.default.createElement(
             'span',

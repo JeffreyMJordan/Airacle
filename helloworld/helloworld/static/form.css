@@ -40,14 +40,14 @@ body {
     color: darkgray;
     border: 1px solid gray;
     transition: all, 0.6s;
-    background-color: whitesmoke;
+    background-color: white;
 }
 
 .session-submit:hover {
-  color: forestgreen;
+  color: blueviolet;
   cursor: pointer;
-  border: 1px solid forestgreen;
-  background-color: white;
+  border: 1px solid blueviolet;
+  background-color: whitesmoke;
 }
 
 .session-submit:focus {

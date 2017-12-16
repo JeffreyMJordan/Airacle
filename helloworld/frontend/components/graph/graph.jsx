@@ -48,13 +48,13 @@ export default class Graph extends React.Component {
     if (certainty > 49) {
       return (
         <h2>
-          {`I'm ${certainty}% certain that your flight will`}<span className="no-delay"> not be delayed</span>
+          {`Airacle is ${certainty}% certain that your flight will`}<span className="no-delay"> not be delayed</span>
         </h2>
       );
     } else {
       return (
         <h2>
-          {`I'm ${100 - certainty}% certain your flight`} <span className="delay"> will be delayed</span>
+          {`Airacle is ${100 - certainty}% certain your flight`} <span className="delay"> will be delayed</span>
         </h2>
       );
     }
