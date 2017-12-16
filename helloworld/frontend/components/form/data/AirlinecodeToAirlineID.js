@@ -1,1 +1,1 @@
-export default {"AA": 19805, "AS": 19930, "B6": 20409, "DL": 19790, "EV": 20366, "F9": 20436, "HA": 19690, "NK": 20416, "OO": 20304, "UA": 19977, "VX": 21171, "WN": 19393}
+export default {"American": 19805, "Alaska": 19930, "JetBlue": 20409, "Delta": 19790, "ExpressJet": 20366, "Frontier": 20436, "Hawaiian": 19690, "Spirit": 20416, "SkyWest": 20304, "United": 19977, "Virgin America": 21171, "Southwest": 19393}

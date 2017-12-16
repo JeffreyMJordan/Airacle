@@ -30,6 +30,13 @@ export default () => {
   });
   masterObj["AirlineCodeOptions"] = airlineCodeToIDArr;
 
+  let monthsOptionsArr = [];
+  ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"].forEach((month, idx) => {
+    monthsOptionsArr.push({label: month, value: (idx+1)})
+  });
+
+  masterObj["MonthOptions"] = monthsOptionsArr;
+
   return masterObj;
 };
 

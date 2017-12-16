@@ -3,6 +3,7 @@
 }
 .graph {
   /* background-color: orange; */
+  height: 100%;
   display: flex;
   justify-content: center;
   background-size: cover;
@@ -16,6 +17,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  /* height: 100%; */
 }
 
 .delay-container {
@@ -23,9 +25,11 @@
   border-radius: 2px;
   text-align: center;
   border-bottom: 1px solid gray;
-  font-size: 24px;
+  font-size: 20px;
   width: 700px;
   margin: 15px;
+  padding: 0px 20px;
+  /* height: 100%; */
 }
 
 .no-delay {

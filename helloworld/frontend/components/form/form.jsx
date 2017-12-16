@@ -2,6 +2,7 @@ import React from 'react';
 import {withRouter} from "react-router-dom";
 import Select from 'react-select';
 import optionsGenerator from './data/optionsGenerator';
+import codesToDistance from './data/CombinedCodesToDistance';
 // import 'react-select/dist/react-select.css';
 
 class Form extends React.Component {
@@ -20,11 +21,15 @@ class Form extends React.Component {
     let allOptions = optionsGenerator();
     this.airportOptions = allOptions["AirportCodeOptions"];
     this.airlineOptions = allOptions["AirlineCodeOptions"];
+    this.monthOptions = allOptions["MonthOptions"];
     this.nonDropdownChange = this.nonDropdownChange.bind(this);
+    this.combinedCode = {"destAirport": "", "originAirport": ""};
+    this.regex = /\((.+)\)/;
   }
 
   handleSubmit(e) {
     e.preventDefault();
+    console.log(this.state);
     let paramsArr = [ this.state.month, this.state.airline, this.state.originAirport, this.state.destAirport, this.state.distance ];
     // this.state.params = paramsArr;
     
@@ -39,7 +44,7 @@ class Form extends React.Component {
 
   nonDropdownChange(input){
     return (e) => {
-      this.setState({[input]: e.target.value})
+      this.setState({[input]: e.target.value});
     };
   }
 
@@ -47,6 +52,23 @@ class Form extends React.Component {
     return (selectedOption) => {
       this.setState({[input]: selectedOption.value});
       console.log(this.state);
+
+      if(input==="originAirport" || input==="destAirport"){
+        
+        this.combinedCode[input] = this.regex.exec(selectedOption.label)[1]
+        let codeStr = this.combinedCode["destAirport"] + this.combinedCode["originAirport"];
+        
+        if(codeStr.length===6){
+          console.log(codesToDistance["ABEATL"]);
+          console.log(codeStr);
+          if(codesToDistance[codeStr]){
+            this.setState({distance: codesToDistance[codeStr]});
+          }else{
+            this.setState({distance: 0});
+          }
+        }
+      }
+
     };
   }
 
