@@ -110,7 +110,6 @@ export default class Graph extends React.Component {
 
                   </div>
                   <div className="other-info">
-
                 
                 </div>
               </div>

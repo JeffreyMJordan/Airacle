@@ -194,9 +194,9 @@ class Form extends React.Component {
                 onChange={this.update("destAirport")}
                 placeholder="Destination Airport"
               /> */}
+              
               {/* <div className="input-form">
 
-<<<<<<< HEAD
                 <input
                   // className="session-input"
                   type="number"
@@ -205,16 +205,6 @@ class Form extends React.Component {
                   placeholder="Distance"
                   />
               </div> */}
-=======
-<input
-// className="session-input"
-type="number"
-// value={this.state.destAirport}
-onChange={this.nonDropdownChange("distance")}
-placeholder="Distance"
-/>
-</div> */}
->>>>>>> 1c0d07e46a37036e5d9f7dc58afe9978a282c16c
 
               <input className="session-submit" type="submit" value="Predict delay" />
 
