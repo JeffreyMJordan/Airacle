@@ -39,7 +39,8 @@ export default class Graph extends React.Component {
     // let prediction = this.props.prediction;
     // window.prediction = prediction;
     document.cookie=`prediction=${JSON.stringify(this.props.prediction)}`;
-    // console.log(document.cookie); 
+    document.cookie=`info=${JSON.stringify(this.props.info)}`;
+    console.log(document.cookie); 
   }
 
   delayStatus() {
@@ -48,13 +49,13 @@ export default class Graph extends React.Component {
     if (certainty > 49) {
       return (
         <h2>
-          {`Airacle is ${certainty}% certain that your flight will`}<span className="no-delay"> not be delayed</span>
+          {`Airacle is ${certainty}% certain that your flight from ${this.props.info.origin} to ${this.props.info.dest} will`}<span className="no-delay"> not be delayed</span>
         </h2>
       );
     } else {
       return (
         <h2>
-          {`Airacle is ${100 - certainty}% certain your flight`} <span className="delay"> will be delayed</span>
+          {`Airacle is ${100 - certainty}% certain your flight from ${this.props.info.origin} to ${this.props.info.dest}`} <span className="delay"> will be delayed</span>
         </h2>
       );
     }

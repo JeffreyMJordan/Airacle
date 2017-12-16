@@ -9003,7 +9003,8 @@ var Graph = function (_React$Component) {
       // let prediction = this.props.prediction;
       // window.prediction = prediction;
       document.cookie = 'prediction=' + JSON.stringify(this.props.prediction);
-      // console.log(document.cookie); 
+      document.cookie = 'info=' + JSON.stringify(this.props.info);
+      console.log(document.cookie);
     }
   }, {
     key: 'delayStatus',
@@ -9014,7 +9015,7 @@ var Graph = function (_React$Component) {
         return _react2.default.createElement(
           'h2',
           null,
-          'Airacle is ' + certainty + '% certain that your flight will',
+          'Airacle is ' + certainty + '% certain that your flight from ' + this.props.info.origin + ' to ' + this.props.info.dest + ' will',
           _react2.default.createElement(
             'span',
             { className: 'no-delay' },
@@ -9025,7 +9026,7 @@ var Graph = function (_React$Component) {
         return _react2.default.createElement(
           'h2',
           null,
-          'Airacle is ' + (100 - certainty) + '% certain your flight',
+          'Airacle is ' + (100 - certainty) + '% certain your flight from ' + this.props.info.origin + ' to ' + this.props.info.dest,
           ' ',
           _react2.default.createElement(
             'span',
@@ -13567,18 +13568,24 @@ var getCookie = function getCookie(name) {
 
 document.addEventListener("DOMContentLoaded", function () {
   var prediction = undefined;
+  var info = undefined;
   if (document.cookie) {
-
+    // console.log(document.cookie);
     var cookie = getCookie("prediction");
     if (cookie) {
       prediction = JSON.parse(cookie);
     }
+    var infoCookie = getCookie("info");
+    if (infoCookie) {
+      info = JSON.parse(infoCookie);
+    }
+    // console.log(info);
   }
   var store = undefined;
   if (prediction) {
-
-    var preloadedState = { prediction: prediction };
-
+    // console.log(info);
+    var preloadedState = { prediction: prediction, info: info };
+    // console.log(preloadedState)
     store = (0, _store2.default)(preloadedState);
   } else {
     store = (0, _store2.default)();
@@ -30929,6 +30936,8 @@ var _form2 = _interopRequireDefault(_form);
 
 var _predictor_actions = __webpack_require__(76);
 
+var _flight_info_actions = __webpack_require__(608);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var mapStateToProps = function mapStateToProps(state) {
@@ -30939,6 +30948,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     fetchPrediction: function fetchPrediction(paramsArr) {
       return dispatch((0, _predictor_actions.fetchPrediction)(paramsArr));
+    },
+    receiveInfo: function receiveInfo(info) {
+      return dispatch((0, _flight_info_actions.receiveInfo)(info));
     }
   };
 };
@@ -32746,7 +32758,9 @@ var Form = function (_React$Component) {
       month: 0,
       airline: 0,
       originAirport: 0,
+      originAirportName: "N/A",
       destAirport: 0,
+      destAirportName: "N/A",
       distance: 0,
       dummy: "Lol"
     };
@@ -32775,7 +32789,9 @@ var Form = function (_React$Component) {
 
       this.props.fetchPrediction(paramsArr.map(function (el) {
         return parseInt(el);
-      })).then(function (e) {
+      })).then(function (res) {
+        return _this2.props.receiveInfo({ origin: _this2.state.originAirportName, dest: _this2.state.destAirportName });
+      }).then(function (e) {
         return _this2.props.history.push("/graph");
       });
     }
@@ -32804,6 +32820,12 @@ var Form = function (_React$Component) {
         console.log(_this4.state);
 
         if (input === "originAirport" || input === "destAirport") {
+
+          if (input === "originAirport") {
+            _this4.setState({ originAirportName: selectedOption.label });
+          } else {
+            _this4.setState({ destAirportName: selectedOption.label });
+          }
 
           _this4.combinedCode[input] = _this4.regex.exec(selectedOption.label)[1];
           var codeStr = _this4.combinedCode["destAirport"] + _this4.combinedCode["originAirport"];
@@ -68142,16 +68164,24 @@ var mapStateToProps = function mapStateToProps(state) {
   var probabilities = {};
   var highest = undefined;
   var prediction = undefined;
+  var info = {};
   if (state.prediction) {
     probabilities = state.prediction.probabilities;
     highest = state.prediction.highest;
     prediction = state.prediction;
   }
+  console.log(state.info);
+  if (state.info) {
+    info["origin"] = state.info["origin"];
+    info["dest"] = state.info["dest"];
+  }
+  console.log(info);
   return {
     data: state.data,
     probabilities: probabilities,
     highest: highest,
-    prediction: prediction
+    prediction: prediction,
+    info: info
   };
 };
 
@@ -68223,11 +68253,15 @@ var _prediction_reducer = __webpack_require__(607);
 
 var _prediction_reducer2 = _interopRequireDefault(_prediction_reducer);
 
+var _flight_info_reducer = __webpack_require__(609);
+
+var _flight_info_reducer2 = _interopRequireDefault(_flight_info_reducer);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = (0, _redux.combineReducers)({
   prediction: _prediction_reducer2.default,
-  test: {}
+  info: _flight_info_reducer2.default
 });
 
 /***/ }),
@@ -85384,6 +85418,52 @@ exports.default = function () {
     case _predictor_actions.RECEIVE_PREDICTION:
       newState = (0, _lodash.merge)({}, action.prediction);
       return newState;
+    default:
+      return state;
+  }
+};
+
+/***/ }),
+/* 608 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var RECEIVE_INFO = exports.RECEIVE_INFO = "RECEIVE_INFO";
+
+var receiveInfo = exports.receiveInfo = function receiveInfo(info) {
+  return {
+    type: RECEIVE_INFO,
+    info: info };
+};
+
+/***/ }),
+/* 609 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _lodash = __webpack_require__(604);
+
+var _flight_info_actions = __webpack_require__(608);
+
+exports.default = function () {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments[1];
+
+  Object.freeze(state);
+  switch (action.type) {
+    case _flight_info_actions.RECEIVE_INFO:
+      return (0, _lodash.merge)({}, action.info);
     default:
       return state;
   }
