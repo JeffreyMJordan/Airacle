@@ -37,7 +37,7 @@ class Form extends React.Component {
     
 
     this.props.fetchPrediction(paramsArr.map((el) => parseInt(el)))
-    .then((res) => (this.props.receiveInfo({originAirport: this.state.originAirportName, destAirport: this.state.destAirportName})))
+    .then((res) => (this.props.receiveInfo({origin: this.state.originAirportName, dest: this.state.destAirportName})))
     .then((e) => this.props.history.push("/graph"));
   }
 

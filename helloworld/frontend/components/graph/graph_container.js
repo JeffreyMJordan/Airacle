@@ -13,10 +13,12 @@ const mapStateToProps = (state) => {
     highest = state.prediction.highest;
     prediction = state.prediction;
   }
+  console.log(state.info)
   if(state.info){
-    info["origin"] = state.info["originAirport"];
-    info["dest"] = state.info["destAirport"];
+    info["origin"] = state.info["origin"];
+    info["dest"] = state.info["dest"];
   }
+  console.log(info)
   return {
     data: state.data,
     probabilities,

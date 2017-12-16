@@ -9003,7 +9003,8 @@ var Graph = function (_React$Component) {
       // let prediction = this.props.prediction;
       // window.prediction = prediction;
       document.cookie = 'prediction=' + JSON.stringify(this.props.prediction);
-      // console.log(document.cookie); 
+      document.cookie = 'info=' + JSON.stringify(this.props.info);
+      console.log(document.cookie);
     }
   }, {
     key: 'delayStatus',
@@ -13567,18 +13568,24 @@ var getCookie = function getCookie(name) {
 
 document.addEventListener("DOMContentLoaded", function () {
   var prediction = undefined;
+  var info = undefined;
   if (document.cookie) {
-
+    // console.log(document.cookie);
     var cookie = getCookie("prediction");
     if (cookie) {
       prediction = JSON.parse(cookie);
     }
+    var infoCookie = getCookie("info");
+    if (infoCookie) {
+      info = JSON.parse(infoCookie);
+    }
+    // console.log(info);
   }
   var store = undefined;
   if (prediction) {
-
-    var preloadedState = { prediction: prediction };
-
+    // console.log(info);
+    var preloadedState = { prediction: prediction, info: info };
+    // console.log(preloadedState)
     store = (0, _store2.default)(preloadedState);
   } else {
     store = (0, _store2.default)();
@@ -32783,7 +32790,7 @@ var Form = function (_React$Component) {
       this.props.fetchPrediction(paramsArr.map(function (el) {
         return parseInt(el);
       })).then(function (res) {
-        return _this2.props.receiveInfo({ originAirport: _this2.state.originAirportName, destAirport: _this2.state.destAirportName });
+        return _this2.props.receiveInfo({ origin: _this2.state.originAirportName, dest: _this2.state.destAirportName });
       }).then(function (e) {
         return _this2.props.history.push("/graph");
       });
@@ -68163,10 +68170,12 @@ var mapStateToProps = function mapStateToProps(state) {
     highest = state.prediction.highest;
     prediction = state.prediction;
   }
+  console.log(state.info);
   if (state.info) {
-    info["origin"] = state.info["originAirport"];
-    info["dest"] = state.info["destAirport"];
+    info["origin"] = state.info["origin"];
+    info["dest"] = state.info["dest"];
   }
+  console.log(info);
   return {
     data: state.data,
     probabilities: probabilities,

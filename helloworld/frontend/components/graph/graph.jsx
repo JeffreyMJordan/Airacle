@@ -39,7 +39,8 @@ export default class Graph extends React.Component {
     // let prediction = this.props.prediction;
     // window.prediction = prediction;
     document.cookie=`prediction=${JSON.stringify(this.props.prediction)}`;
-    // console.log(document.cookie); 
+    document.cookie=`info=${JSON.stringify(this.props.info)}`;
+    console.log(document.cookie); 
   }
 
   delayStatus() {
