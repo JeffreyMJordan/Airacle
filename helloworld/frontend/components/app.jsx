@@ -5,7 +5,7 @@ import GraphContainer from './graph/graph_container';
 import {Route} from 'react-router-dom';
 
 const App = () => (
-  <div>
+  <div className="app">
     <Route exact path="/" component={FormContainer} />
     <Route path="/graph" component={GraphContainer} />
   </div>

@@ -89,9 +89,6 @@ class Form extends React.Component {
               <h2>No more delays</h2>
               <p>With the power of machine learning, find out if your flight will be delayed before you book your flight!</p>
             </div>
-            <div>
-              <p>Select your flight below</p>
-            </div>
 
             <div className="flight-input">
 
@@ -112,16 +109,28 @@ class Form extends React.Component {
             value={this.state.month}
             // clearable={true}
           /> */}
-            <div className="input-form">
+            {/* <div className="input-form">
               <input
-                // className="session-input"
-                type="date"
-                // value={this.state.month}
-                onChange={this.nonDropdownChange("month")}
-                placeholder="Month"
-                />
+              // className="session-input"
+              type="date"
+              // value={this.state.month}
+              onChange={this.nonDropdownChange("month")}
+              placeholder="Month"
+              />
+              
+            </div> */}
+              <div className="input-form">
 
-            </div>
+                <Select
+                  name="form-field-name"
+                  options={this.monthOptions}
+                  autoFocus
+                  searchable={true}
+                  onChange={this.update('month')}
+                  value={this.state.month}
+                // clearable={true}
+                />
+              </div>
 
 
               {/* <input
@@ -187,6 +196,7 @@ class Form extends React.Component {
               /> */}
               {/* <div className="input-form">
 
+<<<<<<< HEAD
                 <input
                   // className="session-input"
                   type="number"
@@ -195,11 +205,24 @@ class Form extends React.Component {
                   placeholder="Distance"
                   />
               </div> */}
+=======
+<input
+// className="session-input"
+type="number"
+// value={this.state.destAirport}
+onChange={this.nonDropdownChange("distance")}
+placeholder="Distance"
+/>
+</div> */}
+>>>>>>> 1c0d07e46a37036e5d9f7dc58afe9978a282c16c
 
               <input className="session-submit" type="submit" value="Predict delay" />
 
             </div>
           </div> 
+          <div className="subtitle">
+            <p>Select your flight</p>
+          </div>
         </form>
       </div>
     );

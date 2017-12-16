@@ -22,7 +22,7 @@ export default(props) => {
   };
 
   return <g className="axis">
-    <BarAxis {...xAxis}/>
+    <BarAxis {...xAxis} {...props}/>
     <BarAxis {...yAxis}/>
   </g>;
 };
