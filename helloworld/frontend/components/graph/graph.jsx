@@ -54,7 +54,7 @@ export default class Graph extends React.Component {
     } else {
       return (
         <h2>
-          {`I'm ${10 - certainty}% certain your flight`} <span className="delay"> will be delayed</span>
+          {`I'm ${100 - certainty}% certain your flight`} <span className="delay"> will be delayed</span>
         </h2>
       );
     }
