@@ -7579,11 +7579,6 @@ var Graph = function (_React$Component) {
                 'div',
                 { className: 'actual-graph' },
                 _react2.default.createElement(_prediction_index2.default, { probabilities: this.props.probabilities, highest: this.props.highest }),
-                _react2.default.createElement(
-                  'h3',
-                  null,
-                  'Predicted Delay Times'
-                ),
                 _react2.default.createElement(_barchart2.default, _extends({}, stats, styles))
               )
             )
@@ -76991,8 +76986,8 @@ exports.default = function (props) {
     'svg',
     { className: 'barchart', width: props.width, height: props.height },
     _react2.default.createElement(
-      'h3',
-      null,
+      'text',
+      { transform: 'translate(180, 40)' },
       'Predicted Delay Times'
     ),
     _react2.default.createElement(_bars2.default, _extends({}, props, scales)),
@@ -77088,7 +77083,7 @@ var Bars = function (_React$Component) {
   }, {
     key: 'select',
     value: function select(index, coords) {
-      var t = d3.transition().duration(500).ease(d3.easeLinear);
+      var t = d3.transition().duration(100).ease(d3.easeLinear);
 
       d3.select('.bar' + index).transition(t).style("fill", "rgb(15, 135, 140)");
 
@@ -77097,7 +77092,7 @@ var Bars = function (_React$Component) {
   }, {
     key: 'unSelect',
     value: function unSelect(index, coords) {
-      var t = d3.transition().duration(500).ease(d3.easeLinear);
+      var t = d3.transition().duration(100).ease(d3.easeLinear);
 
       d3.select('.bar' + index).transition(t).style("fill", "rgb(2, 175, 182)");
 
@@ -77107,7 +77102,7 @@ var Bars = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       var barPoints = this.props.data;
-      var t = d3.transition().duration(1000).ease(d3.easeLinear);
+      var t = d3.transition().duration(2000).ease(d3.easeLinear);
 
       for (var i = 0; i < this.props.data.length; i++) {
         d3.select('.bar' + i).transition(t).attr("height", 360 - this.props.yScale(this.props.data[i][1])).attr("y", this.props.yScale(this.props.data[i][1])).style("fill", "rgb(2, 175, 182)");

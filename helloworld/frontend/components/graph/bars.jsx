@@ -47,7 +47,7 @@ export default class Bars extends React.Component {
 
     select(index, coords) {
       let t = d3.transition()
-      .duration(500)
+      .duration(100)
       .ease(d3.easeLinear)
 
       d3.select(`.bar${index}`).transition(t)
@@ -58,7 +58,7 @@ export default class Bars extends React.Component {
 
     unSelect(index, coords) {
       let t = d3.transition()
-      .duration(500)
+      .duration(100)
       .ease(d3.easeLinear)
 
       d3.select(`.bar${index}`).transition(t)
@@ -70,7 +70,7 @@ export default class Bars extends React.Component {
     componentDidMount() {
       const barPoints = this.props.data;
       let t = d3.transition()
-        .duration(1000)
+        .duration(2000)
         .ease(d3.easeLinear)
 
       for(let i = 0; i < this.props.data.length; i++) {
