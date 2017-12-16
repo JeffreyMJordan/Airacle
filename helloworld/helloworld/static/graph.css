@@ -3,7 +3,7 @@
   display: flex;
   justify-content: center;
   background-size: cover;
-  background-image: url("/static/backgrounds/pexels-photo-615060.jpeg");
+  background-image: url("/static/backgrounds/pexels-photo-6150601.jpeg");
   font-family: 'Roboto', sans-serif;
   min-height: 1010px;
 }
@@ -19,6 +19,7 @@
   border-radius: 3px 3px 0px 0px;
   text-align: center;
   border-bottom: 1px solid gray;
+  font-size: 14px;
 }
 
 .no-delay {
@@ -41,4 +42,8 @@
     background-color: white;
     border-radius: 3px;
     flex-direction: column;
+}
+
+.graph-h3 {
+  text-align: center;
 }

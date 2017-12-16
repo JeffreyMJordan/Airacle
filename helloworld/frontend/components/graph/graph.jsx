@@ -54,7 +54,7 @@ export default class Graph extends React.Component {
     } else {
       return (
         <h2>
-          {`I'm ${10 - certainty}% certain your flight`} <span className="delay"> will be delayed</span>
+          {`I'm ${100 - certainty}% certain your flight`} <span className="delay"> will be delayed</span>
         </h2>
       );
     }
@@ -97,6 +97,10 @@ export default class Graph extends React.Component {
               </div>
               <div className="actual-graph">
                 <PredictionIndex probabilities={this.props.probabilities} highest={this.props.highest} />
+<<<<<<< HEAD
+=======
+                <h3 className="graph-h3">Predicted Delay Times</h3>
+>>>>>>> aa398faef16da809513f61b4351110324e6f20f9
                 {/* <LineGraph {...stats} {...styles}/> */}
                 <BarChart {...stats} {...styles} />
               </div>
