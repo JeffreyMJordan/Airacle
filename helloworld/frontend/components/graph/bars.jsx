@@ -29,6 +29,7 @@ export default class Bars extends React.Component {
           function(d) {
             select(index, barPoints[index]);
           },
+          text: coords,
           onMouseOut:
           function(d) {
             unSelect(index, barPoints[index]);
@@ -75,7 +76,7 @@ export default class Bars extends React.Component {
 
 
     render() {
-        return <g>
+        return <g className="bars">
         { this.props.data.map(this.renderBars())}
       </g>;
     }

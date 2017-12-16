@@ -77051,6 +77051,7 @@ var Bars = function (_React$Component) {
           onMouseOver: function onMouseOver(d) {
             select(index, barPoints[index]);
           },
+          text: coords,
           onMouseOut: function onMouseOut(d) {
             unSelect(index, barPoints[index]);
           },
@@ -77090,7 +77091,7 @@ var Bars = function (_React$Component) {
     value: function render() {
       return _react2.default.createElement(
         'g',
-        null,
+        { className: 'bars' },
         this.props.data.map(this.renderBars())
       );
     }
