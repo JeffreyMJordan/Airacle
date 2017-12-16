@@ -61,8 +61,8 @@ export default class Graph extends React.Component {
 
   render() {
     // console.log(this.props);
-    let keys = [10, 30, 50];
-    let values = [0, 0, 0];
+    let keys = [0, 15, 30, 45, 60];
+    let values = [0, 0, 0, 0, 0];
     let pairs = [];
 
     if (!(JSON.stringify(this.state.probabilities) === "{}")) {
@@ -88,16 +88,19 @@ export default class Graph extends React.Component {
     
     return (
       <div>
-
         <div className="graph">
           <div className="graph-container">
-            <div className="delay-container">
-              {this.delayStatus()}
+            <div className="info-container">
+              <div className="delay-container">
+                {this.delayStatus()}
+              </div>
+              <div className="actual-graph">
+                <PredictionIndex probabilities={this.props.probabilities} highest={this.props.highest} />
+                <h3>Predicted Delay Times</h3>
+                {/* <LineGraph {...stats} {...styles}/> */}
+                <BarChart {...stats} {...styles} />
+              </div>
             </div>
-            {/* <PredictionIndex probabilities={this.props.probabilities} highest={this.props.highest}/> */}
-            <h3>Predicted Delay Times</h3>
-            {/* <LineGraph {...stats} {...styles}/> */}
-            <BarChart {...stats} {...styles} /> 
           </div>
         </div>
       </div>
