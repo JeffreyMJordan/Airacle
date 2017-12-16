@@ -98,7 +98,7 @@ export default class Graph extends React.Component {
          
                 <div className="actual-graph">
                   <PredictionIndex probabilities={this.props.probabilities} highest={this.props.highest} />
-                  <h3 className="graph-h3">Predicted Delay Times</h3>
+                  {/* <h3 className="graph-h3">Predicted Delay Times</h3> */}
                   {/* <LineGraph {...stats} {...styles}/> */}
                   <BarChart {...stats} {...styles} />
                 </div>
@@ -110,7 +110,6 @@ export default class Graph extends React.Component {
 
                   </div>
                   <div className="other-info">
-
                 
                 </div>
               </div>
