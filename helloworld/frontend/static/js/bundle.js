@@ -80204,6 +80204,470 @@ exports['default'] = thunk;
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(46)))
 
+<<<<<<< HEAD
+/***/ }),
+/* 602 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _AirportcodeToAirportID = __webpack_require__(603);
+
+var _AirportcodeToAirportID2 = _interopRequireDefault(_AirportcodeToAirportID);
+
+var _AirlinecodeToAirlineID = __webpack_require__(604);
+
+var _AirlinecodeToAirlineID2 = _interopRequireDefault(_AirlinecodeToAirlineID);
+
+var _CityToAirportCode = __webpack_require__(605);
+
+var _CityToAirportCode2 = _interopRequireDefault(_CityToAirportCode);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = function () {
+  var masterObj = {};
+
+  //Airports
+  // let airportCodeToIDArr = [];
+  // Object.keys(AirportCodeToID).forEach((code) => {
+  //   airportCodeToIDArr.push({label: code, value: AirportCodeToID[code]});
+  // });
+  // masterObj["AirportCodeOptions"] = airportCodeToIDArr;
+
+  var airportNameToIDArr = [];
+  Object.keys(_CityToAirportCode2.default).forEach(function (city) {
+    var codeArr = _CityToAirportCode2.default[city];
+    codeArr.forEach(function (code) {
+      if (_AirportcodeToAirportID2.default[code] != undefined) {
+        airportNameToIDArr.push({ label: city + ' (' + code + ')', value: _AirportcodeToAirportID2.default[code] });
+      }
+    });
+  });
+  masterObj["AirportCodeOptions"] = airportNameToIDArr;
+
+  //Airlines
+  var airlineCodeToIDArr = [];
+  Object.keys(_AirlinecodeToAirlineID2.default).forEach(function (code) {
+    airlineCodeToIDArr.push({ label: code, value: _AirlinecodeToAirlineID2.default[code] });
+  });
+  masterObj["AirlineCodeOptions"] = airlineCodeToIDArr;
+
+  return masterObj;
+};
+
+/***/ }),
+/* 603 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = { "ABE": 10135, "ABI": 10136, "ABQ": 10140, "ABR": 10141, "ABY": 10146, "ACT": 10155, "ACV": 10157, "ACY": 10158, "ADK": 10165, "ADQ": 10170, "AEX": 10185, "AGS": 10208, "ALB": 10257, "AMA": 10279, "ANC": 10299, "APN": 10333, "ASE": 10372, "ATL": 10397, "ATW": 10408, "AUS": 10423, "AVL": 10431, "AVP": 10434, "AZO": 10469, "BDL": 10529, "BET": 10551, "BFL": 10561, "BGM": 10577, "BHM": 10599, "BIL": 10620, "BIS": 10627, "BJI": 10631, "BLI": 10666, "BMI": 10685, "BNA": 10693, "BOI": 10713, "BOS": 10721, "BPT": 10728, "BQK": 10731, "BQN": 10732, "BRD": 10739, "BRO": 10747, "BRW": 10754, "BTM": 10779, "BTR": 10781, "BTV": 10785, "BUF": 10792, "BUR": 10800, "BWI": 10821, "BZN": 10849, "CAE": 10868, "CAK": 10874, "CDC": 10918, "CDV": 10926, "CHA": 10980, "CHO": 10990, "CHS": 10994, "CID": 11003, "CIU": 11013, "CLE": 11042, "CLL": 11049, "CLT": 11057, "CMH": 11066, "CMX": 11076, "COD": 11097, "COS": 11109, "CPR": 11122, "CRP": 11140, "CRW": 11146, "CSG": 11150, "CVG": 11193, "CWA": 11203, "DAB": 11252, "DAL": 11259, "DAY": 11267, "DCA": 11278, "DEN": 11292, "DFW": 11298, "DHN": 11308, "DLH": 11337, "DRO": 11413, "DSM": 11423, "DTW": 11433, "DVL": 11447, "EAU": 11471, "ECP": 11481, "EGE": 11503, "EKO": 11525, "ELM": 11537, "ELP": 11540, "ERI": 11577, "ESC": 11587, "EUG": 11603, "EVV": 11612, "EWN": 11617, "EWR": 11618, "EYW": 11624, "FAI": 11630, "FAR": 11637, "FAT": 11638, "FAY": 11641, "FCA": 11648, "FLG": 11695, "FLL": 11697, "FNT": 11721, "FSD": 11775, "FSM": 11778, "FWA": 11823, "GCC": 11865, "GCK": 11867, "GEG": 11884, "GFK": 11898, "GGG": 11905, "GJT": 11921, "GNV": 11953, "GPT": 11973, "GRB": 11977, "GRI": 11980, "GRK": 11982, "GRR": 11986, "GSO": 11995, "GSP": 11996, "GTF": 12003, "GTR": 12007, "GUC": 12012, "GUM": 12016, "HDN": 12094, "HIB": 12129, "HLN": 12156, "HNL": 12173, "HOB": 12177, "HOU": 12191, "HPN": 12197, "HRL": 12206, "HSV": 12217, "HYS": 12255, "IAD": 12264, "IAG": 12265, "IAH": 12266, "ICT": 12278, "IDA": 12280, "ILM": 12323, "IMT": 12335, "IND": 12339, "INL": 12343, "ISN": 12389, "ISP": 12391, "ITH": 12397, "ITO": 12402, "JAC": 12441, "JAN": 12448, "JAX": 12451, "JFK": 12478, "JMS": 12519, "JNU": 12523, "KOA": 12758, "KTN": 12819, "LAN": 12884, "LAR": 12888, "LAS": 12889, "LAW": 12891, "LAX": 12892, "LBB": 12896, "LBE": 12898, "LCH": 12915, "LEX": 12945, "LFT": 12951, "LGA": 12953, "LGB": 12954, "LIH": 12982, "LIT": 12992, "LNK": 13029, "LRD": 13061, "LSE": 13076, "LWS": 13127, "MAF": 13158, "MBS": 13184, "MCI": 13198, "MCO": 13204, "MDT": 13230, "MDW": 13232, "MEI": 13241, "MEM": 13244, "MFE": 13256, "MFR": 13264, "MGM": 13277, "MHT": 13296, "MIA": 13303, "MKE": 13342, "MKG": 13344, "MLB": 13360, "MLI": 13367, "MLU": 13377, "MMH": 13388, "MOB": 13422, "MOT": 13433, "MQT": 13459, "MRY": 13476, "MSN": 13485, "MSO": 13486, "MSP": 13487, "MSY": 13495, "MTJ": 13502, "MYR": 13577, "OAJ": 13795, "OAK": 13796, "OGG": 13830, "OKC": 13851, "OMA": 13871, "OME": 13873, "ONT": 13891, "ORD": 13930, "ORF": 13931, "ORH": 13933, "OTH": 13964, "OTZ": 13970, "PAH": 14006, "PBG": 14025, "PBI": 14027, "PDX": 14057, "PGD": 14082, "PHF": 14098, "PHL": 14100, "PHX": 14107, "PIA": 14108, "PIB": 14109, "PIH": 14113, "PIT": 14122, "PLN": 14150, "PNS": 14193, "PPG": 14222, "PSC": 14252, "PSE": 14254, "PSG": 14256, "PSP": 14262, "PVD": 14307, "PWM": 14321, "RAP": 14457, "RDD": 14487, "RDM": 14489, "RDU": 14492, "RHI": 14520, "RIC": 14524, "RKS": 14543, "RNO": 14570, "ROA": 14574, "ROC": 14576, "ROW": 14588, "RST": 14633, "RSW": 14635, "SAF": 14674, "SAN": 14679, "SAT": 14683, "SAV": 14685, "SBA": 14689, "SBN": 14696, "SBP": 14698, "SCC": 14709, "SCE": 14711, "SDF": 14730, "SEA": 14747, "SFO": 14771, "SGF": 14783, "SGU": 14794, "SHV": 14814, "SIT": 14828, "SJC": 14831, "SJT": 14842, "SJU": 14843, "SLC": 14869, "SMF": 14893, "SNA": 14908, "SPI": 14952, "SPS": 14960, "SRQ": 14986, "STL": 15016, "STT": 15024, "STX": 15027, "SUN": 15041, "SWF": 15070, "SYR": 15096, "TKI": 15235, "TLH": 15249, "TPA": 15304, "TRI": 15323, "TTN": 15356, "TUL": 15370, "TUS": 15376, "TVC": 15380, "TWF": 15389, "TXK": 15401, "TYR": 15411, "TYS": 15412, "VLD": 15607, "VPS": 15624, "WRG": 15841, "XNA": 15919, "YAK": 15991, "YUM": 16218 };
+
+/***/ }),
+/* 604 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = { "AA": 19805, "AS": 19930, "B6": 20409, "DL": 19790, "EV": 20366, "F9": 20436, "HA": 19690, "NK": 20416, "OO": 20304, "UA": 19977, "VX": 21171, "WN": 19393 };
+
+/***/ }),
+/* 605 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.default = {
+    'Birmingham, Alabama': ["BHM"],
+    'Dothan, Alabama': ["DHN"],
+    'Huntsman, Alabama': ["HSV"],
+    'Mobile, Alabama': ["MOB"],
+    'Montgomery, Alabama': ["MGM"],
+    'Anchorage, Alaska': ["LHD", "MRI", "ANC"],
+    'Aniak, Alaska': ["ANI"],
+    'Barrow, Alaska': ["BRW"],
+    'Bethel, Alaska': ["BET"],
+    'Cordova, Alaska': ["CDV"],
+    'Deadhorse, Alaska': ["SCC"],
+    'Dilingham, Alaska': ["DLG"],
+    'Fairbanks, Alaska': ["FAI"],
+    'Galena, Alaska': ["GAL"],
+    'Gustavus, Alaska': ["GST"],
+    'Homer, Alaska': ["HOM"],
+    'Hoonah, Alaska': ["HNH"],
+    'Juneau, Alaska': ["JNU"],
+    'Kenai, Alaska': ["ENA"],
+    'Ketchikan, Alaska': ["KTN"],
+    'King Salmon, Alaska': ["AKN"],
+    'Kodiak, Alaska': ["ADQ"],
+    'Kotzebue, Alaska': ["OTZ"],
+    'Nome, Alaska': ["OME"],
+    'Petersburg, Alaska': ["PSG"],
+    'Sitka, Alaska': ["SIT"],
+    'St. Marys, Alaska': ["KSM"],
+    'Unalakleet, Alaska': ["UNK"],
+    'Unalaska, Alaska': ["DUT"],
+    'Valdez, Alaska': ["VDZ"],
+    'Wrangell, Alaska': ["WRG"],
+    'Yakutat, Alaska': ["YAK"],
+    'Bullhead City , Arizona': ["IFP"],
+    'Flagstaff, Arizona': ["FLG"],
+    'Grand Canyon, Arizona': ["GCN"],
+    'Mesa, Arizona': ["IWA"],
+    'Page, Arizona': ["PGA"],
+    'Peach Springs, Arizona': ["GCW"],
+    'Phoenix, Arizona': ["PHX"],
+    'Tucson, Arizona': ["TUS"],
+    'Yuma, Arizona': ["YUM"],
+    'Fayetteville, Arkansas': ["XNA"],
+    'Fort Smith, Arkansas': ["FSM"],
+    'Little Rock, Arkansas': ["LIT"],
+    'Texarkana, Arkansas': ["TXK"],
+    'Arcata, California': ["ACV"],
+    'Bakersfield, California': ["BFL"],
+    'Burbank, California': ["BUR"],
+    'Carlsbad, California': ["CLD"],
+    'Chico, California': ["CIC"],
+    'Crescent City, California': ["CEC"],
+    'Fresno, California': ["FAT"],
+    'Long Beach, California': ["LGB"],
+    'Los Angeles, California': ["LAX"],
+    'Mammoth Lakes, California': ["MMH"],
+    'Modesto, California': ["MOD"],
+    'Monterey, California': ["MRY"],
+    'Oakland, California': ["OAK"],
+    'Ontario, California': ["ONT"],
+    'Palm Springs, California': ["PSP"],
+    'Redding, California': ["RDD"],
+    'Sacramento, California': ["SMF"],
+    'San Diego, California': ["SAN"],
+    'San Francisco, California': ["SFO"],
+    'San Jose, California': ["SJC"],
+    'San Luis Obispo, California': ["SBP"],
+    'Santa Ana, California': ["SNA"],
+    'Santa Barbara, California': ["SBA"],
+    'Santa Maria, California': ["SMX"],
+    'Santa Rosa, California': ["STS"],
+    'Stockton, California': ["SCK"],
+    'Aspen, Colorado': ["ASE"],
+    'Colorado Springs, Colorado': ["COS"],
+    'Denver, Colorado': ["DEN"],
+    'Durango, Colorado': ["DRO"],
+    'Eagle, Colorado': ["EGE"],
+    'Grand Junction, Colorado': ["GJT"],
+    'Gunnison, Colorado': ["GUT"],
+    'Hayden, Colorado': ["HDN"],
+    'Montrose, Colorado': ["MJT"],
+    'Hartford, Connecticut': ["BDL"],
+    'New Haven, Connecticut': ["HVN"],
+    'Wilmington, Delaware': ["ILG"],
+    'Daytona Beach, Florida': ["DAB"],
+    'Fort Lauderdale, Florida': ["FLL"],
+    'Fort Myers, Florida': ["RSW"],
+    'Gainesville, Florida': ["GNV"],
+    'Jacksonville, Florida': ["JAX"],
+    'Key West, Florida': ["EYW"],
+    'Melbourne, Florida': ["MLB"],
+    'Miami, Florida': ["MIA"],
+    'Orlando, Florida': ["MCO"],
+    'Sanford, Florida': ["SFB"],
+    'Panama City Beach, Florida': ["ECP"],
+    'Pensacola, Florida': ["PNS"],
+    'Punta Gorda, Florida': ["PGD"],
+    'Sarasota, Florida': ["SRQ"],
+    'St. Augustine, Florida': ["UST"],
+    'St. Petersburg, Florida': ["PIE"],
+    'Tallahassee, Florida': ["TLH"],
+    'Tampa, Florida': ["TPA"],
+    'Valparaiso, Florida': ["VPS"],
+    'Vero Beach, Florida': ["VRB"],
+    'West Palm Beach, Florida': ["PBI"],
+    'Albany, Georgia': ["ABY"],
+    'Atlanta, Georgia': ["ATL"],
+    'Augusta, Georgia': ["AGS"],
+    'Brunswick, Georgia': ["BQK"],
+    'Columbus, Georgia': ["CSG"],
+    'Savannah, Georgia': ["SAV"],
+    'Valdosta, Georgia': ["VLD"],
+    'Hilo, Hawaii': ["ITO"],
+    'Honolulu, Hawaii': ["HNL"],
+    'Kahului, Hawaii': ["OGG"],
+    'Kailua-Kona, Hawaii': ["KOA"],
+    'Kaunakakai, Hawaii': ["MKK"],
+    'Lanai City, Hawaii': ["LNY"],
+    'Lihue, Hawaii': ["LIH"],
+    'Boise, Idaho': ["BOI"],
+    'Hailey, Idaho': ["SUN"],
+    'Idaho Falls, Idaho': ["IDA"],
+    'Lewiston, Idaho': ["LWS"],
+    'Pocatello, Idaho': ["PIH"],
+    'Twin Falls, Idaho': ["TWF"],
+    'Belleville, Illinois': ["BLV"],
+    'Bloomington Illinois': ["BMI"],
+    'Champaign, Illinois': ["CMI"],
+    'Chicago, Illinois': ["ORD", "MDW"],
+    'Marion, Illinois': ["MWA"],
+    'Moline, Illinois': ["MLI"],
+    'Peoria, Illinois': ["PIA"],
+    'Quincy, Illinois': ["UIN"],
+    'Rockford, Illinois': ["RFD"],
+    'Springfield, Illinois': ["SPI"],
+    'Evansville, Indiana': ["EVV"],
+    'Fort Wayne, Indiana': ["FWA"],
+    'Indianapolis, Indiana': ["IND"],
+    'South Bend, Indiana': ["SBN"],
+    'Cedar Rapids, Iowa': ["CID"],
+    'Des Moines, Iowa': ["DSM"],
+    'Dubuque, Iowa': ["DBQ"],
+    'Sioux City, Iowa': ["SUX"],
+    'Waterloo, Iowa': ["ALO"],
+    'Garden City, Kansas': ["GCK"],
+    'Manhattan, Kansas': ["MHK"],
+    'Wichita, Kansas': ["ICT"],
+    'Cincinnati, Kentucky': ["CVG"],
+    'Lexington, Kentucky': ["LEX"],
+    'Louisville, Kentucky': ["SDF"],
+    'Owensboro, Kentucky': ["OWB"],
+    'Paducah, Kentucky': ["PAH"],
+    'Alexandria, Louisiana': ["AEX"],
+    'Baton Rouge, Louisiana': ["BTR"],
+    'Lafayette, Louisiana': ["LFT"],
+    'Lake Charles, Louisiana': ["LCH"],
+    'Monroe, Louisiana': ["MLU"],
+    'New Orleans, Louisiana': ["MSY"],
+    'Shreveport, Louisiana': ["SHV"],
+    'Bangor, Maine': ["BGR"],
+    'Portland, Maine': ["PWM"],
+    'Presque Isle, Maine': ["PQI"],
+    'Rockland, Maine': ["RKD"],
+    'Baltimore, Maryland': ["BWI"],
+    'Salisbury, Maryland': ["SBY"],
+    'Hagerstown, Maryland': ["HGR"],
+    'Boston, Massachusetts': ["BOS"],
+    'Hyannis, Massachusetts': ["HYA"],
+    'Nantucket, Massachusetts': ["ACK"],
+    'Provincetown, Massachusetts': ["PVC"],
+    'Vineyard Haven, Massachusetts': ["MVY"],
+    'Worcester, Massachusetts': ["ORH"],
+    'Alpena, Michigan': ["APN"],
+    'Detroit, Michigan': ["DTW"],
+    'Escanaba, Michigan': ["ESC"],
+    'Flint, Michigan': ["FNT"],
+    'Grand Rapids, Michigan': ["GRR"],
+    'Hancock, Michigan': ["CMX"],
+    'Iron Mountain, Michigan': ["IMT"],
+    'Kalamazoo, Michigan': ["AZO"],
+    'Lansing, Michigan': ["LAN"],
+    'Marquette, Michigan': ["SAW"],
+    'Muskegon, Michigan': ["MKG"],
+    'Pellston, Michigan': ["PLN"],
+    'Saginaw, Michigan': ["MBS"],
+    'Sault Ste. Marie, Michigan': ["CIU"],
+    'Traverse City, Michigan': ["TVC"],
+    'Bemidji, Minnesota': ["BJI"],
+    'Brainerd, Minnesota': ["BRD"],
+    'Duluth, Minnesota': ["DLH"],
+    'Hibbing, Minnesota': ["HIB"],
+    'International Falls, Minnesota': ["INL"],
+    'Minneapolis, Minnesota': ["MSP"],
+    'Rochester, Minnesota': ["RST"],
+    'St. Cloud, Minnesota': ["STC"],
+    'Columbus, Mississippi': ["GTR"],
+    'Gulfport, Mississippi': ["GPT"],
+    'Hattiesburg, Mississippi': ["PIB"],
+    'Jackson, Mississippi': ["JAN"],
+    'Columbia, Missouri': ["COU"],
+    'Joplin, Missouri': ["JLN"],
+    'Kansas City, Missouri': ["MCI"],
+    'Springfield, Missouri': ["SGF"],
+    'St. Louis, Missouri': ["STL"],
+    'Billings, Montana': ["BIL"],
+    'Bozeman, Montana': ["BZN"],
+    'Butte, Montana': ["BTM"],
+    'Great Falls, Montana': ["GTF"],
+    'Helena, Montana': ["HLN"],
+    'Kalispell, Montana': ["GPI"],
+    'Missoula, Montana': ["MSO"],
+    'Grand Island, Nebraska': ["GRI"],
+    'Lincoln, Nebraska': ["LNK"],
+    'Omaha, Nebraska': ["OMA"],
+    'Boulder City, Nevada': ["BLD"],
+    'Elko, Nevada': ["EKO"],
+    'Las Vegas, Nevada': ["LAS"],
+    'Reno, Nevada': ["RNO"],
+    'Lebanon, New Hampshire': ["LEB"],
+    'Manchester, New Hampshire': ["MHT"],
+    'Portsmouth, New Hampshire': ["PSM"],
+    'Atlantic City, New Jersey': ["ACY"],
+    'Trenton, New Jersey': ["TTN"],
+    'Newark, New Jersey': ["EWR"],
+    'Albuquerque, New Mexico': ["ABQ"],
+    'Farmington, New Mexico': ["FMN"],
+    'Hobbs, New Mexico': ["HOB"],
+    'Roswell, New Mexico': ["ROW"],
+    'Santa Fe, New Mexico': ["SAF"],
+    'Albany, New York': ["ALB"],
+    'Binghamton, New York': ["BGM"],
+    'Buffalo, New York': ["BUF"],
+    'Elmira, New York': ["ELM"],
+    'Islip, New York': ["ISP"],
+    'Ithaca, New York': ["ITH"],
+    'New York, New York': ["JFK", "LGA"],
+    'Newburgh, New York': ["SWF"],
+    'Niagara Falls, New York': ["IAG"],
+    'Plattsburgh, New York': ["PBG"],
+    'Rochester, New York': ["ROC"],
+    'Syracuse, New York': ["SYR"],
+    'Watertown, New York': ["ART"],
+    'White Plains, New York': ["HPN"],
+    'Asheville, North Carolina': ["AVL"],
+    'Charlotte, North Carolina': ["CLT"],
+    'Fayetteville, North Carolina': ["FAY"],
+    'Greensboro, North Carolina': ["GSO"],
+    'Greenville, North Carolina': ["PGV"],
+    'Jacksonville, North Carolina': ["OAJ"],
+    'New Bern, North Carolina': ["EWN"],
+    'Raleigh, North Carolina': ["RDU"],
+    'Wilmington, North Carolina': ["ILM"],
+    'Bismarck, North Dakota': ["BIS"],
+    'Dickinson, North Dakota': ["DIK"],
+    'Fargo, North Dakota': ["FAR"],
+    'Grand Forks, North Dakota': ["GFK"],
+    'Minot, North Dakota': ["MOT"],
+    'Williston, North Dakota': ["ISN"],
+    'Akron, Ohio': ["CAK"],
+    'Cincinnati, Ohio': ["LUK"],
+    'Cleveland, Ohio': ["CLE"],
+    'Columbus, Ohio': ["CMH", "LCK"],
+    'Dayton, Ohio': ["DAY"],
+    'Toledo, Ohio': ["TOL"],
+    'Youngstown, Ohio': ["YNG"],
+    'Lawton, Oklahoma': ["LAW"],
+    'Oklahoma City, Oklahoma': ["OKC"],
+    'Tulsa, Oklahoma': ["TUL"],
+    'Eugene, Oregon': ["EUG"],
+    'Klamath Falls, Oregon': ["LMT"],
+    'Medford, Oregon': ["MFR"],
+    'North Bend, Oregon': ["OTH"],
+    'Portland, Oregon': ["PDX"],
+    'Redmond, Oregon': ["RDM"],
+    'Allentown, Pennsylvania': ["ABE"],
+    'Erie, Pennsylvania': ["ERI"],
+    'Harrisburg, Pennsylvania': ["MDT"],
+    'Latrobe, Pennsylvania': ["LBE"],
+    'Philadelphia, Pennsylvania': ["PHL"],
+    'Pittsburg, Pennsylvania': ["PIT"],
+    'State College, Pennsylvania': ["SCE"],
+    'Wilkes-Barre, Pennsylvania': ["AVP"],
+    'Williamsport, Pennsylvania': ["IPT"],
+    'Block Island, Rhode Island': ["BID"],
+    'Providence, Rhode Island': ["PVD"],
+    'Westerly, Rhode Island': ["WST"],
+    'Charleston, South Carolina': ["CHS"],
+    'Columbia, South Carolina': ["CAE"],
+    'Florence, South Carolina': ["FLO"],
+    'Greenville, South Carolina': ["GSP"],
+    'Hilton Head Island, South Carolina': ["HHH"],
+    'Myrtle Beach, South Carolina': ["MYR"],
+    'Aberdeen, South Dakota': ["ABR"],
+    'Pierre, South Dakota': ["PIR"],
+    'Rapid City, South Dakota': ["RAP"],
+    'Sioux Falls, South Dakota': ["FSD"],
+    'Bristol, Tennessee': ["TRI"],
+    'Chattanooga, Tennessee': ["CHA"],
+    'Knoxville, Tennessee': ["TYS"],
+    'Memphis, Tennessee': ["MEM"],
+    'Nashville, Tennessee': ["BNA"],
+    'Abilene, Texas': ["ABI"],
+    'Amarillo, Texas': ["AMA"],
+    'Austin, Texas': ["AUS"],
+    'Beaumont, Texas': ["BPT"],
+    'Brownsville, Texas': ["BRO"],
+    'College Station, Texas': ["CLL"],
+    'Corpus Christi, Texas': ["CRP"],
+    'Dallas, Texas': ["DAL"],
+    'Dallas-Fort Worth, Texas': ["DFW"],
+    'Del Rio, Texas': ["DRT"],
+    'El Paso, Texas': ["ELP"],
+    'Fort Hood, Texas': ["GRK"],
+    'Harlingen, Texas': ["HWL"],
+    'Houston, Texas': ["IAH", "HOU"],
+    'Laredo, Texas': ["LRD"],
+    'Longview, Texas': ["GGG"],
+    'Lubbock, Texas': ["LBB"],
+    'McAllen, Texas': ["LFE"],
+    'Midland, Texas': ["MAF"],
+    'San Angelo, Texas': ["SJT"],
+    'San Antonio, Texas': ["SAT"],
+    'Tyler, Texas': ["TYR"],
+    'Waco, Texas': ["ACT"],
+    'Wichita Falls, Texas': ["SPS"],
+    'Provo, Utah': ["PVU"],
+    'Salt Lake City, Utah': ["SLC"],
+    'St. George, Utah': ["SGU"],
+    'Wendover, Utah': ["ENV"],
+    'Burlington, Vermont': ["BTV"],
+    'Charlottesville, Virginia': ["CHO"],
+    'Lynchburg, Virginia': ["LYH"],
+    'Newport News, Virginia': ["PHF"],
+    'Norfolk, Virginia': ["ORF"],
+    'Richmond, Virginia': ["RIC"],
+    'Roanoke, Virginia': ["ROA"],
+    'Staunton, Virginia': ["SHD"],
+    'Washington D.C., Virginia': ["DCA", "IAD"],
+    'Bellingham, Washington': ["BLI"],
+    'Friday Harbor, Washington': ["FRD"],
+    'Pasco, Washington': ["PSC"],
+    'Port Angeles, Washington': ["CLM"],
+    'Pullman, Washington': ["PUW"],
+    'Seattle, Washington': ["BFI", "SEA"],
+    'Spokane, Washington': ["GEG"],
+    'Walla Walla, Washington': ["ALW"],
+    'Wenatchee, Washington': ["EAT"],
+    'Yakima, Washington': ["YKM"],
+    'Charleston, West Virginia': ["CRW"],
+    'Clarksburg, West Virginia': ["CKB"],
+    'Huntington, West Virginia': ["HTS"],
+    'Lewisburg, West Virginia': ["LWB"],
+    'Morgantown, West Virginia': ["MGW"],
+    'Appleton, Wisconsin': ["ATW"],
+    'Eau Claire, Wisconsin': ["EAU"],
+    'Green Bay, Wisconsin': ["GRB"],
+    'La Crosse, Wisconsin': ["LSE"],
+    'Madison, Wisconsin': ["MSN"],
+    'Milwaukee, Wisconsin': ["MKE"],
+    'Mosinee, Wisconsin': ["CWA"],
+    'Rhinelander, Wisconsin': ["RHI"],
+    'Casper, Wyoming': ["CPR"],
+    'Cheyenne, Wyoming': ["CYS"],
+    'Cody, Wyoming': ["COD"],
+    'Gillete, Wyoming': ["GCC"],
+    'Jackson, Wyoming': ["JAC"],
+    'Riverton, Wyoming': ["RIW"],
+    'Rock Springs, Wyoming': ["RKS"],
+    'Sheridan, Wyoming': ["SHR"]
+};
+
+=======
+>>>>>>> 87146d3293c4a41041e6dc43ef8ae4ba94b2cc36
 /***/ })
 /******/ ]);
 //# sourceMappingURL=bundle.js.map
