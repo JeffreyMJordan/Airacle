@@ -32,6 +32,8 @@
   margin: 15px;
   padding: 0px 27px;
   /* height: 100%; */
+  transition: all, 0.25s;
+  opacity: 0.8;
 }
 
 .no-delay {
@@ -42,12 +44,29 @@
   color: red;
 }
 
+.float {
+  transition: all, 0.3s;
+  opacity: 0.6;
+}
+
+.float:hover {
+  transform: translateY(-3px) translateX(-3px);
+  opacity: 1;
+  /* box-shadow: 5px 5px 2px 1px gray; */
+ 
+}
+
 .actual-graph {
   background-color: whitesmoke;
   /* text-align: center; */
   border-radius: 0px 0px 3px 3px;
   margin: 10px 0px;
+ 
+}
 
+.delay-container:hover {
+  transform: translateY(-1px);
+  opacity: 1;
 }
 
 .info-container {
