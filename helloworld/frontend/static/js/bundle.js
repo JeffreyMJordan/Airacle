@@ -9025,7 +9025,7 @@ var Graph = function (_React$Component) {
         return _react2.default.createElement(
           'h2',
           null,
-          'I\'m ' + (10 - certainty) + '% certain your flight',
+          'I\'m ' + (100 - certainty) + '% certain your flight',
           ' ',
           _react2.default.createElement(
             'span',
@@ -9085,7 +9085,7 @@ var Graph = function (_React$Component) {
                 _react2.default.createElement(_prediction_index2.default, { probabilities: this.props.probabilities, highest: this.props.highest }),
                 _react2.default.createElement(
                   'h3',
-                  null,
+                  { className: 'graph-h3' },
                   'Predicted Delay Times'
                 ),
                 _react2.default.createElement(_barchart2.default, _extends({}, stats, styles))
