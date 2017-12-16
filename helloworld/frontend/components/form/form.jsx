@@ -2,6 +2,7 @@ import React from 'react';
 import {withRouter} from "react-router-dom";
 import Select from 'react-select';
 import optionsGenerator from './data/optionsGenerator';
+import codesToDistance from './data/CombinedCodesToDistance';
 // import 'react-select/dist/react-select.css';
 
 class Form extends React.Component {
@@ -22,6 +23,8 @@ class Form extends React.Component {
     this.airlineOptions = allOptions["AirlineCodeOptions"];
     this.monthOptions = allOptions["MonthOptions"];
     this.nonDropdownChange = this.nonDropdownChange.bind(this);
+    this.combinedCode = {"destAirport": "", "originAirport": ""};
+    this.regex = /\((.+)\)/;
   }
 
   handleSubmit(e) {
@@ -41,7 +44,7 @@ class Form extends React.Component {
 
   nonDropdownChange(input){
     return (e) => {
-      this.setState({[input]: e.target.value})
+      this.setState({[input]: e.target.value});
     };
   }
 
@@ -49,6 +52,23 @@ class Form extends React.Component {
     return (selectedOption) => {
       this.setState({[input]: selectedOption.value});
       console.log(this.state);
+
+      if(input==="originAirport" || input==="destAirport"){
+        
+        this.combinedCode[input] = this.regex.exec(selectedOption.label)[1]
+        let codeStr = this.combinedCode["destAirport"] + this.combinedCode["originAirport"];
+        
+        if(codeStr.length===6){
+          console.log(codesToDistance["ABEATL"]);
+          console.log(codeStr);
+          if(codesToDistance[codeStr]){
+            this.setState({distance: codesToDistance[codeStr]});
+          }else{
+            this.setState({distance: 0});
+          }
+        }
+      }
+
     };
   }
 
@@ -66,30 +86,6 @@ class Form extends React.Component {
 
           <div>
           {/* Outside component from a node package. Found here: https://jedwatson.github.io/react-select/ */}
-         
-          {/* <Select
-            name="form-field-name"
-            options={[
-              { value: 'one', label: 'One' },
-              { value: 'two', label: 'Two' },
-              { value: 'three', label: 'Three' },
-              { value: 'four', label: 'Four' },
-              { value: 'five', label: 'Five' },
-            ]}
-            autoFocus
-            searchable={true}
-            onChange={this.update('month')}
-            value={this.state.month}
-            // clearable={true}
-          /> */}
-
-            {/* <input
-              // className="session-input"
-              type="number"
-              // value={this.state.month}
-              onChange={this.nonDropdownChange("month")}
-              placeholder="Month"
-            /> */}
 
             <p>Month</p>
               <Select
@@ -102,14 +98,6 @@ class Form extends React.Component {
                 // clearable={true}
               />
 
-
-            {/* <input
-              // className="session-input"
-              type="number"
-              // value={this.state.airline}
-              onChange={this.nonDropdownChange("airline")}
-              placeholder="Airline"
-            /> */}
             <p>Airline Code</p>
             <Select
               name="form-field-name"
@@ -122,13 +110,7 @@ class Form extends React.Component {
             />
 
 
-            {/* <input
-              // className="session-input"
-              type="number"
-              // value={this.state.originAirport}
-              onChange={this.update("originAirport")}
-              placeholder="Origin Airport"
-            /> */}
+            
             <p>Origin Airport</p>
             <Select
             name="form-field-name"
@@ -151,28 +133,13 @@ class Form extends React.Component {
             // clearable={true}
           />
 
-
-
-
-
-
-
-
             {/* <input
-              // className="session-input"
-              type="number"
-              // value={this.state.destAirport}
-              onChange={this.update("destAirport")}
-              placeholder="Destination Airport"
-            /> */}
-
-            <input
               // className="session-input"
               type="number"
               // value={this.state.destAirport}
               onChange={this.nonDropdownChange("distance")}
               placeholder="Distance"
-            />
+            /> */}
 
             <input className="session-submit" type="submit" value="Predict delay" />
 
