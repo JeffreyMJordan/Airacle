@@ -96,67 +96,6 @@ class Form extends React.Component {
             <div className="flight-input">
 
           {/* Outside component from a node package. Found here: https://jedwatson.github.io/react-select/ */}
-<<<<<<< HEAD
-
-            <p>Month</p>
-              <Select
-                name="form-field-name"
-                options={this.monthOptions}
-                autoFocus
-                searchable={true}
-                onChange={this.update('month')}
-                value={this.state.month}
-                // clearable={true}
-              />
-
-            <p>Airline</p>
-            <Select
-              name="form-field-name"
-              options={this.airlineOptions}
-              autoFocus
-              searchable={true}
-              onChange={this.update('airline')}
-              value={this.state.airline}
-              // clearable={true}
-            />
-
-
-            
-            <p>Origin Airport</p>
-            <Select
-            name="form-field-name"
-            options={this.airportOptions}
-            autoFocus
-            searchable={true}
-            onChange={this.update('originAirport')}
-            value={this.state.originAirport}
-            // clearable={true}
-          />
-
-          <p>Destination Airport</p>
-            <Select
-            name="form-field-name"
-            options={this.airportOptions}
-            autoFocus
-            searchable={true}
-            onChange={this.update('destAirport')}
-            value={this.state.destAirport}
-            // clearable={true}
-          />
-
-            {/* <input
-              // className="session-input"
-              type="number"
-              // value={this.state.destAirport}
-              onChange={this.nonDropdownChange("distance")}
-              placeholder="Distance"
-            /> */}
-
-            <input className="session-submit" type="submit" value="Predict delay" />
-
-          </div>
-         
-=======
          
           {/* <Select
             name="form-field-name"
@@ -261,7 +200,6 @@ class Form extends React.Component {
 
             </div>
           </div> 
->>>>>>> e906f58d3ffd0e131e20d3179ad80708076f7c64
         </form>
       </div>
     );
