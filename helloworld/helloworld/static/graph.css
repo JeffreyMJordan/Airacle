@@ -46,6 +46,7 @@
   background-color: whitesmoke;
   /* text-align: center; */
   border-radius: 0px 0px 3px 3px;
+  margin: 10px 0px;
 
 }
 
@@ -66,5 +67,5 @@
   min-width: 400px;
   background-color: whitesmoke;
   min-height: 200px;
-  border: 1px solid black;
+  /* border: 1px solid black; */
 }
