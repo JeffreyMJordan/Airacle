@@ -12,13 +12,14 @@ export default class Axis extends React.Component {
 
   renderAxis() {
     let axis;
+    let arr = ["", 0, 15, 30, 45, 60];
+    console.log(this.props)
     if(this.props.orient === 'left') {
       axis = d3.axisLeft().ticks(5).scale(this.props.scale);
     } else {
-      axis = d3.axisBottom().ticks(6).scale(this.props.scale);
+      axis = d3.axisBottom().ticks(5).tickFormat("").scale(this.props.scale);
     }
     let node = this.refs.axis;
-    console.log(this.props);
     
     d3.select(node).call(axis);
     d3.select(".axis").append("text")
