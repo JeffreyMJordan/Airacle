@@ -109,14 +109,9 @@ export default class Graph extends React.Component {
                 </div>
                 <div className="project-info float">
 
-<<<<<<< HEAD
                 </div>
                 <div className="other-info  float">
 
-=======
-                  </div>
-                  <div className="other-info">
->>>>>>> 0049c36e42710eee487775770452ae1bf1dbe40b
                 
                 </div>
               </div>
