@@ -5,10 +5,9 @@ import Bars from './bars';
 
 
 const xScale = (props) => {
-  console.log(props)
-  return d3.scaleLinear()
-  .domain([-1, 70])
-  .range([props.padding, props.width - props.padding * 2]);
+  return d3.scaleOrdinal()
+  .domain(["", "0 minutes", "15 minutes", "30 minutes", "45 minutes", "60+ minutes", ""])
+  .range([props.padding, 2 * props.padding, 2 * props.padding + props.width / 6, 2 * props.padding + props.width / 3, 2 * props.padding + props.width / 2, 2 * props.padding + 2 * props.width / 3]);
 };
 
 const yScale = (props) => {
@@ -25,5 +24,12 @@ export default(props) => {
   <text transform="translate(180, 40)">Predicted Delay Times</text>
     <Bars {...props} {...scales} />
     <BarAxis {...props} {...scales} />
+    <g className="xValues">
+      <text y={(props.height - props.padding/2) - 3} x={1.5 * props.padding}>0 mins</text>
+      <text y={(props.height - props.padding/2) - 3} x={1.5 * props.padding + props.width / 6}>15 mins</text>
+      <text y={(props.height - props.padding/2) - 3} x={1.5 * props.padding + props.width / 3}>30 mins</text>
+      <text y={(props.height - props.padding/2) - 3} x={1.5 * props.padding + props.width / 2}>45 mins</text>
+      <text y={(props.height - props.padding/2) - 3} x={1.5 * props.padding + 2 * props.width / 3}>60+ mins</text>
+    </g>
   </svg>;
 };

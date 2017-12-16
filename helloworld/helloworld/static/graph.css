@@ -30,6 +30,10 @@
   color: red;
 }
 
+.xValues text {
+  font-size: 10px;
+}
+
 .actual-graph {
   background-color: whitesmoke;
   /* text-align: center; */
