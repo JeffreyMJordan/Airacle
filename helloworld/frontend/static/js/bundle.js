@@ -32751,7 +32751,9 @@ var Form = function (_React$Component) {
       month: 0,
       airline: 0,
       originAirport: 0,
+      originAirportName: "",
       destAirport: 0,
+      destAirportName: "",
       distance: 0,
       dummy: "Lol"
     };
@@ -32781,7 +32783,7 @@ var Form = function (_React$Component) {
       this.props.fetchPrediction(paramsArr.map(function (el) {
         return parseInt(el);
       })).then(function (res) {
-        return _this2.props.receiveInfo({});
+        return _this2.props.receiveInfo({ originAirport: _this2.state.originAirportName, destAirport: _this2.state.destAirportName });
       }).then(function (e) {
         return _this2.props.history.push("/graph");
       });
@@ -32811,6 +32813,12 @@ var Form = function (_React$Component) {
         console.log(_this4.state);
 
         if (input === "originAirport" || input === "destAirport") {
+
+          if (input === "originAirport") {
+            _this4.setState({ originAirportName: selectedOption.label });
+          } else {
+            _this4.setState({ destAirportName: selectedOption.label });
+          }
 
           _this4.combinedCode[input] = _this4.regex.exec(selectedOption.label)[1];
           var codeStr = _this4.combinedCode["destAirport"] + _this4.combinedCode["originAirport"];
@@ -68230,11 +68238,15 @@ var _prediction_reducer = __webpack_require__(607);
 
 var _prediction_reducer2 = _interopRequireDefault(_prediction_reducer);
 
+var _flight_info_reducer = __webpack_require__(609);
+
+var _flight_info_reducer2 = _interopRequireDefault(_flight_info_reducer);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = (0, _redux.combineReducers)({
   prediction: _prediction_reducer2.default,
-  test: {}
+  info: _flight_info_reducer2.default
 });
 
 /***/ }),
@@ -85409,10 +85421,37 @@ Object.defineProperty(exports, "__esModule", {
 var RECEIVE_INFO = exports.RECEIVE_INFO = "RECEIVE_INFO";
 
 var receiveInfo = exports.receiveInfo = function receiveInfo(info) {
-  console.log("dispatched");
   return {
     type: RECEIVE_INFO,
     info: info };
+};
+
+/***/ }),
+/* 609 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _lodash = __webpack_require__(604);
+
+var _flight_info_actions = __webpack_require__(608);
+
+exports.default = function () {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments[1];
+
+  Object.freeze(state);
+  switch (action.type) {
+    case _flight_info_actions.RECEIVE_INFO:
+      return (0, _lodash.merge)({}, action.info);
+    default:
+      return state;
+  }
 };
 
 /***/ })

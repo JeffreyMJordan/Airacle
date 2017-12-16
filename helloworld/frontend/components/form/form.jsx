@@ -12,7 +12,9 @@ class Form extends React.Component {
       month: 0,
       airline: 0,
       originAirport: 0,
+      originAirportName: "",
       destAirport: 0,
+      destAirportName: "",
       distance: 0,
       dummy: "Lol"
     };
@@ -35,7 +37,7 @@ class Form extends React.Component {
     
 
     this.props.fetchPrediction(paramsArr.map((el) => parseInt(el)))
-    .then((res) => (this.props.receiveInfo({})))
+    .then((res) => (this.props.receiveInfo({originAirport: this.state.originAirportName, destAirport: this.state.destAirportName})))
     .then((e) => this.props.history.push("/graph"));
   }
 
@@ -57,6 +59,12 @@ class Form extends React.Component {
 
       if(input==="originAirport" || input==="destAirport"){
         
+        if(input==="originAirport"){
+          this.setState({originAirportName: selectedOption.label});
+        }else{
+          this.setState({destAirportName: selectedOption.label});
+        }
+
         this.combinedCode[input] = this.regex.exec(selectedOption.label)[1]
         let codeStr = this.combinedCode["destAirport"] + this.combinedCode["originAirport"];
         
