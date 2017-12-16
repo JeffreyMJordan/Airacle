@@ -16,7 +16,7 @@ import { pack } from 'd3';
 const styles = {
   width: 500,
   height: 400,
-  padding: 30,
+  padding: 40,
 };
 
 const barStyles = 
