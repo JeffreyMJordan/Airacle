@@ -88,7 +88,7 @@ export default class Graph extends React.Component {
 
     
     return (
-      <div>
+      <div className="graph-top">
         <div className="graph">
           <div className="graph-container">
               <div className="delay-container">

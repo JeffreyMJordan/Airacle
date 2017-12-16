@@ -9064,7 +9064,7 @@ var Graph = function (_React$Component) {
 
       return _react2.default.createElement(
         'div',
-        null,
+        { className: 'graph-top' },
         _react2.default.createElement(
           'div',
           { className: 'graph' },
@@ -30907,7 +30907,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var App = function App() {
   return _react2.default.createElement(
     'div',
-    null,
+    { className: 'app' },
     _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _form_container2.default }),
     _react2.default.createElement(_reactRouterDom.Route, { path: '/graph', component: _graph_container2.default })
   );
