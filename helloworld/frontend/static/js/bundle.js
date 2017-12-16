@@ -32853,15 +32853,6 @@ var Form = function (_React$Component) {
             ),
             _react2.default.createElement(
               'div',
-              null,
-              _react2.default.createElement(
-                'p',
-                null,
-                'Select your flight below'
-              )
-            ),
-            _react2.default.createElement(
-              'div',
               { className: 'flight-input' },
               _react2.default.createElement(
                 'div',
@@ -32916,6 +32907,15 @@ var Form = function (_React$Component) {
                 })
               ),
               _react2.default.createElement('input', { className: 'session-submit', type: 'submit', value: 'Predict delay' })
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'subtitle' },
+            _react2.default.createElement(
+              'p',
+              null,
+              'Select your flight'
             )
           )
         )

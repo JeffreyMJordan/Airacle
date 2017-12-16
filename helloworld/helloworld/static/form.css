@@ -27,11 +27,11 @@ body {
 
 .flight-input {
   display: flex;
-  
+  justify-content: center;
 }
 
 .session-submit {
-    border-radius: 2px;
+    border-radius: 3px;
     width: 132px;
     height: 54px;
     /* padding: 15px; */
@@ -40,13 +40,14 @@ body {
     color: darkgray;
     border: 1px solid gray;
     transition: all, 0.6s;
+    background-color: whitesmoke;
 }
 
 .session-submit:hover {
-  color: blueviolet;
+  color: forestgreen;
   cursor: pointer;
-  border: 1px solid blueviolet;
-  background-color: whitesmoke;
+  border: 1px solid forestgreen;
+  background-color: white;
 }
 
 .session-submit:focus {
@@ -63,3 +64,23 @@ body {
   height: 30px;
 }
 
+.welcome {
+  text-align: center;
+}
+
+.welcome p {
+    font-weight: 300;
+    font-size: 20px;
+}
+
+.subtitle {
+    padding-left: 60px;
+    font-size: 14px;
+    font-weight: 300;
+    color: forestgreen;
+}
+
+.subtitle p {
+  margin: 0;
+  margin-top: 6px;
+}
