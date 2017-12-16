@@ -46,18 +46,21 @@
 
 .float {
   transition: all, 0.3s;
-  opacity: 0.6;
+  /* opacity: 0.6; */
+  background-color: rgba(255, 255, 255, 0.6);
 }
 
 .float:hover {
   transform: translateY(-3px) translateX(-3px);
-  opacity: 1;
+  /* opacity: 1; */
   /* box-shadow: 5px 5px 2px 1px gray; */
+  background-color: rgba(255, 255, 255, 1);
  
 }
 
 .actual-graph {
   background-color: whitesmoke;
+  background-color: rgba(255, 255, 255, 0.6);
   /* text-align: center; */
   border-radius: 0px 0px 3px 3px;
   margin: 10px 0px;
@@ -84,7 +87,7 @@
 .info-tab div {
   margin: 10px;
   min-width: 400px;
-  background-color: whitesmoke;
+  /* background-color: whitesmoke; */
   min-height: 200px;
   /* border: 1px solid black; */
 }
