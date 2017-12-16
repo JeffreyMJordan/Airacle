@@ -129,7 +129,7 @@ class Form extends React.Component {
               onChange={this.update("originAirport")}
               placeholder="Origin Airport"
             /> */}
-            <p>Origin Airport Code</p>
+            <p>Origin Airport</p>
             <Select
             name="form-field-name"
             options={this.airportOptions}
@@ -140,7 +140,7 @@ class Form extends React.Component {
             // clearable={true}
           />
 
-          <p>Destination Airport Code</p>
+          <p>Destination Airport</p>
             <Select
             name="form-field-name"
             options={this.airportOptions}

@@ -32839,7 +32839,7 @@ var Form = function (_React$Component) {
             _react2.default.createElement(
               'p',
               null,
-              'Origin Airport Code'
+              'Origin Airport'
             ),
             _react2.default.createElement(_reactSelect2.default, {
               name: 'form-field-name',
@@ -32853,7 +32853,7 @@ var Form = function (_React$Component) {
             _react2.default.createElement(
               'p',
               null,
-              'Destination Airport Code'
+              'Destination Airport'
             ),
             _react2.default.createElement(_reactSelect2.default, {
               name: 'form-field-name',
