@@ -1,5 +1,6 @@
 import React from 'react';
 import * as d3 from 'd3';
+import ToolTip from './tooltip';
 
 export default class Bars extends React.Component {
     constructor(props) {
@@ -7,6 +8,9 @@ export default class Bars extends React.Component {
         this.renderBars = this.renderBars.bind(this);
         this.select = this.select.bind(this);
         this.unSelect = this.unSelect.bind(this);   
+        this.state = {
+          display: false
+        }
     }
 
     renderBars() {
@@ -48,6 +52,8 @@ export default class Bars extends React.Component {
 
       d3.select(`.bar${index}`).transition(t)
         .style("fill", "rgb(15, 135, 140)");
+
+      this.setState({display: true})
     }
 
     unSelect(index, coords) {
@@ -57,11 +63,12 @@ export default class Bars extends React.Component {
 
       d3.select(`.bar${index}`).transition(t)
         .style("fill", "rgb(2, 175, 182)");
+
+      this.setState({display: false })
     }
 
     componentDidMount() {
       const barPoints = this.props.data;
-      console.log(this.props.data)
       let t = d3.transition()
         .duration(1000)
         .ease(d3.easeLinear)
@@ -76,8 +83,10 @@ export default class Bars extends React.Component {
 
 
     render() {
+      const tooltip = {data: this.props.data, display: false }
         return <g className="bars">
         { this.props.data.map(this.renderBars())}
+        <ToolTip {...this.props} display={this.state.display} />
       </g>;
     }
 }

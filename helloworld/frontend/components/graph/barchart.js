@@ -22,6 +22,7 @@ export default(props) => {
   let t = d3.transition().duration(750).ease(d3.easeLinear);
   d3.selectAll("Bars").transition(t).style("fill", "red");
   return <svg className="barchart" width={props.width} height={props.height}>
+  <h3>Predicted Delay Times</h3>
     <Bars {...props} {...scales} />
     <BarAxis {...props} {...scales} />
   </svg>;
