@@ -4730,6 +4730,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 var RECEIVE_PREDICTION = exports.RECEIVE_PREDICTION = "RECEIVE_PREDICTION";
 
 var receivePrediction = function receivePrediction(prediction) {
+  console.log(prediction);
   return {
     type: RECEIVE_PREDICTION,
     prediction: prediction
@@ -85380,9 +85381,10 @@ exports.default = function () {
 
   var newState = void 0;
   Object.freeze(state);
+  console.log(action);
   switch (action.type) {
     case _predictor_actions.RECEIVE_PREDICTION:
-      newState = (0, _lodash.merge)({}, state, action);
+      newState = (0, _lodash.merge)({}, action.prediction);
       return newState;
     default:
       return state;
