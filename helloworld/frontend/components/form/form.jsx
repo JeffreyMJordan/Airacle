@@ -20,11 +20,13 @@ class Form extends React.Component {
     let allOptions = optionsGenerator();
     this.airportOptions = allOptions["AirportCodeOptions"];
     this.airlineOptions = allOptions["AirlineCodeOptions"];
+    this.monthOptions = allOptions["MonthOptions"];
     this.nonDropdownChange = this.nonDropdownChange.bind(this);
   }
 
   handleSubmit(e) {
     e.preventDefault();
+    console.log(this.state);
     let paramsArr = [ this.state.month, this.state.airline, this.state.originAirport, this.state.destAirport, this.state.distance ];
     // this.state.params = paramsArr;
     
@@ -81,13 +83,24 @@ class Form extends React.Component {
             // clearable={true}
           /> */}
 
-            <input
+            {/* <input
               // className="session-input"
               type="number"
               // value={this.state.month}
               onChange={this.nonDropdownChange("month")}
               placeholder="Month"
-            />
+            /> */}
+
+            <p>Month</p>
+              <Select
+                name="form-field-name"
+                options={this.monthOptions}
+                autoFocus
+                searchable={true}
+                onChange={this.update('month')}
+                value={this.state.month}
+                // clearable={true}
+              />
 
 
             {/* <input
