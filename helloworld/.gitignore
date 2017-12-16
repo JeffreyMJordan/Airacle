@@ -1,6 +1,7 @@
 venv
 *.pyc
-__pycache__/
+predictions/__pycache__/
+helloworld/__pycache__/
 staticfiles
 .env
 node_modules/
