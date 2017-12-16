@@ -9073,12 +9073,12 @@ var Graph = function (_React$Component) {
             { className: 'graph-container' },
             _react2.default.createElement(
               'div',
+              { className: 'delay-container' },
+              this.delayStatus()
+            ),
+            _react2.default.createElement(
+              'div',
               { className: 'info-container' },
-              _react2.default.createElement(
-                'div',
-                { className: 'delay-container' },
-                this.delayStatus()
-              ),
               _react2.default.createElement(
                 'div',
                 { className: 'actual-graph' },
@@ -9089,6 +9089,13 @@ var Graph = function (_React$Component) {
                   'Predicted Delay Times'
                 ),
                 _react2.default.createElement(_barchart2.default, _extends({}, stats, styles))
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'info-tab' },
+                _react2.default.createElement('div', { className: 'other-airlines' }),
+                _react2.default.createElement('div', { className: 'project-info' }),
+                _react2.default.createElement('div', { className: 'other-info' })
               )
             )
           )
@@ -32806,63 +32813,95 @@ var Form = function (_React$Component) {
           _react2.default.createElement(
             'div',
             null,
-            _react2.default.createElement('input', {
-              // className="session-input"
-              type: 'number'
-              // value={this.state.month}
-              , onChange: this.nonDropdownChange("month"),
-              placeholder: 'Month'
-            }),
             _react2.default.createElement(
-              'p',
-              null,
-              'Airline Code'
+              'div',
+              { className: 'welcome' },
+              _react2.default.createElement(
+                'h2',
+                null,
+                'No more delays'
+              ),
+              _react2.default.createElement(
+                'p',
+                null,
+                'With the power of machine learning, find out if your flight will be delayed before you book your flight!'
+              )
             ),
-            _react2.default.createElement(_reactSelect2.default, {
-              name: 'form-field-name',
-              options: this.airlineOptions,
-              autoFocus: true,
-              searchable: true,
-              onChange: this.update('airline'),
-              value: this.state.airline
-              // clearable={true}
-            }),
             _react2.default.createElement(
-              'p',
+              'div',
               null,
-              'Origin Airport Code'
+              _react2.default.createElement(
+                'p',
+                null,
+                'Select your flight below'
+              )
             ),
-            _react2.default.createElement(_reactSelect2.default, {
-              name: 'form-field-name',
-              options: this.airportOptions,
-              autoFocus: true,
-              searchable: true,
-              onChange: this.update('originAirport'),
-              value: this.state.originAirport
-              // clearable={true}
-            }),
             _react2.default.createElement(
-              'p',
-              null,
-              'Destination Airport Code'
-            ),
-            _react2.default.createElement(_reactSelect2.default, {
-              name: 'form-field-name',
-              options: this.airportOptions,
-              autoFocus: true,
-              searchable: true,
-              onChange: this.update('destAirport'),
-              value: this.state.destAirport
-              // clearable={true}
-            }),
-            _react2.default.createElement('input', {
-              // className="session-input"
-              type: 'number'
-              // value={this.state.destAirport}
-              , onChange: this.nonDropdownChange("distance"),
-              placeholder: 'Distance'
-            }),
-            _react2.default.createElement('input', { className: 'session-submit', type: 'submit', value: 'Predict delay' })
+              'div',
+              { className: 'flight-input' },
+              _react2.default.createElement(
+                'div',
+                { className: 'input-form' },
+                _react2.default.createElement('input', {
+                  // className="session-input"
+                  type: 'date'
+                  // value={this.state.month}
+                  , onChange: this.nonDropdownChange("month"),
+                  placeholder: 'Month'
+                })
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'input-form' },
+                _react2.default.createElement(_reactSelect2.default, {
+                  name: 'form-field-name',
+                  options: this.airlineOptions,
+                  autoFocus: true,
+                  searchable: true,
+                  onChange: this.update('airline'),
+                  value: this.state.airline
+                  // clearable={true}
+                })
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'input-form' },
+                _react2.default.createElement(_reactSelect2.default, {
+                  name: 'form-field-name',
+                  options: this.airportOptions,
+                  autoFocus: true,
+                  searchable: true,
+                  onChange: this.update('originAirport'),
+                  value: this.state.originAirport
+                  // clearable={true}
+                })
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'input-form' },
+                _react2.default.createElement(_reactSelect2.default, {
+                  name: 'form-field-name',
+                  options: this.airportOptions,
+                  autoFocus: true,
+                  searchable: true,
+                  onChange: this.update('destAirport'),
+                  value: this.state.destAirport
+                  // clearable={true}
+                })
+              ),
+              _react2.default.createElement(
+                'div',
+                { className: 'input-form' },
+                _react2.default.createElement('input', {
+                  // className="session-input"
+                  type: 'number'
+                  // value={this.state.destAirport}
+                  , onChange: this.nonDropdownChange("distance"),
+                  placeholder: 'Distance'
+                })
+              ),
+              _react2.default.createElement('input', { className: 'session-submit', type: 'submit', value: 'Predict delay' })
+            )
           )
         )
       );

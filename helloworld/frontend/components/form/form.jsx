@@ -63,6 +63,16 @@ class Form extends React.Component {
         <form onSubmit={this.handleSubmit} className="params-form">
 
           <div>
+            <div className="welcome">
+              <h2>No more delays</h2>
+              <p>With the power of machine learning, find out if your flight will be delayed before you book your flight!</p>
+            </div>
+            <div>
+              <p>Select your flight below</p>
+            </div>
+
+            <div className="flight-input">
+
           {/* Outside component from a node package. Found here: https://jedwatson.github.io/react-select/ */}
          
           {/* <Select
@@ -80,91 +90,94 @@ class Form extends React.Component {
             value={this.state.month}
             // clearable={true}
           /> */}
+            <div className="input-form">
+              <input
+                // className="session-input"
+                type="date"
+                // value={this.state.month}
+                onChange={this.nonDropdownChange("month")}
+                placeholder="Month"
+                />
 
-            <input
-              // className="session-input"
-              type="number"
-              // value={this.state.month}
-              onChange={this.nonDropdownChange("month")}
-              placeholder="Month"
-            />
-
-
-            {/* <input
-              // className="session-input"
-              type="number"
-              // value={this.state.airline}
-              onChange={this.nonDropdownChange("airline")}
-              placeholder="Airline"
-            /> */}
-            <p>Airline Code</p>
-            <Select
-              name="form-field-name"
-              options={this.airlineOptions}
-              autoFocus
-              searchable={true}
-              onChange={this.update('airline')}
-              value={this.state.airline}
-              // clearable={true}
-            />
+            </div>
 
 
-            {/* <input
-              // className="session-input"
-              type="number"
-              // value={this.state.originAirport}
-              onChange={this.update("originAirport")}
-              placeholder="Origin Airport"
-            /> */}
-            <p>Origin Airport Code</p>
-            <Select
-            name="form-field-name"
-            options={this.airportOptions}
-            autoFocus
-            searchable={true}
-            onChange={this.update('originAirport')}
-            value={this.state.originAirport}
-            // clearable={true}
-          />
+              {/* <input
+                // className="session-input"
+                type="number"
+                // value={this.state.airline}
+                onChange={this.nonDropdownChange("airline")}
+                placeholder="Airline"
+              /> */}
+              <div className="input-form">
 
-          <p>Destination Airport Code</p>
-            <Select
-            name="form-field-name"
-            options={this.airportOptions}
-            autoFocus
-            searchable={true}
-            onChange={this.update('destAirport')}
-            value={this.state.destAirport}
-            // clearable={true}
-          />
+                {/* <p>Airline Code</p> */}
+                <Select
+                  name="form-field-name"
+                  options={this.airlineOptions}
+                  autoFocus
+                  searchable={true}
+                  onChange={this.update('airline')}
+                  value={this.state.airline}
+                  // clearable={true}
+                  />
+              </div>
 
 
+              {/* <input
+                // className="session-input"
+                type="number"
+                // value={this.state.originAirport}
+                onChange={this.update("originAirport")}
+                placeholder="Origin Airport"
+              /> */}
+              <div className="input-form">
+                {/* <p>Origin Airport Code</p> */}
+                <Select
+                name="form-field-name"
+                options={this.airportOptions}
+                autoFocus
+                searchable={true}
+                onChange={this.update('originAirport')}
+                value={this.state.originAirport}
+                // clearable={true}
+                />
+              </div>
+              <div className="input-form">
+                {/* <p>Destination Airport Code</p> */}
+                  <Select
+                  name="form-field-name"
+                  options={this.airportOptions}
+                  autoFocus
+                  searchable={true}
+                  onChange={this.update('destAirport')}
+                  value={this.state.destAirport}
+                  // clearable={true}
+                  />
+              </div>
 
+              {/* <input
+                // className="session-input"
+                type="number"
+                // value={this.state.destAirport}
+                onChange={this.update("destAirport")}
+                placeholder="Destination Airport"
+              /> */}
+              <div className="input-form">
 
+                <input
+                  // className="session-input"
+                  type="number"
+                  // value={this.state.destAirport}
+                  onChange={this.nonDropdownChange("distance")}
+                  placeholder="Distance"
+                  />
+              </div>
 
+              <input className="session-submit" type="submit" value="Predict delay" />
 
-
-
-            {/* <input
-              // className="session-input"
-              type="number"
-              // value={this.state.destAirport}
-              onChange={this.update("destAirport")}
-              placeholder="Destination Airport"
-            /> */}
-
-            <input
-              // className="session-input"
-              type="number"
-              // value={this.state.destAirport}
-              onChange={this.nonDropdownChange("distance")}
-              placeholder="Distance"
-            />
-
-            <input className="session-submit" type="submit" value="Predict delay" />
-
-          </div>
-         
+            </div>
+          </div> 
         </form>
       </div>
     );
