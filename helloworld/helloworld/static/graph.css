@@ -56,7 +56,9 @@
   /* box-shadow: 5px 5px 2px 1px gray; */
   background-color: rgba(255, 255, 255, 1);
   /* box-shadow: 10px 10px rgba(255, 255, 255, 0.3); */
- 
+}
+.xValues text {
+  font-size: 10px;
 }
 
 .actual-graph {

@@ -1,16 +1,8 @@
-import { merge } from 'lodash';
-import {
-  RECEIVE_PREDICTION
-} from '../actions/predictor_actions';
+import {combineReducers} from "redux";
+import PredictionReducer from './prediction_reducer';
+import FlightInfoReducer from './flight_info_reducer';
 
-export default (state = {}, action) => {
-  let newState;
-  Object.freeze(state);
-  switch (action.type) {
-    case RECEIVE_PREDICTION:
-      newState = merge({}, state, action);
-      return newState;
-    default:
-      return state;
-  }
-};
+export default combineReducers({
+  prediction: PredictionReducer,
+  info: FlightInfoReducer
+});
