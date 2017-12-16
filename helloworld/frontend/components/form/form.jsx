@@ -98,7 +98,7 @@ class Form extends React.Component {
                 // clearable={true}
               />
 
-            <p>Airline Code</p>
+            <p>Airline</p>
             <Select
               name="form-field-name"
               options={this.airlineOptions}

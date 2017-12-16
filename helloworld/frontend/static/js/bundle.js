@@ -32847,7 +32847,7 @@ var Form = function (_React$Component) {
             _react2.default.createElement(
               'p',
               null,
-              'Airline Code'
+              'Airline'
             ),
             _react2.default.createElement(_reactSelect2.default, {
               name: 'form-field-name',
