@@ -51,10 +51,11 @@
 }
 
 .float:hover {
-  transform: translateY(-3px) translateX(-3px);
+  transform: translateY(-1px) translateX(-1px);
   /* opacity: 1; */
   /* box-shadow: 5px 5px 2px 1px gray; */
   background-color: rgba(255, 255, 255, 1);
+  /* box-shadow: 10px 10px rgba(255, 255, 255, 0.3); */
  
 }
 
@@ -62,7 +63,7 @@
   background-color: whitesmoke;
   background-color: rgba(255, 255, 255, 0.6);
   /* text-align: center; */
-  border-radius: 0px 0px 3px 3px;
+  /* border-radius: 0px 0px 3px 3px; */
   margin: 10px 0px;
  
 }
