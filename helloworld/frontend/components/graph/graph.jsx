@@ -43,17 +43,18 @@ export default class Graph extends React.Component {
   }
 
   delayStatus() {
-    let certainty = this.state.probabilities[0] * 10;
+    let certainty = this.state.probabilities[0] * 100;
+    console.log(certainty);
     if (certainty > 49) {
       return (
         <h2>
-          {`I'm ${certainty}0% certain that your flight will`}<span className="no-delay"> not be delayed</span>
+          {`I'm ${certainty}% certain that your flight will`}<span className="no-delay"> not be delayed</span>
         </h2>
       );
     } else {
       return (
         <h2>
-          {`I'm ${10 - certainty}0% certain your flight`} <span className="delay"> will be delayed</span>
+          {`I'm ${10 - certainty}% certain your flight`} <span className="delay"> will be delayed</span>
         </h2>
       );
     }
@@ -61,8 +62,8 @@ export default class Graph extends React.Component {
 
   render() {
     // console.log(this.props);
-    let keys = [10, 30, 50];
-    let values = [0, 0, 0];
+    let keys = [0, 15, 30, 45, 60];
+    let values = [0, 0, 0, 0, 0];
     let pairs = [];
 
     if (!(JSON.stringify(this.state.probabilities) === "{}")) {
@@ -88,16 +89,19 @@ export default class Graph extends React.Component {
     
     return (
       <div>
-
         <div className="graph">
           <div className="graph-container">
-            <div className="delay-container">
-              {this.delayStatus()}
+            <div className="info-container">
+              <div className="delay-container">
+                {this.delayStatus()}
+              </div>
+              <div className="actual-graph">
+                <PredictionIndex probabilities={this.props.probabilities} highest={this.props.highest} />
+                <h3>Predicted Delay Times</h3>
+                {/* <LineGraph {...stats} {...styles}/> */}
+                <BarChart {...stats} {...styles} />
+              </div>
             </div>
-            {/* <PredictionIndex probabilities={this.props.probabilities} highest={this.props.highest}/> */}
-            <h3>Predicted Delay Times</h3>
-            {/* <LineGraph {...stats} {...styles}/> */}
-            <BarChart {...stats} {...styles} /> 
           </div>
         </div>
       </div>

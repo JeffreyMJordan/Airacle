@@ -16,7 +16,9 @@
 
 .delay-container {
   background-color: white;
+  border-radius: 3px 3px 0px 0px;
   text-align: center;
+  border-bottom: 1px solid gray;
 }
 
 .no-delay {
@@ -25,4 +27,18 @@
 
 .delay {
   color: red;
+}
+
+.actual-graph {
+  background-color: whitesmoke;
+  /* text-align: center; */
+  border-radius: 0px 0px 3px 3px;
+
+}
+
+.info-container {
+    display: flex;
+    background-color: white;
+    border-radius: 3px;
+    flex-direction: column;
 }
