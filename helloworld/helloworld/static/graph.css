@@ -1,25 +1,37 @@
+.graph-top {
+  height: 100%;
+}
 .graph {
   /* background-color: orange; */
+  min-height: 800px;
+  height: 100%;
   display: flex;
   justify-content: center;
   background-size: cover;
   background-image: url("/static/backgrounds/pexels-photo-6150601.jpeg");
   font-family: 'Roboto', sans-serif;
-  min-height: 1010px;
+  /* min-height: 1010px; */
+  /* margin: 0; */
 }
 
 .graph-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  /* height: 100%; */
 }
 
 .delay-container {
   background-color: white;
-  border-radius: 3px 3px 0px 0px;
+  border-radius: 2px;
   text-align: center;
   border-bottom: 1px solid gray;
-  font-size: 14px;
+  font-size: 20px;
+  /* width: 700px; */
+  margin: 15px;
+  padding: 0px 27px;
+  /* height: 100%; */
 }
 
 .no-delay {
@@ -38,16 +50,26 @@
   background-color: whitesmoke;
   /* text-align: center; */
   border-radius: 0px 0px 3px 3px;
+  margin: 10px 0px;
 
 }
 
 .info-container {
     display: flex;
-    background-color: white;
+    /* background-color: white; */
     border-radius: 3px;
-    flex-direction: column;
+    /* flex-direction: column; */
 }
 
 .graph-h3 {
   text-align: center;
+}
+
+
+.info-tab div {
+  margin: 10px;
+  min-width: 400px;
+  background-color: whitesmoke;
+  min-height: 200px;
+  /* border: 1px solid black; */
 }

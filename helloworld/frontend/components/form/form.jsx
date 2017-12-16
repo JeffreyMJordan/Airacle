@@ -2,6 +2,7 @@ import React from 'react';
 import {withRouter} from "react-router-dom";
 import Select from 'react-select';
 import optionsGenerator from './data/optionsGenerator';
+import codesToDistance from './data/CombinedCodesToDistance';
 // import 'react-select/dist/react-select.css';
 
 class Form extends React.Component {
@@ -20,11 +21,15 @@ class Form extends React.Component {
     let allOptions = optionsGenerator();
     this.airportOptions = allOptions["AirportCodeOptions"];
     this.airlineOptions = allOptions["AirlineCodeOptions"];
+    this.monthOptions = allOptions["MonthOptions"];
     this.nonDropdownChange = this.nonDropdownChange.bind(this);
+    this.combinedCode = {"destAirport": "", "originAirport": ""};
+    this.regex = /\((.+)\)/;
   }
 
   handleSubmit(e) {
     e.preventDefault();
+    console.log(this.state);
     let paramsArr = [ this.state.month, this.state.airline, this.state.originAirport, this.state.destAirport, this.state.distance ];
     // this.state.params = paramsArr;
     
@@ -39,7 +44,7 @@ class Form extends React.Component {
 
   nonDropdownChange(input){
     return (e) => {
-      this.setState({[input]: e.target.value})
+      this.setState({[input]: e.target.value});
     };
   }
 
@@ -47,6 +52,23 @@ class Form extends React.Component {
     return (selectedOption) => {
       this.setState({[input]: selectedOption.value});
       console.log(this.state);
+
+      if(input==="originAirport" || input==="destAirport"){
+        
+        this.combinedCode[input] = this.regex.exec(selectedOption.label)[1]
+        let codeStr = this.combinedCode["destAirport"] + this.combinedCode["originAirport"];
+        
+        if(codeStr.length===6){
+          console.log(codesToDistance["ABEATL"]);
+          console.log(codeStr);
+          if(codesToDistance[codeStr]){
+            this.setState({distance: codesToDistance[codeStr]});
+          }else{
+            this.setState({distance: 0});
+          }
+        }
+      }
+
     };
   }
 
@@ -63,6 +85,13 @@ class Form extends React.Component {
         <form onSubmit={this.handleSubmit} className="params-form">
 
           <div>
+            <div className="welcome">
+              <h2>No more delays</h2>
+              <p>With the power of machine learning, find out if your flight will be delayed before you book your flight!</p>
+            </div>
+
+            <div className="flight-input">
+
           {/* Outside component from a node package. Found here: https://jedwatson.github.io/react-select/ */}
          
           {/* <Select
@@ -80,91 +109,109 @@ class Form extends React.Component {
             value={this.state.month}
             // clearable={true}
           /> */}
-
-            <input
+            {/* <div className="input-form">
+              <input
               // className="session-input"
-              type="number"
+              type="date"
               // value={this.state.month}
               onChange={this.nonDropdownChange("month")}
               placeholder="Month"
-            />
+              />
+              
+            </div> */}
+              <div className="input-form">
+
+                <Select
+                  name="form-field-name"
+                  options={this.monthOptions}
+                  autoFocus
+                  searchable={true}
+                  onChange={this.update('month')}
+                  value={this.state.month}
+                // clearable={true}
+                />
+              </div>
 
 
-            {/* <input
-              // className="session-input"
-              type="number"
-              // value={this.state.airline}
-              onChange={this.nonDropdownChange("airline")}
-              placeholder="Airline"
-            /> */}
-            <p>Airline Code</p>
-            <Select
-              name="form-field-name"
-              options={this.airlineOptions}
-              autoFocus
-              searchable={true}
-              onChange={this.update('airline')}
-              value={this.state.airline}
-              // clearable={true}
-            />
+              {/* <input
+                // className="session-input"
+                type="number"
+                // value={this.state.airline}
+                onChange={this.nonDropdownChange("airline")}
+                placeholder="Airline"
+              /> */}
+              <div className="input-form">
+
+                {/* <p>Airline Code</p> */}
+                <Select
+                  name="form-field-name"
+                  options={this.airlineOptions}
+                  autoFocus
+                  searchable={true}
+                  onChange={this.update('airline')}
+                  value={this.state.airline}
+                  // clearable={true}
+                  />
+              </div>
 
 
-            {/* <input
-              // className="session-input"
-              type="number"
-              // value={this.state.originAirport}
-              onChange={this.update("originAirport")}
-              placeholder="Origin Airport"
-            /> */}
-            <p>Origin Airport Code</p>
-            <Select
-            name="form-field-name"
-            options={this.airportOptions}
-            autoFocus
-            searchable={true}
-            onChange={this.update('originAirport')}
-            value={this.state.originAirport}
-            // clearable={true}
-          />
+              {/* <input
+                // className="session-input"
+                type="number"
+                // value={this.state.originAirport}
+                onChange={this.update("originAirport")}
+                placeholder="Origin Airport"
+              /> */}
+              <div className="input-form">
+                {/* <p>Origin Airport Code</p> */}
+                <Select
+                name="form-field-name"
+                options={this.airportOptions}
+                autoFocus
+                searchable={true}
+                onChange={this.update('originAirport')}
+                value={this.state.originAirport}
+                // clearable={true}
+                />
+              </div>
+              <div className="input-form">
+                {/* <p>Destination Airport Code</p> */}
+                  <Select
+                  name="form-field-name"
+                  options={this.airportOptions}
+                  autoFocus
+                  searchable={true}
+                  onChange={this.update('destAirport')}
+                  value={this.state.destAirport}
+                  // clearable={true}
+                  />
+              </div>
 
-          <p>Destination Airport Code</p>
-            <Select
-            name="form-field-name"
-            options={this.airportOptions}
-            autoFocus
-            searchable={true}
-            onChange={this.update('destAirport')}
-            value={this.state.destAirport}
-            // clearable={true}
-          />
+              {/* <input
+                // className="session-input"
+                type="number"
+                // value={this.state.destAirport}
+                onChange={this.update("destAirport")}
+                placeholder="Destination Airport"
+              /> */}
+              {/* <div className="input-form">
 
+<input
+// className="session-input"
+type="number"
+// value={this.state.destAirport}
+onChange={this.nonDropdownChange("distance")}
+placeholder="Distance"
+/>
+</div> */}
 
+              <input className="session-submit" type="submit" value="Predict delay" />
 
-
-
-
-
-
-            {/* <input
-              // className="session-input"
-              type="number"
-              // value={this.state.destAirport}
-              onChange={this.update("destAirport")}
-              placeholder="Destination Airport"
-            /> */}
-
-            <input
-              // className="session-input"
-              type="number"
-              // value={this.state.destAirport}
-              onChange={this.nonDropdownChange("distance")}
-              placeholder="Distance"
-            />
-
-            <input className="session-submit" type="submit" value="Predict delay" />
-
+            </div>
+          </div> 
+          <div className="subtitle">
+            <p>Select your flight</p>
           </div>
-         
         </form>
       </div>
     );

@@ -1,8 +1,13 @@
+html, body, main, .app {
+  height: 100%;
+}
+
 .form-cont {
   display:flex; 
   justify-content: center;
   background-size: cover;
-  min-height: 1010px;
+  height: 100%;
+  /* min-height: 1010px; */
   /* min-height: 500px; */
   font-family: 'Roboto', sans-serif;
   background-image: url("/static/backgrounds/flying-airplane-plane-landing1.jpg");
@@ -17,9 +22,65 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  /* width: 500px; */
+}
+
+.flight-input {
+  display: flex;
+  justify-content: center;
+}
+
+.session-submit {
+    border-radius: 3px;
+    width: 132px;
+    height: 54px;
+    /* padding: 15px; */
+    margin: 0px 15px;
+    font-size: 16px;
+    color: darkgray;
+    border: 1px solid gray;
+    transition: all, 0.6s;
+    background-color: white;
+}
+
+.session-submit:hover {
+  color: blueviolet;
+  cursor: pointer;
+  border: 1px solid blueviolet;
+  background-color: whitesmoke;
+}
+
+.session-submit:focus {
+  outline: 0;
 }
 
 
+.input-form {
+  width: 150px;
+  margin: 0px 3px;
+}
 
+.input-form input {
+  height: 30px;
+}
 
+.welcome {
+  text-align: center;
+}
 
+.welcome p {
+    font-weight: 300;
+    font-size: 20px;
+}
+
+.subtitle {
+    padding-left: 60px;
+    font-size: 14px;
+    font-weight: 300;
+    color: forestgreen;
+}
+
+.subtitle p {
+  margin: 0;
+  margin-top: 6px;
+}
