@@ -34,7 +34,9 @@ class Form extends React.Component {
     // this.state.params = paramsArr;
     
 
-    this.props.fetchPrediction(paramsArr.map((el) => parseInt(el))).then((e) => this.props.history.push("/graph"));
+    this.props.fetchPrediction(paramsArr.map((el) => parseInt(el)))
+    .then((res) => (this.props.receiveInfo({})))
+    .then((e) => this.props.history.push("/graph"));
   }
 
   handleChange(selectedOption){
@@ -194,7 +196,7 @@ class Form extends React.Component {
                 onChange={this.update("destAirport")}
                 placeholder="Destination Airport"
               /> */}
-              
+
               {/* <div className="input-form">
 
                 <input

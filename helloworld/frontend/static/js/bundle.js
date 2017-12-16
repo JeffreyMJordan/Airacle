@@ -30929,6 +30929,8 @@ var _form2 = _interopRequireDefault(_form);
 
 var _predictor_actions = __webpack_require__(76);
 
+var _flight_info_actions = __webpack_require__(608);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var mapStateToProps = function mapStateToProps(state) {
@@ -30939,6 +30941,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     fetchPrediction: function fetchPrediction(paramsArr) {
       return dispatch((0, _predictor_actions.fetchPrediction)(paramsArr));
+    },
+    receiveInfo: function receiveInfo(info) {
+      return dispatch((0, _flight_info_actions.receiveInfo)(info));
     }
   };
 };
@@ -32775,7 +32780,9 @@ var Form = function (_React$Component) {
 
       this.props.fetchPrediction(paramsArr.map(function (el) {
         return parseInt(el);
-      })).then(function (e) {
+      })).then(function (res) {
+        return _this2.props.receiveInfo({});
+      }).then(function (e) {
         return _this2.props.history.push("/graph");
       });
     }
@@ -85387,6 +85394,25 @@ exports.default = function () {
     default:
       return state;
   }
+};
+
+/***/ }),
+/* 608 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var RECEIVE_INFO = exports.RECEIVE_INFO = "RECEIVE_INFO";
+
+var receiveInfo = exports.receiveInfo = function receiveInfo(info) {
+  console.log("dispatched");
+  return {
+    type: RECEIVE_INFO,
+    info: info };
 };
 
 /***/ })
