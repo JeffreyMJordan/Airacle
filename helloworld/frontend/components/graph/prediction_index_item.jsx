@@ -4,8 +4,8 @@ class PredictionIndexItem extends React.Component{
   constructor(props){
     super(props);
     console.log(props)
-    this.titleHash = {"0": "No delay", "15": "Delay of less than 15 minutes", "30": "Delay of less than 30 minutes", 
-    "45": "Delay of less than 45 minutes", "46": "Delay greater than 45 minutes"}
+    this.titleHash = {"0": "No delay", "15": "<15 minutes", "30": "<30 minutes", 
+    "45": "<45 minutes", "46": ">45 minutes"}
   }
 
   render(){
