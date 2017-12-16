@@ -9014,7 +9014,7 @@ var Graph = function (_React$Component) {
         return _react2.default.createElement(
           'h2',
           null,
-          'Airacle is ' + certainty + '% certain that your flight will',
+          'Airacle is ' + certainty + '% certain that your flight from ' + this.props.info.origin + ' to ' + this.props.info.dest + ' will',
           _react2.default.createElement(
             'span',
             { className: 'no-delay' },
@@ -9025,7 +9025,7 @@ var Graph = function (_React$Component) {
         return _react2.default.createElement(
           'h2',
           null,
-          'Airacle is ' + (100 - certainty) + '% certain your flight',
+          'Airacle is ' + (100 - certainty) + '% certain your flight from ' + this.props.info.origin + ' to ' + this.props.info.dest,
           ' ',
           _react2.default.createElement(
             'span',
@@ -32751,9 +32751,9 @@ var Form = function (_React$Component) {
       month: 0,
       airline: 0,
       originAirport: 0,
-      originAirportName: "",
+      originAirportName: "N/A",
       destAirport: 0,
-      destAirportName: "",
+      destAirportName: "N/A",
       distance: 0,
       dummy: "Lol"
     };
@@ -68157,16 +68157,22 @@ var mapStateToProps = function mapStateToProps(state) {
   var probabilities = {};
   var highest = undefined;
   var prediction = undefined;
+  var info = {};
   if (state.prediction) {
     probabilities = state.prediction.probabilities;
     highest = state.prediction.highest;
     prediction = state.prediction;
   }
+  if (state.info) {
+    info["origin"] = state.info["originAirport"];
+    info["dest"] = state.info["destAirport"];
+  }
   return {
     data: state.data,
     probabilities: probabilities,
     highest: highest,
-    prediction: prediction
+    prediction: prediction,
+    info: info
   };
 };
 

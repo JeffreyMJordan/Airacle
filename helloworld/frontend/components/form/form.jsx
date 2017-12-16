@@ -12,9 +12,9 @@ class Form extends React.Component {
       month: 0,
       airline: 0,
       originAirport: 0,
-      originAirportName: "",
+      originAirportName: "N/A",
       destAirport: 0,
-      destAirportName: "",
+      destAirportName: "N/A",
       distance: 0,
       dummy: "Lol"
     };
