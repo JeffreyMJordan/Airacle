@@ -12,6 +12,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 .delay-container {
@@ -20,6 +21,7 @@
   text-align: center;
   border-bottom: 1px solid gray;
   font-size: 14px;
+  width: 500px;
 }
 
 .no-delay {
@@ -39,11 +41,20 @@
 
 .info-container {
     display: flex;
-    background-color: white;
+    /* background-color: white; */
     border-radius: 3px;
-    flex-direction: column;
+    /* flex-direction: column; */
 }
 
 .graph-h3 {
   text-align: center;
+}
+
+
+.info-tab div {
+  margin: 10px;
+  min-width: 400px;
+  background-color: whitesmoke;
+  min-height: 200px;
+  border: 1px solid black;
 }

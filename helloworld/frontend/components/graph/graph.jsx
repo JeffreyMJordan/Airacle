@@ -91,15 +91,28 @@ export default class Graph extends React.Component {
       <div>
         <div className="graph">
           <div className="graph-container">
-            <div className="info-container">
               <div className="delay-container">
                 {this.delayStatus()}
               </div>
-              <div className="actual-graph">
-                <PredictionIndex probabilities={this.props.probabilities} highest={this.props.highest} />
-                <h3 className="graph-h3">Predicted Delay Times</h3>
-                {/* <LineGraph {...stats} {...styles}/> */}
-                <BarChart {...stats} {...styles} />
+            <div className="info-container">
+         
+                <div className="actual-graph">
+                  <PredictionIndex probabilities={this.props.probabilities} highest={this.props.highest} />
+                  <h3 className="graph-h3">Predicted Delay Times</h3>
+                  {/* <LineGraph {...stats} {...styles}/> */}
+                  <BarChart {...stats} {...styles} />
+                </div>
+                <div className="info-tab">
+                  <div className="other-airlines">
+
+                  </div>
+                  <div className="project-info">
+
+                  </div>
+                  <div className="other-info">
+
+                
+                </div>
               </div>
             </div>
           </div>

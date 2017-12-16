@@ -85,7 +85,18 @@ class Form extends React.Component {
         <form onSubmit={this.handleSubmit} className="params-form">
 
           <div>
+            <div className="welcome">
+              <h2>No more delays</h2>
+              <p>With the power of machine learning, find out if your flight will be delayed before you book your flight!</p>
+            </div>
+            <div>
+              <p>Select your flight below</p>
+            </div>
+
+            <div className="flight-input">
+
           {/* Outside component from a node package. Found here: https://jedwatson.github.io/react-select/ */}
+<<<<<<< HEAD
 
             <p>Month</p>
               <Select
@@ -145,6 +156,112 @@ class Form extends React.Component {
 
           </div>
          
+=======
+         
+          {/* <Select
+            name="form-field-name"
+            options={[
+              { value: 'one', label: 'One' },
+              { value: 'two', label: 'Two' },
+              { value: 'three', label: 'Three' },
+              { value: 'four', label: 'Four' },
+              { value: 'five', label: 'Five' },
+            ]}
+            autoFocus
+            searchable={true}
+            onChange={this.update('month')}
+            value={this.state.month}
+            // clearable={true}
+          /> */}
+            <div className="input-form">
+              <input
+                // className="session-input"
+                type="date"
+                // value={this.state.month}
+                onChange={this.nonDropdownChange("month")}
+                placeholder="Month"
+                />
+
+            </div>
+
+
+              {/* <input
+                // className="session-input"
+                type="number"
+                // value={this.state.airline}
+                onChange={this.nonDropdownChange("airline")}
+                placeholder="Airline"
+              /> */}
+              <div className="input-form">
+
+                {/* <p>Airline Code</p> */}
+                <Select
+                  name="form-field-name"
+                  options={this.airlineOptions}
+                  autoFocus
+                  searchable={true}
+                  onChange={this.update('airline')}
+                  value={this.state.airline}
+                  // clearable={true}
+                  />
+              </div>
+
+
+              {/* <input
+                // className="session-input"
+                type="number"
+                // value={this.state.originAirport}
+                onChange={this.update("originAirport")}
+                placeholder="Origin Airport"
+              /> */}
+              <div className="input-form">
+                {/* <p>Origin Airport Code</p> */}
+                <Select
+                name="form-field-name"
+                options={this.airportOptions}
+                autoFocus
+                searchable={true}
+                onChange={this.update('originAirport')}
+                value={this.state.originAirport}
+                // clearable={true}
+                />
+              </div>
+              <div className="input-form">
+                {/* <p>Destination Airport Code</p> */}
+                  <Select
+                  name="form-field-name"
+                  options={this.airportOptions}
+                  autoFocus
+                  searchable={true}
+                  onChange={this.update('destAirport')}
+                  value={this.state.destAirport}
+                  // clearable={true}
+                  />
+              </div>
+
+              {/* <input
+                // className="session-input"
+                type="number"
+                // value={this.state.destAirport}
+                onChange={this.update("destAirport")}
+                placeholder="Destination Airport"
+              /> */}
+              <div className="input-form">
+
+                <input
+                  // className="session-input"
+                  type="number"
+                  // value={this.state.destAirport}
+                  onChange={this.nonDropdownChange("distance")}
+                  placeholder="Distance"
+                  />
+              </div>
+
+              <input className="session-submit" type="submit" value="Predict delay" />
+
+            </div>
+          </div> 
+>>>>>>> e906f58d3ffd0e131e20d3179ad80708076f7c64
         </form>
       </div>
     );
