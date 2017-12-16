@@ -13,7 +13,7 @@ export default class ToolTip extends React.Component {
         <div>{this.props.data}</div>
       )
     } else {
-      return <div></div>
+      return null
     }
     
   }

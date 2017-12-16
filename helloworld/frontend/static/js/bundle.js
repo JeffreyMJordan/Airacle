@@ -77006,8 +77006,6 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = __webpack_require__(4);
@@ -77017,10 +77015,6 @@ var _react2 = _interopRequireDefault(_react);
 var _d = __webpack_require__(63);
 
 var d3 = _interopRequireWildcard(_d);
-
-var _tooltip = __webpack_require__(606);
-
-var _tooltip2 = _interopRequireDefault(_tooltip);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -77041,11 +77035,9 @@ var Bars = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (Bars.__proto__ || Object.getPrototypeOf(Bars)).call(this, props));
 
     _this.renderBars = _this.renderBars.bind(_this);
+    _this.renderToolTips = _this.renderToolTips.bind(_this);
     _this.select = _this.select.bind(_this);
     _this.unSelect = _this.unSelect.bind(_this);
-    _this.state = {
-      display: false
-    };
     return _this;
   }
 
@@ -77057,7 +77049,6 @@ var Bars = function (_React$Component) {
       var barPoints = this.props.data;
       var select = this.select;
       var unSelect = this.unSelect;
-      var div = d3.selectAll("svg").append("div").attr("class", "tooltip").style("opacity", 0);
 
       return function (coords, index) {
         var pointProps = {
@@ -77081,13 +77072,37 @@ var Bars = function (_React$Component) {
       };
     }
   }, {
+    key: 'renderToolTips',
+    value: function renderToolTips() {
+      var _this3 = this;
+
+      return function (coords, index) {
+        console.log(coords);
+        var ttProps = {
+          r: 411 / 11,
+          className: 'tt' + index,
+          opacity: 0,
+          cy: _this3.props.yScale(coords[1]) - 411 / 11,
+          cx: _this3.props.xScale(coords[0]) + 411 / 11,
+          fill: 'steelblue',
+          text: coords[1] + ' chance of a ' + coords[0] + ' minute delay',
+          key: index
+        };
+
+        var tooltip = _react2.default.createElement('circle', ttProps);
+        d3.select("tootip").append("text").text('' + ttProps.text);
+
+        return tooltip;
+      };
+    }
+  }, {
     key: 'select',
     value: function select(index, coords) {
       var t = d3.transition().duration(100).ease(d3.easeLinear);
 
       d3.select('.bar' + index).transition(t).style("fill", "rgb(15, 135, 140)");
 
-      this.setState({ display: true });
+      d3.select('.tt' + index).transition(t).style("opacity", "0.9");
     }
   }, {
     key: 'unSelect',
@@ -77096,7 +77111,7 @@ var Bars = function (_React$Component) {
 
       d3.select('.bar' + index).transition(t).style("fill", "rgb(2, 175, 182)");
 
-      this.setState({ display: false });
+      d3.select('.tt' + index).transition(t).style("opacity", "0");
     }
   }, {
     key: 'componentDidMount',
@@ -77116,7 +77131,7 @@ var Bars = function (_React$Component) {
         'g',
         { className: 'bars' },
         this.props.data.map(this.renderBars()),
-        _react2.default.createElement(_tooltip2.default, _extends({}, this.props, { display: this.state.display }))
+        this.props.data.map(this.renderToolTips())
       );
     }
   }]);
@@ -80248,67 +80263,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = { "AA": 19805, "AS": 19930, "B6": 20409, "DL": 19790, "EV": 20366, "F9": 20436, "HA": 19690, "NK": 20416, "OO": 20304, "UA": 19977, "VX": 21171, "WN": 19393 };
 
 /***/ }),
-/* 606 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(4);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _d = __webpack_require__(63);
-
-var d3 = _interopRequireWildcard(_d);
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var ToolTip = function (_React$Component) {
-  _inherits(ToolTip, _React$Component);
-
-  function ToolTip(props) {
-    _classCallCheck(this, ToolTip);
-
-    return _possibleConstructorReturn(this, (ToolTip.__proto__ || Object.getPrototypeOf(ToolTip)).call(this, props));
-  }
-
-  _createClass(ToolTip, [{
-    key: 'render',
-    value: function render() {
-      console.log(this);
-      if (this.props.display === true) {
-        return _react2.default.createElement(
-          'div',
-          null,
-          this.props.data
-        );
-      } else {
-        return _react2.default.createElement('div', null);
-      }
-    }
-  }]);
-
-  return ToolTip;
-}(_react2.default.Component);
-
-exports.default = ToolTip;
-
-/***/ }),
+/* 606 */,
 /* 607 */
 /***/ (function(module, exports, __webpack_require__) {
 
