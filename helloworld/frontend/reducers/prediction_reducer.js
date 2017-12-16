@@ -6,7 +6,6 @@ import {
 export default (state = {}, action) => {
   let newState;
   Object.freeze(state);
-  console.log(action)
   switch (action.type) {
     case RECEIVE_PREDICTION:
       newState = merge({}, action.prediction);
