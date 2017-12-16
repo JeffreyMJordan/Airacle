@@ -89,9 +89,6 @@ class Form extends React.Component {
               <h2>No more delays</h2>
               <p>With the power of machine learning, find out if your flight will be delayed before you book your flight!</p>
             </div>
-            <div>
-              <p>Select your flight below</p>
-            </div>
 
             <div className="flight-input">
 
@@ -114,13 +111,13 @@ class Form extends React.Component {
           /> */}
             {/* <div className="input-form">
               <input
-                // className="session-input"
-                type="date"
-                // value={this.state.month}
-                onChange={this.nonDropdownChange("month")}
-                placeholder="Month"
-                />
-
+              // className="session-input"
+              type="date"
+              // value={this.state.month}
+              onChange={this.nonDropdownChange("month")}
+              placeholder="Month"
+              />
+              
             </div> */}
               <div className="input-form">
 
@@ -199,19 +196,22 @@ class Form extends React.Component {
               /> */}
               {/* <div className="input-form">
 
-                <input
-                  // className="session-input"
-                  type="number"
-                  // value={this.state.destAirport}
-                  onChange={this.nonDropdownChange("distance")}
-                  placeholder="Distance"
-                  />
-              </div> */}
+<input
+// className="session-input"
+type="number"
+// value={this.state.destAirport}
+onChange={this.nonDropdownChange("distance")}
+placeholder="Distance"
+/>
+</div> */}
 
               <input className="session-submit" type="submit" value="Predict delay" />
 
             </div>
           </div> 
+          <div className="subtitle">
+            <p>Select your flight</p>
+          </div>
         </form>
       </div>
     );

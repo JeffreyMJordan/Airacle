@@ -3,6 +3,7 @@
 }
 .graph {
   /* background-color: orange; */
+  min-height: 800px;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -10,6 +11,7 @@
   background-image: url("/static/backgrounds/pexels-photo-6150601.jpeg");
   font-family: 'Roboto', sans-serif;
   /* min-height: 1010px; */
+  /* margin: 0; */
 }
 
 .graph-container {
@@ -26,9 +28,9 @@
   text-align: center;
   border-bottom: 1px solid gray;
   font-size: 20px;
-  width: 700px;
+  /* width: 700px; */
   margin: 15px;
-  padding: 0px 20px;
+  padding: 0px 27px;
   /* height: 100%; */
 }
 

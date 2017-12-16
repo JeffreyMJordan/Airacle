@@ -9014,7 +9014,7 @@ var Graph = function (_React$Component) {
         return _react2.default.createElement(
           'h2',
           null,
-          'I\'m ' + certainty + '% certain that your flight will',
+          'Airacle is ' + certainty + '% certain that your flight will',
           _react2.default.createElement(
             'span',
             { className: 'no-delay' },
@@ -9025,7 +9025,7 @@ var Graph = function (_React$Component) {
         return _react2.default.createElement(
           'h2',
           null,
-          'I\'m ' + (100 - certainty) + '% certain your flight',
+          'Airacle is ' + (100 - certainty) + '% certain your flight',
           ' ',
           _react2.default.createElement(
             'span',
@@ -32853,15 +32853,6 @@ var Form = function (_React$Component) {
             ),
             _react2.default.createElement(
               'div',
-              null,
-              _react2.default.createElement(
-                'p',
-                null,
-                'Select your flight below'
-              )
-            ),
-            _react2.default.createElement(
-              'div',
               { className: 'flight-input' },
               _react2.default.createElement(
                 'div',
@@ -32916,6 +32907,15 @@ var Form = function (_React$Component) {
                 })
               ),
               _react2.default.createElement('input', { className: 'session-submit', type: 'submit', value: 'Predict delay' })
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'subtitle' },
+            _react2.default.createElement(
+              'p',
+              null,
+              'Select your flight'
             )
           )
         )
