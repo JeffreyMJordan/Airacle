@@ -66,15 +66,28 @@ body {
 
 .welcome {
   text-align: center;
+  background-color: white;
+  opacity: 0.6;
+  border-radius: 10px;
+  padding: 0px 20px;
+  margin: 26px 0px;
 }
 
+.title-box {
+  display: flex;
+  flex-direction: column;
+}
 .welcome p {
     font-weight: 300;
     font-size: 20px;
 }
 
+.welcome h2 {
+  font-size: 35px;
+}
+
 .subtitle {
-    padding-left: 60px;
+    padding-left: 80px;
     font-size: 14px;
     font-weight: 300;
     color: forestgreen;
@@ -83,4 +96,17 @@ body {
 .subtitle p {
   margin: 0;
   margin-top: 6px;
+}
+
+.title {
+  font-size: 135px;
+  text-align: center;
+  /* font-family: 'Happy Monkey', cursive; */
+  font-family: 'Oldenburg', cursive;
+  color: floralwhite;
+  opacity: 0.8;
+  border-bottom: 3px solid forestgreen;
+  width: 77%;
+  align-self: center;
+  margin-bottom: 20px;
 }

@@ -32865,7 +32865,12 @@ var Form = function (_React$Component) {
           { onSubmit: this.handleSubmit, className: 'params-form' },
           _react2.default.createElement(
             'div',
-            null,
+            { className: 'title-box' },
+            _react2.default.createElement(
+              'div',
+              { className: 'title' },
+              'Airacle'
+            ),
             _react2.default.createElement(
               'div',
               { className: 'welcome' },
