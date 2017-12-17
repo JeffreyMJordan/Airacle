@@ -38882,6 +38882,7 @@ exports.default = function () {
   // });
   // masterObj["AirportCodeOptions"] = airportCodeToIDArr;
 
+  //Airports
   var airportNameToIDArr = [];
   Object.keys(_CityToAirportCode2.default).forEach(function (city) {
     var codeArr = _CityToAirportCode2.default[city];
