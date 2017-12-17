@@ -1,4 +1,35 @@
 .prediction-index li{
+  font-size: 18px;
   list-style: none;
-  
+  padding-top: 5px;
+  padding-bottom: 5px;
+  /* padding-left: 20px;
+  padding-right: 20px; */
+  width: 200px;
+  border-top: 1px solid rgb(150, 149, 149);
+  -webkit-transition: font-size 0.3s
+}
+
+.prediction-index li:first-child{
+  border-top: none;
+}
+
+.prediction-index li:hover {
+  font-size: 20px;
+  background: #f6f6f6;
+}
+
+.prediction-index-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.prediction-index-container h1{
+  margin-bottom: 10px;
+}
+
+.delay-time-text{
+  color: red;
 }

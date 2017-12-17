@@ -67701,10 +67701,15 @@ var PredictionIndex = function (_React$Component) {
       // console.log(this.props.probabilities);
       var probs = this.props.probabilities;
       return _react2.default.createElement(
-        'h3',
-        null,
+        'div',
+        { className: 'prediction-index-container' },
         _react2.default.createElement(
-          'ul',
+          'h1',
+          null,
+          'Prediction Breakdown'
+        ),
+        _react2.default.createElement(
+          'div',
           { className: 'prediction-index' },
           Object.keys(this.props.probabilities).map(function (clas) {
             return _react2.default.createElement(_prediction_index_item2.default, { key: clas, probability: _this2.props.probabilities[clas], clas: clas });
@@ -67828,7 +67833,7 @@ exports.default = function (props) {
     { className: 'barchart', width: props.width, height: props.height },
     _react2.default.createElement(
       'text',
-      { transform: 'translate(180, 40)' },
+      { className: 'delay-time-text', transform: 'translate(180, 40)' },
       'Predicted Delay Times'
     ),
     _react2.default.createElement(_bars2.default, _extends({}, props, scales)),
