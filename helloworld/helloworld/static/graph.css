@@ -102,6 +102,7 @@
   width: 50%;
   margin-left: 7.5px;
   height: 100%;
+  display: grid;
 }
 
 
@@ -120,11 +121,12 @@
 }
 
 .nav-link {
-  padding: 5px;
+  padding: 8px;
   text-decoration: none;
-  background-color: whitesmoke;
+  background-color: white;
   border-radius: 10px;
-  opacity: 0.8;
+  opacity: 0.6;
+  text-align: center;
 }
 
 .nav-link a {
