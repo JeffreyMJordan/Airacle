@@ -94,7 +94,8 @@ class Form extends React.Component {
         {/* Hey Eden sorry to mess w your front end, just tryna test the estimator we have rn below */}
         <form onSubmit={this.handleSubmit} className="params-form">
 
-          <div>
+          <div className="title-box">
+            <div className="title">Airacle</div>
             <div className="welcome">
               <h2>No more delays</h2>
               <p>With the power of machine learning, find out if your flight will be delayed before you book your flight!</p>
