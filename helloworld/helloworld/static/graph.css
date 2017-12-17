@@ -102,6 +102,7 @@
   width: 50%;
   margin-left: 7.5px;
   height: 100%;
+  display: grid;
 }
 
 
@@ -117,4 +118,23 @@
 
 .barchart {
   margin: 0px 20px;
+}
+
+.nav-link {
+  padding: 8px;
+  text-decoration: none;
+  background-color: white;
+  border-radius: 10px;
+  opacity: 0.6;
+  text-align: center;
+}
+
+.nav-link a {
+  text-decoration: none;
+  color: black;
+  padding: 3px;
+}
+
+.nav-link:hover {
+  opacity: 1;
 }
