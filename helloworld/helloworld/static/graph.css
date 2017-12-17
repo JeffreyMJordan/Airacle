@@ -37,6 +37,7 @@
   /* height: 100%; */
   transition: all, 0.25s;
   opacity: 0.8;
+  border-radius: 10px;
 }
 
 .no-delay {
@@ -51,6 +52,7 @@
   transition: all, 0.3s;
   /* opacity: 0.6; */
   background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 10px;
 }
 
 .float:hover {
