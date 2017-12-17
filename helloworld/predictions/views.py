@@ -25,9 +25,7 @@ def home(request):
         
         estimator = pickle.load(open( 'flightdata.sav','rb'))
         classes = estimator.classes_.tolist()
-        print(arr)
         predictions = estimator.predict_proba([arr])[0].tolist()
-        print(predictions)
         pred_obj = {}
         for x in range(0, len(classes)):
           pred_obj[classes[x]] = round(predictions[x], 2)

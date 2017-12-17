@@ -30959,7 +30959,7 @@ var _form2 = _interopRequireDefault(_form);
 
 var _predictor_actions = __webpack_require__(76);
 
-var _flight_info_actions = __webpack_require__(607);
+var _flight_info_actions = __webpack_require__(608);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -32924,6 +32924,7 @@ var Form = function (_React$Component) {
                   onChange: this.update('airline'),
                   value: this.state.airline,
                   placeholder: 'Airline'
+
                   // clearable={true}
                 })
               ),
@@ -38893,6 +38894,7 @@ exports.default = function () {
   // });
   // masterObj["AirportCodeOptions"] = airportCodeToIDArr;
 
+  //Airports
   var airportNameToIDArr = [];
   Object.keys(_CityToAirportCode2.default).forEach(function (city) {
     var codeArr = _CityToAirportCode2.default[city];
@@ -68294,7 +68296,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _redux = __webpack_require__(128);
 
-var _prediction_reducer = __webpack_require__(608);
+var _prediction_reducer = __webpack_require__(607);
 
 var _prediction_reducer2 = _interopRequireDefault(_prediction_reducer);
 
@@ -85448,24 +85450,6 @@ exports['default'] = thunk;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var RECEIVE_INFO = exports.RECEIVE_INFO = "RECEIVE_INFO";
-
-var receiveInfo = exports.receiveInfo = function receiveInfo(info) {
-  return {
-    type: RECEIVE_INFO,
-    info: info };
-};
-
-/***/ }),
-/* 608 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
 
 var _lodash = __webpack_require__(604);
 
@@ -85487,6 +85471,24 @@ exports.default = function () {
 };
 
 /***/ }),
+/* 608 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var RECEIVE_INFO = exports.RECEIVE_INFO = "RECEIVE_INFO";
+
+var receiveInfo = exports.receiveInfo = function receiveInfo(info) {
+  return {
+    type: RECEIVE_INFO,
+    info: info };
+};
+
+/***/ }),
 /* 609 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -85499,7 +85501,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _lodash = __webpack_require__(604);
 
-var _flight_info_actions = __webpack_require__(607);
+var _flight_info_actions = __webpack_require__(608);
 
 exports.default = function () {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};

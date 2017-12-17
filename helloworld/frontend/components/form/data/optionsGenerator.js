@@ -12,6 +12,7 @@ export default () => {
   // });
   // masterObj["AirportCodeOptions"] = airportCodeToIDArr;
   
+  //Airports
   let airportNameToIDArr = [];
   Object.keys(CityToAirportCode).forEach((city) => {
     let codeArr = CityToAirportCode[city];

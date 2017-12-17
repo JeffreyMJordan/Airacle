@@ -163,6 +163,7 @@ class Form extends React.Component {
                   onChange={this.update('airline')}
                   value={this.state.airline}
                   placeholder="Airline"
+                  
                   // clearable={true}
                   />
               </div>
