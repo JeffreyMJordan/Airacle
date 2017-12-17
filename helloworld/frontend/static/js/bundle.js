@@ -67777,7 +67777,7 @@ var PredictionIndexItem = function (_React$Component) {
         null,
         this.titleHash[this.props.clas],
         ": ",
-        this.props.probability * 100,
+        parseInt(this.props.probability * 100),
         "%"
       );
     }

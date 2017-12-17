@@ -11,7 +11,7 @@ class PredictionIndexItem extends React.Component{
   render(){
     
     return (
-      <li>{this.titleHash[this.props.clas]}: {this.props.probability * 100}%</li>
+      <li>{this.titleHash[this.props.clas]}: {parseInt(this.props.probability * 100)}%</li>
     );
   }
 }
