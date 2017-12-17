@@ -9082,16 +9082,16 @@ var Graph = function (_React$Component) {
               { className: 'info-container' },
               _react2.default.createElement(
                 'div',
-                { className: 'actual-graph' },
+                { className: 'actual-graph float' },
                 _react2.default.createElement(_prediction_index2.default, { probabilities: this.props.probabilities, highest: this.props.highest }),
                 _react2.default.createElement(_barchart2.default, _extends({}, stats, styles))
               ),
               _react2.default.createElement(
                 'div',
                 { className: 'info-tab' },
-                _react2.default.createElement('div', { className: 'other-airlines' }),
-                _react2.default.createElement('div', { className: 'project-info' }),
-                _react2.default.createElement('div', { className: 'other-info' })
+                _react2.default.createElement('div', { className: 'other-airlines float' }),
+                _react2.default.createElement('div', { className: 'project-info float' }),
+                _react2.default.createElement('div', { className: 'other-info  float' })
               )
             )
           )
@@ -32880,7 +32880,8 @@ var Form = function (_React$Component) {
                   autoFocus: true,
                   searchable: true,
                   onChange: this.update('month'),
-                  value: this.state.month
+                  value: this.state.month,
+                  placeholder: 'Month'
                   // clearable={true}
                 })
               ),
@@ -32893,7 +32894,8 @@ var Form = function (_React$Component) {
                   autoFocus: true,
                   searchable: true,
                   onChange: this.update('airline'),
-                  value: this.state.airline
+                  value: this.state.airline,
+                  placeholder: 'Airline'
                   // clearable={true}
                 })
               ),
@@ -32906,7 +32908,12 @@ var Form = function (_React$Component) {
                   autoFocus: true,
                   searchable: true,
                   onChange: this.update('originAirport'),
-                  value: this.state.originAirport
+                  value: this.state.originAirport,
+                  placeholder: _react2.default.createElement(
+                    'span',
+                    null,
+                    'From'
+                  )
                   // clearable={true}
                 })
               ),
@@ -32919,7 +32926,12 @@ var Form = function (_React$Component) {
                   autoFocus: true,
                   searchable: true,
                   onChange: this.update('destAirport'),
-                  value: this.state.destAirport
+                  value: this.state.destAirport,
+                  placeholder: _react2.default.createElement(
+                    'span',
+                    null,
+                    'To'
+                  )
                   // clearable={true}
                 })
               ),

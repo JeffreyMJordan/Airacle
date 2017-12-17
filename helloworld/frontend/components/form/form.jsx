@@ -138,6 +138,7 @@ class Form extends React.Component {
                   searchable={true}
                   onChange={this.update('month')}
                   value={this.state.month}
+                  placeholder="Month"
                 // clearable={true}
                 />
               </div>
@@ -160,6 +161,7 @@ class Form extends React.Component {
                   searchable={true}
                   onChange={this.update('airline')}
                   value={this.state.airline}
+                  placeholder="Airline"
                   // clearable={true}
                   />
               </div>
@@ -181,6 +183,7 @@ class Form extends React.Component {
                 searchable={true}
                 onChange={this.update('originAirport')}
                 value={this.state.originAirport}
+                placeholder={<span>From</span>}
                 // clearable={true}
                 />
               </div>
@@ -193,6 +196,7 @@ class Form extends React.Component {
                   searchable={true}
                   onChange={this.update('destAirport')}
                   value={this.state.destAirport}
+                  placeholder={<span>To</span>}
                   // clearable={true}
                   />
               </div>
