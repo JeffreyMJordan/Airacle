@@ -1,8 +1,8 @@
 venv
 *.pyc
-predictions/__pycache__/
-helloworld/__pycache__/
 staticfiles
 .env
 node_modules/
+predictions/__pycache__/
+helloworld/__pycache__/
 frontend/static/js/
