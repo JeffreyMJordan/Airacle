@@ -9082,16 +9082,28 @@ var Graph = function (_React$Component) {
               { className: 'info-container' },
               _react2.default.createElement(
                 'div',
-                { className: 'actual-graph' },
+                { className: 'actual-graph float' },
                 _react2.default.createElement(_prediction_index2.default, { probabilities: this.props.probabilities, highest: this.props.highest }),
                 _react2.default.createElement(_barchart2.default, _extends({}, stats, styles))
               ),
               _react2.default.createElement(
                 'div',
                 { className: 'info-tab' },
-                _react2.default.createElement('div', { className: 'other-airlines' }),
-                _react2.default.createElement('div', { className: 'project-info' }),
-                _react2.default.createElement('div', { className: 'other-info' })
+                _react2.default.createElement(
+                  'div',
+                  { className: 'other-airlines float' },
+                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+                ),
+                _react2.default.createElement(
+                  'div',
+                  { className: 'project-info float' },
+                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+                ),
+                _react2.default.createElement(
+                  'div',
+                  { className: 'other-info  float' },
+                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+                )
               )
             )
           )
@@ -32880,7 +32892,8 @@ var Form = function (_React$Component) {
                   autoFocus: true,
                   searchable: true,
                   onChange: this.update('month'),
-                  value: this.state.month
+                  value: this.state.month,
+                  placeholder: 'Month'
                   // clearable={true}
                 })
               ),
@@ -32893,7 +32906,8 @@ var Form = function (_React$Component) {
                   autoFocus: true,
                   searchable: true,
                   onChange: this.update('airline'),
-                  value: this.state.airline
+                  value: this.state.airline,
+                  placeholder: 'Airline'
                   // clearable={true}
                 })
               ),
@@ -32906,7 +32920,12 @@ var Form = function (_React$Component) {
                   autoFocus: true,
                   searchable: true,
                   onChange: this.update('originAirport'),
-                  value: this.state.originAirport
+                  value: this.state.originAirport,
+                  placeholder: _react2.default.createElement(
+                    'span',
+                    null,
+                    'From'
+                  )
                   // clearable={true}
                 })
               ),
@@ -32919,7 +32938,12 @@ var Form = function (_React$Component) {
                   autoFocus: true,
                   searchable: true,
                   onChange: this.update('destAirport'),
-                  value: this.state.destAirport
+                  value: this.state.destAirport,
+                  placeholder: _react2.default.createElement(
+                    'span',
+                    null,
+                    'To'
+                  )
                   // clearable={true}
                 })
               ),
