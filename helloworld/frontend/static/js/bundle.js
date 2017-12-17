@@ -8952,6 +8952,8 @@ var _barchart = __webpack_require__(597);
 
 var _barchart2 = _interopRequireDefault(_barchart);
 
+var _reactRouterDom = __webpack_require__(69);
+
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -9103,6 +9105,15 @@ var Graph = function (_React$Component) {
                   'div',
                   { className: 'other-info  float' },
                   'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+                ),
+                _react2.default.createElement(
+                  'span',
+                  { className: 'nav-link' },
+                  _react2.default.createElement(
+                    _reactRouterDom.Link,
+                    { to: '/' },
+                    'Analyze Another Flight'
+                  )
                 )
               )
             )
