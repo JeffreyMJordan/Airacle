@@ -43,3 +43,32 @@ a given flight belonged to accordingly. I defined our classes by iterating throu
 		  a[idx] = 46
 	   idx = idx+1
 ```
+
+### Persisting prediction and flight information 
+When a user returns Airacle's prediction page, Airacle's most recent prediction and the user's previously entered flight is already waiting for them. I persisted this information by setting them as cookies in the user's browser, then using this information to define a preloaded Redux state. 
+
+### Dropdown Forms 
+When training our model, we found that it was easier to use each airline and airport's identification number rather than their name. However, we didn't want our users to have to enter IDs rather than each airline/airport's English name. To solve this issue, I created our dropdown forms' options so that each ID was mapped to each airline/airport's name as follows: 
+```javascript
+//Airports
+  let airportNameToIDArr = [];
+  Object.keys(CityToAirportCode).forEach((city) => {
+    let codeArr = CityToAirportCode[city];
+    codeArr.forEach((code) => {
+      if(AirportCodeToID[code]!=undefined){
+        airportNameToIDArr.push({label: `${city} (${code})`, value: AirportCodeToID[code]});
+      }
+    });
+  });
+  masterObj["AirportCodeOptions"] = airportNameToIDArr;
+
+  //Airlines
+  let airlineCodeToIDArr = [];
+  Object.keys(AirlineCodeToID).forEach((code) => {
+    airlineCodeToIDArr.push({label: code, value: AirlineCodeToID[code]});
+  });
+  masterObj["AirlineCodeOptions"] = airlineCodeToIDArr;
+```
+
+### Information slice of state 
+I wanted our users to be able to see information about their flight on Airacle's prediction page. I opted to create a flight-information slice of state and define a redux cycle to pass our prediction components this information. 
