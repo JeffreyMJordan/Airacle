@@ -32924,6 +32924,7 @@ var Form = function (_React$Component) {
                   onChange: this.update('airline'),
                   value: this.state.airline,
                   placeholder: 'Airline'
+
                   // clearable={true}
                 })
               ),
