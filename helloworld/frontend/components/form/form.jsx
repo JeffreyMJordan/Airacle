@@ -31,7 +31,7 @@ class Form extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log(this.state);
+    // console.log(this.state);
     let paramsArr = [ this.state.month, this.state.airline, this.state.originAirport, this.state.destAirport, this.state.distance ];
     // this.state.params = paramsArr;
     
@@ -55,7 +55,7 @@ class Form extends React.Component {
   update(input) {
     return (selectedOption) => {
       this.setState({[input]: selectedOption.value});
-      console.log(this.state);
+      // console.log(this.state);
 
       if(input==="originAirport" || input==="destAirport"){
         
@@ -69,8 +69,8 @@ class Form extends React.Component {
         let codeStr = this.combinedCode["destAirport"] + this.combinedCode["originAirport"];
         
         if(codeStr.length===6){
-          console.log(codesToDistance["ABEATL"]);
-          console.log(codeStr);
+          // console.log(codesToDistance["ABEATL"]);
+          // console.log(codeStr);
           if(codesToDistance[codeStr]){
             this.setState({distance: codesToDistance[codeStr]});
           }else{

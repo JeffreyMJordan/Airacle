@@ -21,7 +21,7 @@ export default(props) => {
   let t = d3.transition().duration(750).ease(d3.easeLinear);
   d3.selectAll("Bars").transition(t).style("fill", "red");
   return <svg className="barchart" width={props.width} height={props.height}>
-  <text transform="translate(180, 40)">Predicted Delay Times</text>
+  <text className="delay-time-text" transform="translate(180, 40)">Predicted Delay Times</text>
     <Bars {...props} {...scales} />
     <BarAxis {...props} {...scales} />
     <g className="xValues">

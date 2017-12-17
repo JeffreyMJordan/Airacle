@@ -40,12 +40,12 @@ export default class Graph extends React.Component {
     // window.prediction = prediction;
     document.cookie=`prediction=${JSON.stringify(this.props.prediction)}`;
     document.cookie=`info=${JSON.stringify(this.props.info)}`;
-    console.log(document.cookie); 
+    // console.log(document.cookie); 
   }
 
   delayStatus() {
     let certainty = this.state.probabilities[0] * 100;
-    console.log(certainty);
+    // console.log(certainty);
     if (certainty > 49) {
       return (
         <h2>
