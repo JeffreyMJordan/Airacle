@@ -9082,16 +9082,16 @@ var Graph = function (_React$Component) {
               { className: 'info-container' },
               _react2.default.createElement(
                 'div',
-                { className: 'actual-graph' },
+                { className: 'actual-graph float' },
                 _react2.default.createElement(_prediction_index2.default, { probabilities: this.props.probabilities, highest: this.props.highest }),
                 _react2.default.createElement(_barchart2.default, _extends({}, stats, styles))
               ),
               _react2.default.createElement(
                 'div',
                 { className: 'info-tab' },
-                _react2.default.createElement('div', { className: 'other-airlines' }),
-                _react2.default.createElement('div', { className: 'project-info' }),
-                _react2.default.createElement('div', { className: 'other-info' })
+                _react2.default.createElement('div', { className: 'other-airlines float' }),
+                _react2.default.createElement('div', { className: 'project-info float' }),
+                _react2.default.createElement('div', { className: 'other-info  float' })
               )
             )
           )
@@ -30936,7 +30936,7 @@ var _form2 = _interopRequireDefault(_form);
 
 var _predictor_actions = __webpack_require__(76);
 
-var _flight_info_actions = __webpack_require__(608);
+var _flight_info_actions = __webpack_require__(607);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -32880,7 +32880,8 @@ var Form = function (_React$Component) {
                   autoFocus: true,
                   searchable: true,
                   onChange: this.update('month'),
-                  value: this.state.month
+                  value: this.state.month,
+                  placeholder: 'Month'
                   // clearable={true}
                 })
               ),
@@ -32893,7 +32894,8 @@ var Form = function (_React$Component) {
                   autoFocus: true,
                   searchable: true,
                   onChange: this.update('airline'),
-                  value: this.state.airline
+                  value: this.state.airline,
+                  placeholder: 'Airline'
                   // clearable={true}
                 })
               ),
@@ -32906,7 +32908,12 @@ var Form = function (_React$Component) {
                   autoFocus: true,
                   searchable: true,
                   onChange: this.update('originAirport'),
-                  value: this.state.originAirport
+                  value: this.state.originAirport,
+                  placeholder: _react2.default.createElement(
+                    'span',
+                    null,
+                    'From'
+                  )
                   // clearable={true}
                 })
               ),
@@ -32919,7 +32926,12 @@ var Form = function (_React$Component) {
                   autoFocus: true,
                   searchable: true,
                   onChange: this.update('destAirport'),
-                  value: this.state.destAirport
+                  value: this.state.destAirport,
+                  placeholder: _react2.default.createElement(
+                    'span',
+                    null,
+                    'To'
+                  )
                   // clearable={true}
                 })
               ),
@@ -68249,7 +68261,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _redux = __webpack_require__(128);
 
-var _prediction_reducer = __webpack_require__(607);
+var _prediction_reducer = __webpack_require__(608);
 
 var _prediction_reducer2 = _interopRequireDefault(_prediction_reducer);
 
@@ -85403,6 +85415,24 @@ exports['default'] = thunk;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+var RECEIVE_INFO = exports.RECEIVE_INFO = "RECEIVE_INFO";
+
+var receiveInfo = exports.receiveInfo = function receiveInfo(info) {
+  return {
+    type: RECEIVE_INFO,
+    info: info };
+};
+
+/***/ }),
+/* 608 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
 var _lodash = __webpack_require__(604);
 
@@ -85424,24 +85454,6 @@ exports.default = function () {
 };
 
 /***/ }),
-/* 608 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var RECEIVE_INFO = exports.RECEIVE_INFO = "RECEIVE_INFO";
-
-var receiveInfo = exports.receiveInfo = function receiveInfo(info) {
-  return {
-    type: RECEIVE_INFO,
-    info: info };
-};
-
-/***/ }),
 /* 609 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -85454,7 +85466,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _lodash = __webpack_require__(604);
 
-var _flight_info_actions = __webpack_require__(608);
+var _flight_info_actions = __webpack_require__(607);
 
 exports.default = function () {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
