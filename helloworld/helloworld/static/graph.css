@@ -118,3 +118,21 @@
 .barchart {
   margin: 0px 20px;
 }
+
+.nav-link {
+  padding: 5px;
+  text-decoration: none;
+  background-color: whitesmoke;
+  border-radius: 10px;
+  opacity: 0.8;
+}
+
+.nav-link a {
+  text-decoration: none;
+  color: black;
+  padding: 3px;
+}
+
+.nav-link:hover {
+  opacity: 1;
+}

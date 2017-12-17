@@ -4,6 +4,7 @@ import LineGraph from './line_graph';
 import PredictionIndex from './prediction_index';
 import BarChart from './barchart';
 import { pack } from 'd3';
+import {Link} from 'react-router-dom';
 
 // const data = [
 //   [0,0.12],
@@ -113,6 +114,9 @@ export default class Graph extends React.Component {
                 <div className="other-info  float">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                 </div>
+                <span className="nav-link">
+                <Link to={'/'}>Analyze Another Flight</Link>
+                </span>
               </div>
             </div>
           </div>
