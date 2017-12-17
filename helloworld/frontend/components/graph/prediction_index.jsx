@@ -12,11 +12,12 @@ class PredictionIndex extends React.Component{
     // console.log(this.props.probabilities);
     let probs = this.props.probabilities;
     return (
-      <h3>
-        <ul>
+      <div className="prediction-index-container">
+        <h1>Prediction Breakdown</h1>
+        <div className="prediction-index">
           {Object.keys(this.props.probabilities).map( (clas) => <PredictionIndexItem key={clas} probability={this.props.probabilities[clas]} clas={clas}/>)}
-        </ul>
-      </h3>
+        </div>
+      </div>
     );
   }
 }

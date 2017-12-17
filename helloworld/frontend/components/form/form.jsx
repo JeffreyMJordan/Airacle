@@ -12,7 +12,9 @@ class Form extends React.Component {
       month: 0,
       airline: 0,
       originAirport: 0,
+      originAirportName: "N/A",
       destAirport: 0,
+      destAirportName: "N/A",
       distance: 0,
       dummy: "Lol"
     };
@@ -29,12 +31,14 @@ class Form extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log(this.state);
+    // console.log(this.state);
     let paramsArr = [ this.state.month, this.state.airline, this.state.originAirport, this.state.destAirport, this.state.distance ];
     // this.state.params = paramsArr;
     
 
-    this.props.fetchPrediction(paramsArr.map((el) => parseInt(el))).then((e) => this.props.history.push("/graph"));
+    this.props.fetchPrediction(paramsArr.map((el) => parseInt(el)))
+    .then((res) => (this.props.receiveInfo({origin: this.state.originAirportName, dest: this.state.destAirportName})))
+    .then((e) => this.props.history.push("/graph"));
   }
 
   handleChange(selectedOption){
@@ -51,16 +55,22 @@ class Form extends React.Component {
   update(input) {
     return (selectedOption) => {
       this.setState({[input]: selectedOption.value});
-      console.log(this.state);
+      // console.log(this.state);
 
       if(input==="originAirport" || input==="destAirport"){
         
+        if(input==="originAirport"){
+          this.setState({originAirportName: selectedOption.label});
+        }else{
+          this.setState({destAirportName: selectedOption.label});
+        }
+
         this.combinedCode[input] = this.regex.exec(selectedOption.label)[1]
         let codeStr = this.combinedCode["destAirport"] + this.combinedCode["originAirport"];
         
         if(codeStr.length===6){
-          console.log(codesToDistance["ABEATL"]);
-          console.log(codeStr);
+          // console.log(codesToDistance["ABEATL"]);
+          // console.log(codeStr);
           if(codesToDistance[codeStr]){
             this.setState({distance: codesToDistance[codeStr]});
           }else{
@@ -84,7 +94,8 @@ class Form extends React.Component {
         {/* Hey Eden sorry to mess w your front end, just tryna test the estimator we have rn below */}
         <form onSubmit={this.handleSubmit} className="params-form">
 
-          <div>
+          <div className="title-box">
+            <div className="title">Airacle</div>
             <div className="welcome">
               <h2>No more delays</h2>
               <p>With the power of machine learning, find out if your flight will be delayed before you book your flight!</p>
@@ -128,6 +139,7 @@ class Form extends React.Component {
                   searchable={true}
                   onChange={this.update('month')}
                   value={this.state.month}
+                  placeholder="Month"
                 // clearable={true}
                 />
               </div>
@@ -150,6 +162,7 @@ class Form extends React.Component {
                   searchable={true}
                   onChange={this.update('airline')}
                   value={this.state.airline}
+                  placeholder="Airline"
                   // clearable={true}
                   />
               </div>
@@ -171,6 +184,7 @@ class Form extends React.Component {
                 searchable={true}
                 onChange={this.update('originAirport')}
                 value={this.state.originAirport}
+                placeholder={<span>From</span>}
                 // clearable={true}
                 />
               </div>
@@ -183,6 +197,7 @@ class Form extends React.Component {
                   searchable={true}
                   onChange={this.update('destAirport')}
                   value={this.state.destAirport}
+                  placeholder={<span>To</span>}
                   // clearable={true}
                   />
               </div>
@@ -194,16 +209,17 @@ class Form extends React.Component {
                 onChange={this.update("destAirport")}
                 placeholder="Destination Airport"
               /> */}
+
               {/* <div className="input-form">
 
-<input
-// className="session-input"
-type="number"
-// value={this.state.destAirport}
-onChange={this.nonDropdownChange("distance")}
-placeholder="Distance"
-/>
-</div> */}
+                <input
+                  // className="session-input"
+                  type="number"
+                  // value={this.state.destAirport}
+                  onChange={this.nonDropdownChange("distance")}
+                  placeholder="Distance"
+                  />
+              </div> */}
 
               <input className="session-submit" type="submit" value="Predict delay" />
 

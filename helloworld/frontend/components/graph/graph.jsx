@@ -39,22 +39,23 @@ export default class Graph extends React.Component {
     // let prediction = this.props.prediction;
     // window.prediction = prediction;
     document.cookie=`prediction=${JSON.stringify(this.props.prediction)}`;
+    document.cookie=`info=${JSON.stringify(this.props.info)}`;
     // console.log(document.cookie); 
   }
 
   delayStatus() {
     let certainty = this.state.probabilities[0] * 100;
-    console.log(certainty);
+    // console.log(certainty);
     if (certainty > 49) {
       return (
         <h2>
-          {`Airacle is ${certainty}% certain that your flight will`}<span className="no-delay"> not be delayed</span>
+          {`Airacle is ${certainty}% certain that your flight from ${this.props.info.origin} to ${this.props.info.dest} will`}<span className="no-delay"> not be delayed</span>
         </h2>
       );
     } else {
       return (
         <h2>
-          {`Airacle is ${100 - certainty}% certain your flight`} <span className="delay"> will be delayed</span>
+          {`Airacle is ${100 - certainty}% certain your flight from ${this.props.info.origin} to ${this.props.info.dest}`} <span className="delay"> will be delayed</span>
         </h2>
       );
     }
@@ -91,27 +92,26 @@ export default class Graph extends React.Component {
       <div className="graph-top">
         <div className="graph">
           <div className="graph-container">
-              <div className="delay-container">
+            <div className="delay-container">
                 {this.delayStatus()}
-              </div>
+            </div>
             <div className="info-container">
          
-                <div className="actual-graph">
+                <div className="actual-graph float">
                   <PredictionIndex probabilities={this.props.probabilities} highest={this.props.highest} />
-                  <h3 className="graph-h3">Predicted Delay Times</h3>
+                  {/* <h3 className="graph-h3">Predicted Delay Times</h3> */}
                   {/* <LineGraph {...stats} {...styles}/> */}
                   <BarChart {...stats} {...styles} />
                 </div>
                 <div className="info-tab">
-                  <div className="other-airlines">
-
-                  </div>
-                  <div className="project-info">
-
-                  </div>
-                  <div className="other-info">
-
-                
+                <div className="other-airlines float">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </div>
+                <div className="project-info float">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </div>
+                <div className="other-info  float">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                 </div>
               </div>
             </div>

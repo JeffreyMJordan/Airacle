@@ -2,7 +2,7 @@ import React from 'react';
 import BarAxis from './bar_axis';
 
 export default(props) => {
-  console.log(props)
+  // console.log(props)
   const xAxis = {
     translate: `translate(0, ${props.height - props.padding})`,
     scale: props.xScale,
