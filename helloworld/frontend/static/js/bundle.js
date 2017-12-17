@@ -9004,13 +9004,13 @@ var Graph = function (_React$Component) {
       // window.prediction = prediction;
       document.cookie = 'prediction=' + JSON.stringify(this.props.prediction);
       document.cookie = 'info=' + JSON.stringify(this.props.info);
-      console.log(document.cookie);
+      // console.log(document.cookie); 
     }
   }, {
     key: 'delayStatus',
     value: function delayStatus() {
       var certainty = this.state.probabilities[0] * 100;
-      console.log(certainty);
+      // console.log(certainty);
       if (certainty > 49) {
         return _react2.default.createElement(
           'h2',
@@ -32794,7 +32794,7 @@ var Form = function (_React$Component) {
       var _this2 = this;
 
       e.preventDefault();
-      console.log(this.state);
+      // console.log(this.state);
       var paramsArr = [this.state.month, this.state.airline, this.state.originAirport, this.state.destAirport, this.state.distance];
       // this.state.params = paramsArr;
 
@@ -32829,7 +32829,7 @@ var Form = function (_React$Component) {
 
       return function (selectedOption) {
         _this4.setState(_defineProperty({}, input, selectedOption.value));
-        console.log(_this4.state);
+        // console.log(this.state);
 
         if (input === "originAirport" || input === "destAirport") {
 
@@ -32843,8 +32843,8 @@ var Form = function (_React$Component) {
           var codeStr = _this4.combinedCode["destAirport"] + _this4.combinedCode["originAirport"];
 
           if (codeStr.length === 6) {
-            console.log(_CombinedCodesToDistance2.default["ABEATL"]);
-            console.log(codeStr);
+            // console.log(codesToDistance["ABEATL"]);
+            // console.log(codeStr);
             if (_CombinedCodesToDistance2.default[codeStr]) {
               _this4.setState({ distance: _CombinedCodesToDistance2.default[codeStr] });
             } else {
@@ -67750,9 +67750,9 @@ var PredictionIndexItem = function (_React$Component) {
   function PredictionIndexItem(props) {
     _classCallCheck(this, PredictionIndexItem);
 
+    // console.log(props)
     var _this = _possibleConstructorReturn(this, (PredictionIndexItem.__proto__ || Object.getPrototypeOf(PredictionIndexItem)).call(this, props));
 
-    console.log(props);
     _this.titleHash = { "0": "No delay", "15": "<15 minutes", "30": "<30 minutes",
       "45": "<45 minutes", "46": ">45 minutes" };
     return _this;
@@ -67889,7 +67889,7 @@ var _bar_axis2 = _interopRequireDefault(_bar_axis);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = function (props) {
-  console.log(props);
+  // console.log(props)
   var xAxis = {
     translate: 'translate(0, ' + (props.height - props.padding) + ')',
     scale: props.xScale,
@@ -67971,7 +67971,7 @@ var Axis = function (_React$Component) {
     value: function renderAxis() {
       var axis = void 0;
       var arr = ["", 0, 15, 30, 45, 60];
-      console.log(this.props);
+      // console.log(this.props)
       if (this.props.orient === 'left') {
         axis = d3.axisLeft().ticks(5).scale(this.props.scale);
       } else {
@@ -68076,7 +68076,7 @@ var Bars = function (_React$Component) {
       var _this3 = this;
 
       return function (coords, index) {
-        console.log(coords);
+        // console.log(coords)
         var ttProps = {
           height: 411 / 11,
           width: 411 / 7,
@@ -68099,7 +68099,7 @@ var Bars = function (_React$Component) {
           key: 'ttt' + index
         };
         index === 0 ? tttext.x = _this3.props.xScale(coords[0]) - 411 / 24 + _this3.props.padding : _this3.props.xScale(coords[0]) - 411 / 24 + 2 * _this3.props.padding;
-        console.log(ttProps.text);
+        // console.log(ttProps.text)
         return _react2.default.createElement(
           'g',
           null,
@@ -68194,12 +68194,12 @@ var mapStateToProps = function mapStateToProps(state) {
     highest = state.prediction.highest;
     prediction = state.prediction;
   }
-  console.log(state.info);
+  // console.log(state.info)
   if (state.info) {
     info["origin"] = state.info["origin"];
     info["dest"] = state.info["dest"];
   }
-  console.log(info);
+  // console.log(info)
   return {
     data: state.data,
     probabilities: probabilities,

@@ -41,7 +41,7 @@ export default class Bars extends React.Component {
     
     renderToolTips() {
         return (coords, index) => {
-          console.log(coords)
+          // console.log(coords)
           const ttProps = {
           height: (411/11),
           width: (411/7),
@@ -64,7 +64,7 @@ export default class Bars extends React.Component {
             key: `ttt${index}`
           };
           index === 0 ? tttext.x = this.props.xScale(coords[0]) - (411 / 24) + (this.props.padding) : this.props.xScale(coords[0]) - (411 / 24) + (2 * this.props.padding);
-          console.log(ttProps.text)
+          // console.log(ttProps.text)
       return <g><rect {...ttProps}></rect><text {...tttext}>{ttProps.text}</text></g>;
       };
     }

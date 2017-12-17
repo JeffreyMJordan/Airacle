@@ -23,7 +23,7 @@ def home(request):
     if (isinstance(arr, list)):
       if (len(arr) == 5):
         
-        estimator = pickle.load(open( 'experimental_model.sav','rb'))
+        estimator = pickle.load(open( 'flightdata.sav','rb'))
         classes = estimator.classes_.tolist()
         print(arr)
         predictions = estimator.predict_proba([arr])[0].tolist()
