@@ -20,7 +20,8 @@ body {
 }
 
 .error-list{
-  color: red;
+  margin: 0;
+  color: orangered;
   list-style: none;
   display: flex;
   align-items: center;
@@ -53,6 +54,7 @@ body {
 }
 
 .session-submit:hover {
+  transform: translateY(-1px);
   color: blueviolet;
   cursor: pointer;
   border: 1px solid blueviolet;
@@ -86,7 +88,7 @@ body {
 }
 
 .welcome:hover {
-  transform: translateY(-1px);
+  transform: translateY(-2px);
   /* opacity: 1; */
   /* box-shadow: 5px 5px 2px 1px gray; */
   background-color: rgba(255, 255, 255, 1);

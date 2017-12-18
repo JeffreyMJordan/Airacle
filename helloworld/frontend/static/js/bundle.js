@@ -9125,12 +9125,12 @@ var Graph = function (_React$Component) {
                   'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
                 ),
                 _react2.default.createElement(
-                  'span',
-                  { className: 'nav-link' },
+                  _reactRouterDom.Link,
+                  { to: '/' },
                   _react2.default.createElement(
-                    _reactRouterDom.Link,
-                    { to: '/' },
-                    'Analyze Another Flight'
+                    'button',
+                    { className: 'nav-link float' },
+                    'Predict Another Flight'
                   )
                 )
               )
@@ -37197,11 +37197,7 @@ var debugRenderPhaseSideEffects = false;
 
 // Only used in www builds.
 
-<<<<<<< HEAD
 var valueStack = [];
-=======
-var _flight_info_actions = __webpack_require__(607);
->>>>>>> ffcd69496939faa6388c6d29c5817eefb06afbb0
 
 {
   var fiberStack = [];
@@ -39441,7 +39437,6 @@ function ChildReconciler(shouldTrackSideEffects) {
       }
     }
 
-<<<<<<< HEAD
     return null;
   }
 
@@ -39449,63 +39444,6 @@ function ChildReconciler(shouldTrackSideEffects) {
     // Update the fiber if the keys match, otherwise return null.
 
     var key = oldFiber !== null ? oldFiber.key : null;
-=======
-    _this.state = {
-      month: 0,
-      airline: 0,
-      originAirport: 0,
-      originAirportName: "N/A",
-      destAirport: 0,
-      destAirportName: "N/A",
-      distance: 0,
-      dummy: "Lol",
-      errors: []
-    };
-    _this.handleSubmit = _this.handleSubmit.bind(_this);
-    _this.handleChange = _this.handleChange.bind(_this);
-    var allOptions = (0, _optionsGenerator2.default)();
-    _this.airportOptions = allOptions["AirportCodeOptions"];
-    _this.airlineOptions = allOptions["AirlineCodeOptions"];
-    _this.monthOptions = allOptions["MonthOptions"];
-    _this.nonDropdownChange = _this.nonDropdownChange.bind(_this);
-    _this.combinedCode = { "destAirport": "", "originAirport": "" };
-    _this.regex = /\((.+)\)/;
-    return _this;
-  }
-
-  _createClass(Form, [{
-    key: 'handleSubmit',
-    value: function handleSubmit(e) {
-      var _this2 = this;
-
-      e.preventDefault();
-      // console.log(this.state);
-      var paramsArr = [this.state.month, this.state.airline, this.state.originAirport, this.state.destAirport, this.state.distance];
-      // this.state.params = paramsArr;
-
-      if (this.state.destAirportName === "N/A" || this.state.originAirportName === "N/A") {
-        this.setState({ errors: ["Airacle requires both an origin and destination airport"] });
-      } else {
-        this.props.fetchPrediction(paramsArr.map(function (el) {
-          return parseInt(el);
-        })).then(function (res) {
-          return _this2.props.receiveInfo({ origin: _this2.state.originAirportName, dest: _this2.state.destAirportName });
-        }).then(function (e) {
-          return _this2.props.history.push("/graph");
-        });
-      }
-    }
-  }, {
-    key: 'handleChange',
-    value: function handleChange(selectedOption) {
-      this.setState({ dummy: selectedOption.value });
-      console.log(this.state.dummy);
-    }
-  }, {
-    key: 'nonDropdownChange',
-    value: function nonDropdownChange(input) {
-      var _this3 = this;
->>>>>>> ffcd69496939faa6388c6d29c5817eefb06afbb0
 
     if (typeof newChild === 'string' || typeof newChild === 'number') {
       // Text nodes don't have keys. If the previous node is implicitly keyed
@@ -39539,143 +39477,6 @@ function ChildReconciler(shouldTrackSideEffects) {
               return null;
             }
           }
-<<<<<<< HEAD
-=======
-        }
-      };
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        'div',
-        { className: 'form-cont' },
-        _react2.default.createElement(
-          'form',
-          { onSubmit: this.handleSubmit, className: 'params-form' },
-          _react2.default.createElement(
-            'div',
-            { className: 'title-box' },
-            _react2.default.createElement(
-              'div',
-              { className: 'title' },
-              'Airacle'
-            ),
-            _react2.default.createElement(
-              'div',
-              { className: 'welcome' },
-              _react2.default.createElement(
-                'h2',
-                null,
-                'No more delays'
-              ),
-              _react2.default.createElement(
-                'p',
-                null,
-                'With the power of machine learning, find out if your flight will be delayed before you book your flight!'
-              )
-            ),
-            _react2.default.createElement(
-              'ul',
-              { className: 'error-list' },
-              this.state.errors.map(function (err) {
-                return _react2.default.createElement(
-                  'li',
-                  null,
-                  err
-                );
-              })
-            ),
-            _react2.default.createElement(
-              'div',
-              { className: 'flight-input' },
-              _react2.default.createElement(
-                'div',
-                { className: 'input-form' },
-                _react2.default.createElement(_reactSelect2.default, {
-                  name: 'form-field-name',
-                  options: this.monthOptions,
-                  autoFocus: true,
-                  searchable: true,
-                  onChange: this.update('month'),
-                  value: this.state.month,
-                  placeholder: 'Month'
-                  // clearable={true}
-                })
-              ),
-              _react2.default.createElement(
-                'div',
-                { className: 'input-form' },
-                _react2.default.createElement(_reactSelect2.default, {
-                  name: 'form-field-name',
-                  options: this.airlineOptions,
-                  autoFocus: true,
-                  searchable: true,
-                  onChange: this.update('airline'),
-                  value: this.state.airline,
-                  placeholder: 'Airline'
-
-                  // clearable={true}
-                })
-              ),
-              _react2.default.createElement(
-                'div',
-                { className: 'input-form' },
-                _react2.default.createElement(_reactSelect2.default, {
-                  name: 'form-field-name',
-                  options: this.airportOptions,
-                  autoFocus: true,
-                  searchable: true,
-                  onChange: this.update('originAirport'),
-                  value: this.state.originAirport,
-                  placeholder: _react2.default.createElement(
-                    'span',
-                    null,
-                    'From'
-                  )
-                  // clearable={true}
-                })
-              ),
-              _react2.default.createElement(
-                'div',
-                { className: 'input-form' },
-                _react2.default.createElement(_reactSelect2.default, {
-                  name: 'form-field-name',
-                  options: this.airportOptions,
-                  autoFocus: true,
-                  searchable: true,
-                  onChange: this.update('destAirport'),
-                  value: this.state.destAirport,
-                  placeholder: _react2.default.createElement(
-                    'span',
-                    null,
-                    'To'
-                  )
-                  // clearable={true}
-                })
-              ),
-              _react2.default.createElement('input', { className: 'session-submit', type: 'submit', value: 'Predict delay' })
-            )
-          ),
-          _react2.default.createElement(
-            'div',
-            { className: 'subtitle' },
-            _react2.default.createElement(
-              'p',
-              null,
-              'Select your flight'
-            )
-          )
-        )
-      );
-    }
-  }]);
-
-  return Form;
-}(_react2.default.Component);
-
-exports.default = (0, _reactRouterDom.withRouter)(Form);
->>>>>>> ffcd69496939faa6388c6d29c5817eefb06afbb0
 
         case REACT_RETURN_TYPE:
           {
@@ -50094,7 +49895,8 @@ var Form = function (_React$Component) {
       destAirport: 0,
       destAirportName: "N/A",
       distance: 0,
-      dummy: "Lol"
+      dummy: "Lol",
+      errors: []
     };
     _this.handleSubmit = _this.handleSubmit.bind(_this);
     _this.handleChange = _this.handleChange.bind(_this);
@@ -50118,14 +49920,17 @@ var Form = function (_React$Component) {
       var paramsArr = [this.state.month, this.state.airline, this.state.originAirport, this.state.destAirport, this.state.distance];
       // this.state.params = paramsArr;
 
-
-      this.props.fetchPrediction(paramsArr.map(function (el) {
-        return parseInt(el);
-      })).then(function (res) {
-        return _this2.props.receiveInfo({ origin: _this2.state.originAirportName, dest: _this2.state.destAirportName });
-      }).then(function (e) {
-        return _this2.props.history.push("/graph");
-      });
+      if (this.state.destAirportName === "N/A" || this.state.originAirportName === "N/A") {
+        this.setState({ errors: ["Airacle requires both an origin and destination airport"] });
+      } else {
+        this.props.fetchPrediction(paramsArr.map(function (el) {
+          return parseInt(el);
+        })).then(function (res) {
+          return _this2.props.receiveInfo({ origin: _this2.state.originAirportName, dest: _this2.state.destAirportName });
+        }).then(function (e) {
+          return _this2.props.history.push("/graph");
+        });
+      }
     }
   }, {
     key: 'handleChange',
@@ -50204,6 +50009,17 @@ var Form = function (_React$Component) {
                 null,
                 'With the power of machine learning, find out if your flight will be delayed before you book your flight!'
               )
+            ),
+            _react2.default.createElement(
+              'ul',
+              { className: 'error-list' },
+              this.state.errors.map(function (err) {
+                return _react2.default.createElement(
+                  'li',
+                  null,
+                  err
+                );
+              })
             ),
             _react2.default.createElement(
               'div',
@@ -79028,18 +78844,6 @@ azimuthalEqualAreaRaw.invert = Object(__WEBPACK_IMPORTED_MODULE_1__azimuthal__["
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__index__ = __webpack_require__(13);
 
 
-<<<<<<< HEAD
-=======
-exports.default = function (props) {
-  var xAxis = {
-    translate: 'translate(0, ' + (props.height - props.padding) + ')',
-    scale: props.xScale,
-    orient: 'bottom',
-    text: "Delay Time (minutes)",
-    titleRotation: "rotate(0)",
-    titleTranslate: 'translate(' + props.width / 2 + ', ' + (props.height - props.padding / 4) + ')'
-  };
->>>>>>> ffcd69496939faa6388c6d29c5817eefb06afbb0
 
 
 var azimuthalEquidistantRaw = Object(__WEBPACK_IMPORTED_MODULE_1__azimuthal__["b" /* azimuthalRaw */])(function(c) {
@@ -79128,33 +78932,10 @@ function conicEquidistantRaw(y0, y1) {
     return [gy * Object(__WEBPACK_IMPORTED_MODULE_0__math__["t" /* sin */])(nx), g - gy * Object(__WEBPACK_IMPORTED_MODULE_0__math__["g" /* cos */])(nx)];
   }
 
-<<<<<<< HEAD
   project.invert = function(x, y) {
     var gy = g - y;
     return [Object(__WEBPACK_IMPORTED_MODULE_0__math__["e" /* atan2 */])(x, Object(__WEBPACK_IMPORTED_MODULE_0__math__["a" /* abs */])(gy)) / n * Object(__WEBPACK_IMPORTED_MODULE_0__math__["s" /* sign */])(gy), g - Object(__WEBPACK_IMPORTED_MODULE_0__math__["s" /* sign */])(n) * Object(__WEBPACK_IMPORTED_MODULE_0__math__["u" /* sqrt */])(x * x + gy * gy)];
   };
-=======
-  _createClass(Axis, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      this.renderAxis();
-    }
-  }, {
-    key: 'componentDidUpdate',
-    value: function componentDidUpdate() {
-      this.renderAxis();
-    }
-  }, {
-    key: 'renderAxis',
-    value: function renderAxis() {
-      var axis = void 0;
-      if (this.props.orient === 'left') {
-        axis = d3.axisLeft().ticks(5).scale(this.props.scale);
-      } else {
-        axis = d3.axisBottom().ticks(5).tickFormat("").scale(this.props.scale);
-      }
-      var node = this.refs.axis;
->>>>>>> ffcd69496939faa6388c6d29c5817eefb06afbb0
 
   return project;
 }
@@ -79298,20 +79079,10 @@ naturalEarth1Raw.invert = function(x, y) {
   ];
 };
 
-<<<<<<< HEAD
 /* harmony default export */ __webpack_exports__["a"] = (function() {
   return Object(__WEBPACK_IMPORTED_MODULE_0__index__["a" /* default */])(naturalEarth1Raw)
       .scale(175.295);
 });
-=======
-      d3.select('.tt' + index).transition(u).style("opacity", "0");
-      d3.select('.ttt' + index).transition(u).style("opacity", "0");
-    }
-  }, {
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      var t = d3.transition().duration(2000).ease(d3.easeLinear);
->>>>>>> ffcd69496939faa6388c6d29c5817eefb06afbb0
 
 
 /***/ }),
@@ -79475,13 +79246,9 @@ function meanXReduce(x, c) {
   return x + c.x;
 }
 
-<<<<<<< HEAD
 function maxY(children) {
   return 1 + children.reduce(maxYReduce, 0);
 }
-=======
-var _prediction_reducer = __webpack_require__(608);
->>>>>>> ffcd69496939faa6388c6d29c5817eefb06afbb0
 
 function maxYReduce(y, c) {
   return Math.max(y, c.y);
@@ -85270,7 +85037,6 @@ var _bar_axis2 = _interopRequireDefault(_bar_axis);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = function (props) {
-  // console.log(props)
   var xAxis = {
     translate: 'translate(0, ' + (props.height - props.padding) + ')',
     scale: props.xScale,
@@ -85351,8 +85117,6 @@ var Axis = function (_React$Component) {
     key: 'renderAxis',
     value: function renderAxis() {
       var axis = void 0;
-      var arr = ["", 0, 15, 30, 45, 60];
-      // console.log(this.props)
       if (this.props.orient === 'left') {
         axis = d3.axisLeft().ticks(5).scale(this.props.scale);
       } else {
@@ -85518,7 +85282,6 @@ var Bars = function (_React$Component) {
   }, {
     key: 'componentDidMount',
     value: function componentDidMount() {
-      var barPoints = this.props.data;
       var t = d3.transition().duration(2000).ease(d3.easeLinear);
 
       for (var i = 0; i < this.props.data.length; i++) {
@@ -85679,24 +85442,6 @@ exports.default = (0, _redux.combineReducers)({
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var RECEIVE_INFO = exports.RECEIVE_INFO = "RECEIVE_INFO";
-
-var receiveInfo = exports.receiveInfo = function receiveInfo(info) {
-  return {
-    type: RECEIVE_INFO,
-    info: info };
-};
-
-/***/ }),
-/* 608 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
 
 var _lodash = __webpack_require__(226);
 
@@ -85718,11 +85463,7 @@ exports.default = function () {
 };
 
 /***/ }),
-<<<<<<< HEAD
 /* 607 */
-=======
-/* 609 */
->>>>>>> ffcd69496939faa6388c6d29c5817eefb06afbb0
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -85734,11 +85475,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _lodash = __webpack_require__(226);
 
-<<<<<<< HEAD
 var _flight_info_actions = __webpack_require__(143);
-=======
-var _flight_info_actions = __webpack_require__(607);
->>>>>>> ffcd69496939faa6388c6d29c5817eefb06afbb0
 
 exports.default = function () {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
