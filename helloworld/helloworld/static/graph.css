@@ -99,17 +99,18 @@
 
 .info-tab {
   /* margin: 0px 10px; */
+  margin: 10px 0px 10px 7.5px;
   width: 50%;
-  margin-left: 7.5px;
-  height: 100%;
-  display: grid;
+  /* margin-left: 7.5px; */
+  /* height: 100%; */
+  /* display: grid; */
 }
 
 
 .info-tab div {
-  padding: 25px;
+  padding: 15px 25px;
   text-align: center;
-  margin: 10px 0px;
+  margin-bottom: 10px;
   min-width: 400px;
   /* background-color: whitesmoke; */
   min-height: 100px;
@@ -121,12 +122,16 @@
 }
 
 .nav-link {
-  padding: 8px;
-  text-decoration: none;
-  background-color: white;
-  border-radius: 10px;
-  opacity: 0.6;
+  border: 1px solid;
+  padding: 15px 25px;
   text-align: center;
+  margin-bottom: 10px;
+  min-height: 10px;
+  background-color: forestgreen;
+  font-size: 22px;
+  opacity: 0.6;
+  font-family: 'Roboto', sans-serif;
+  width: 100%;
 }
 
 .nav-link a {
@@ -137,4 +142,7 @@
 
 .nav-link:hover {
   opacity: 1;
+  background-color: forestgreen;
+  cursor: pointer;
+  transform: translateY(-1px);
 }
