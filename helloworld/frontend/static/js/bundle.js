@@ -9102,9 +9102,22 @@ var Graph = function (_React$Component) {
               { className: 'info-container' },
               _react2.default.createElement(
                 'div',
-                { className: 'actual-graph float' },
-                _react2.default.createElement(_prediction_index2.default, { probabilities: this.props.probabilities, highest: this.props.highest }),
-                _react2.default.createElement(_barchart2.default, _extends({}, stats, styles))
+                { className: 'fifty' },
+                _react2.default.createElement(
+                  'div',
+                  { className: 'actual-graph float' },
+                  _react2.default.createElement(_prediction_index2.default, { probabilities: this.props.probabilities, highest: this.props.highest }),
+                  _react2.default.createElement(_barchart2.default, _extends({}, stats, styles))
+                ),
+                _react2.default.createElement(
+                  _reactRouterDom.Link,
+                  { to: '/' },
+                  _react2.default.createElement(
+                    'button',
+                    { className: 'nav-link float' },
+                    'Predict Another Flight'
+                  )
+                )
               ),
               _react2.default.createElement(
                 'div',
@@ -9123,15 +9136,6 @@ var Graph = function (_React$Component) {
                   'div',
                   { className: 'other-info  float' },
                   'The question we attempted to solve was a standard statistical classification problem, where we wanted to test whether or not a plane will be delayed by how many minutes based on the airline, the location from and the location to, the time of year, and the distance. The dependent variable (outcome) was the delay time and the algorithm used was a Multiclass Logistic Regression algorithm imported in from SKLearn.'
-                ),
-                _react2.default.createElement(
-                  _reactRouterDom.Link,
-                  { to: '/' },
-                  _react2.default.createElement(
-                    'button',
-                    { className: 'nav-link float' },
-                    'Predict Another Flight'
-                  )
                 )
               )
             )
