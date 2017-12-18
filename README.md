@@ -184,4 +184,65 @@ Graph page: ^ selected a background, created the layout, styled the components a
 }
 ```
 
+## Christine's contributions
+I handled cleaning the dataset for testing, training the algorithm, and saving the trained model to an estimator. The main difficulties were choosing which variables to keep, standardizing all the values across the variables, clearing out empty values, and optimizing numeric probability of the output by iteratively minimizing the cross entropy of the trained model. I also handled creating JSON objects for easy access on the frontend so that the user could import an airport name and find the related cities, as well as handling the distance between various airports. 
 
+### Cleaning the data 
+Using various methods imported from pandas, I downloaded and imported enormous datasets off the Bureau of Transportation Statistic's website, read them into csv files, and reset the index so that they would continuous in the larger file, eventually all concating the files together into an enormous dataset. 
+```python 
+a = pd.read_csv(jan2016, low_memory=False) 
+b = pd.read_csv(feb2016, low_memory=False)
+b = b.reset_index(drop=True) 
+...
+twenty17 = pd.concat([a, b, c, d, e, f, g, h, i, j, k, l,v, w, x, y, z, aa, bb, cc, dd, ee, ff, gg], axis=0, ignore_index=True)
+
+```
+
+I then kept only the data that I needed, removing all unnecessary columns and resetting all floats to integers. 
+```python
+keep_col = ['MONTH', 'AIRLINE_ID', 'ORIGIN_AIRPORT_ID', 'DEST_AIRPORT_ID', 'DISTANCE']
+fixedcolumns = twenty17[keep_col]
+flightdata = pd.concat([fixedcolumns, finalcolumn], axis=1)
+flightdata['DISTANCE'] = flightdata['DISTANCE'].astype(int)
+flightdata['ARR_DELAY_NEW'] = flightdata['ARR_DELAY_NEW'].astype(int)
+```
+### Training the Model 
+In training the model, I set the validation size to 20% of the overall dataset and using imported methods from sklearn, fit the model to a LogisticRegression algorithm and saved the output to a .sav file through terminal. 
+
+```python
+array = flightdata.values     
+X = array[:,0:5]
+Y = array[:,5] 
+validation_size = 0.20
+seed = 7
+X_train, X_validation, Y_train, Y_validation = model_selection.train_test_split(X, Y, test_size=validation_size, random_state=seed)
+lr = LogisticRegression() 
+lr.fit(X_train, Y_train) 
+predictions = lr.predict(X_validation)
+```
+
+### Connecting Airports by City 
+In order to create a JSON object that connects airports by city, I had to scrape a table from Wikipedia using Beautiful Soup 4. I figured out how to gain access by letting Wikipedia know that I wasn't a bot by importing a header object that specified my browser and browser version. 
+
+```python
+from bs4 import BeautifulSoup
+from urllib.request import Request, urlopen
+
+site= "https://en.wikipedia.org/wiki/List_of_airports_in_the_United_States"
+hdr = {'User-Agent': 'Mozilla/5.0'}
+req = Request(site,headers=hdr)
+page = urlopen(req)
+soup = BeautifulSoup(page, "lxml")
+
+table = soup.find("table", { "class" : "wikitable sortable" })
+
+for row in table.findAll("tr"):
+    cells = row.findAll("td")
+    #For each "tr", assign each "td" to a variable.
+    if len(cells) == 4:
+        area = cells[0].find(text=True)
+        district = cells[1].findAll(text=True)
+        town = cells[2].find(text=True)
+        county = cells[3].find(text=True)
+``` 
+I then had to reorganize the structure of the table so that it was a readable JSON object, without the unnecessary brackets and encodings. 
