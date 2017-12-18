@@ -67910,7 +67910,6 @@ var _bar_axis2 = _interopRequireDefault(_bar_axis);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = function (props) {
-  // console.log(props)
   var xAxis = {
     translate: 'translate(0, ' + (props.height - props.padding) + ')',
     scale: props.xScale,
@@ -67991,8 +67990,6 @@ var Axis = function (_React$Component) {
     key: 'renderAxis',
     value: function renderAxis() {
       var axis = void 0;
-      var arr = ["", 0, 15, 30, 45, 60];
-      // console.log(this.props)
       if (this.props.orient === 'left') {
         axis = d3.axisLeft().ticks(5).scale(this.props.scale);
       } else {
@@ -68158,7 +68155,6 @@ var Bars = function (_React$Component) {
   }, {
     key: 'componentDidMount',
     value: function componentDidMount() {
-      var barPoints = this.props.data;
       var t = d3.transition().duration(2000).ease(d3.easeLinear);
 
       for (var i = 0; i < this.props.data.length; i++) {

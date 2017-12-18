@@ -99,7 +99,6 @@ export default class Bars extends React.Component {
     }
 
     componentDidMount() {
-      const barPoints = this.props.data;
       let t = d3.transition()
         .duration(2000)
         .ease(d3.easeLinear)
