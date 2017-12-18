@@ -9112,17 +9112,17 @@ var Graph = function (_React$Component) {
                 _react2.default.createElement(
                   'div',
                   { className: 'other-airlines float' },
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+                  'We started this project with a hypothesis-driven model that theorized that flight delays were predictable based on airlines and time of year. All variables unnecessary to the hypothesis, as well as variables that the algorithm would not have access to during time of input (i.e. variables that leaked information from the future such as reported delay time) were removed. All inputs were standardized to integers from float64 and the data ranged from January 2015 \u2013 December 2016.'
                 ),
                 _react2.default.createElement(
                   'div',
                   { className: 'project-info float' },
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+                  'While we originally intended for the output to be a binary classification that indicated whether or not the flight will be delayed, we eventually decided to output a numeric possibility signifying the confidence of the algorithm in predicting the \u2018class\u2019 of delay, whether or not there will be a delay, and the percentage chance it was likely that the delay would occur within 15 minute increments. The difficulty, then, was in minimizing the cross entropy of our model, which proved difficult to do with the limited amount of data available to us. While following the iterative procedure for gradient descent, it occurred to us that the range of included variables didn\u2019t adequately encompass all the relevant data to fit a response. However, with our hardware\u2019s limited capacity to store such large quantities data, we were limited to 6 columns of variables, and tailored that according to the highest performance output. As a result, our multiclass logistic regression algorithm performs at approximately 67% accuracy.'
                 ),
                 _react2.default.createElement(
                   'div',
                   { className: 'other-info  float' },
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+                  'The question we attempted to solve was a standard statistical classification problem, where we wanted to test whether or not a plane will be delayed by how many minutes based on the airline, the location from and the location to, the time of year, and the distance. The dependent variable (outcome) was the delay time and the algorithm used was a Multiclass Logistic Regression algorithm imported in from SKLearn.'
                 ),
                 _react2.default.createElement(
                   _reactRouterDom.Link,
