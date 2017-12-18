@@ -16,7 +16,8 @@ class Form extends React.Component {
       destAirport: 0,
       destAirportName: "N/A",
       distance: 0,
-      dummy: "Lol"
+      dummy: "Lol",
+      errors: []
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -35,10 +36,14 @@ class Form extends React.Component {
     let paramsArr = [ this.state.month, this.state.airline, this.state.originAirport, this.state.destAirport, this.state.distance ];
     // this.state.params = paramsArr;
     
-
-    this.props.fetchPrediction(paramsArr.map((el) => parseInt(el)))
-    .then((res) => (this.props.receiveInfo({origin: this.state.originAirportName, dest: this.state.destAirportName})))
-    .then((e) => this.props.history.push("/graph"));
+    if(this.state.destAirportName==="N/A" || this.state.originAirportName==="N/A"){
+      this.setState({errors: ["Airacle requires both an origin and destination airport"]});
+    }else{
+      this.props.fetchPrediction(paramsArr.map((el) => parseInt(el)))
+      .then((res) => (this.props.receiveInfo({origin: this.state.originAirportName, dest: this.state.destAirportName})))
+      .then((e) => this.props.history.push("/graph"));
+    }
+    
   }
 
   handleChange(selectedOption){
@@ -100,9 +105,11 @@ class Form extends React.Component {
               <h2>No more delays</h2>
               <p>With the power of machine learning, find out if your flight will be delayed before you book your flight!</p>
             </div>
+            <ul className="error-list">
+              {this.state.errors.map((err) => <li>{err}</li>)}
+            </ul>
 
             <div className="flight-input">
-
           {/* Outside component from a node package. Found here: https://jedwatson.github.io/react-select/ */}
          
           {/* <Select
@@ -163,6 +170,7 @@ class Form extends React.Component {
                   onChange={this.update('airline')}
                   value={this.state.airline}
                   placeholder="Airline"
+                  
                   // clearable={true}
                   />
               </div>

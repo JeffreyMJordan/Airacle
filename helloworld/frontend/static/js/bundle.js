@@ -32785,7 +32785,8 @@ var Form = function (_React$Component) {
       destAirport: 0,
       destAirportName: "N/A",
       distance: 0,
-      dummy: "Lol"
+      dummy: "Lol",
+      errors: []
     };
     _this.handleSubmit = _this.handleSubmit.bind(_this);
     _this.handleChange = _this.handleChange.bind(_this);
@@ -32809,14 +32810,17 @@ var Form = function (_React$Component) {
       var paramsArr = [this.state.month, this.state.airline, this.state.originAirport, this.state.destAirport, this.state.distance];
       // this.state.params = paramsArr;
 
-
-      this.props.fetchPrediction(paramsArr.map(function (el) {
-        return parseInt(el);
-      })).then(function (res) {
-        return _this2.props.receiveInfo({ origin: _this2.state.originAirportName, dest: _this2.state.destAirportName });
-      }).then(function (e) {
-        return _this2.props.history.push("/graph");
-      });
+      if (this.state.destAirportName === "N/A" || this.state.originAirportName === "N/A") {
+        this.setState({ errors: ["Airacle requires both an origin and destination airport"] });
+      } else {
+        this.props.fetchPrediction(paramsArr.map(function (el) {
+          return parseInt(el);
+        })).then(function (res) {
+          return _this2.props.receiveInfo({ origin: _this2.state.originAirportName, dest: _this2.state.destAirportName });
+        }).then(function (e) {
+          return _this2.props.history.push("/graph");
+        });
+      }
     }
   }, {
     key: 'handleChange',
@@ -32897,6 +32901,17 @@ var Form = function (_React$Component) {
               )
             ),
             _react2.default.createElement(
+              'ul',
+              { className: 'error-list' },
+              this.state.errors.map(function (err) {
+                return _react2.default.createElement(
+                  'li',
+                  null,
+                  err
+                );
+              })
+            ),
+            _react2.default.createElement(
               'div',
               { className: 'flight-input' },
               _react2.default.createElement(
@@ -32924,6 +32939,7 @@ var Form = function (_React$Component) {
                   onChange: this.update('airline'),
                   value: this.state.airline,
                   placeholder: 'Airline'
+
                   // clearable={true}
                 })
               ),
@@ -38893,6 +38909,7 @@ exports.default = function () {
   // });
   // masterObj["AirportCodeOptions"] = airportCodeToIDArr;
 
+  //Airports
   var airportNameToIDArr = [];
   Object.keys(_CityToAirportCode2.default).forEach(function (city) {
     var codeArr = _CityToAirportCode2.default[city];
