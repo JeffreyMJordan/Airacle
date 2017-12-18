@@ -97,12 +97,18 @@ export default class Graph extends React.Component {
                 {this.delayStatus()}
             </div>
             <div className="info-container">
-         
+                <div className="fifty">
                 <div className="actual-graph float">
                   <PredictionIndex probabilities={this.props.probabilities} highest={this.props.highest} />
                   {/* <h3 className="graph-h3">Predicted Delay Times</h3> */}
                   {/* <LineGraph {...stats} {...styles}/> */}
                   <BarChart {...stats} {...styles} />
+                </div>
+                <Link to={'/'}>
+                  <button className="nav-link float">
+                    Predict Another Flight
+                  </button>
+                </Link>
                 </div>
                 <div className="info-tab">
                   <div className="other-airlines float">
@@ -114,11 +120,6 @@ export default class Graph extends React.Component {
                   <div className="other-info  float">
                   The question we attempted to solve was a standard statistical classification problem, where we wanted to test whether or not a plane will be delayed by how many minutes based on the airline, the location from and the location to, the time of year, and the distance. The dependent variable (outcome) was the delay time and the algorithm used was a Multiclass Logistic Regression algorithm imported in from SKLearn. 
                   </div>
-                  <Link to={'/'}>
-                  <button className="nav-link float">
-                  Predict Another Flight
-                  </button>
-                  </Link>
               </div>
             </div>
           </div>

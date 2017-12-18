@@ -78,7 +78,7 @@ html {
   /* border-radius: 0px 0px 3px 3px; */
   margin: 10px 7.5px 10px 0px;
   /* margin: 10px ; */
-  width: 50%;
+  /* width: 50%; */
   min-width: 500px;
  
 }
@@ -130,13 +130,14 @@ html {
   border: 1px solid;
   padding: 15px 25px;
   text-align: center;
-  margin-bottom: 10px;
+  margin: 0px 7.5px 10px 0px;
   min-height: 10px;
   background-color: forestgreen;
   font-size: 22px;
   opacity: 0.6;
   font-family: 'Roboto', sans-serif;
   width: 100%;
+  max-width: 522px;
 }
 
 .nav-link a {
@@ -150,4 +151,8 @@ html {
   background-color: forestgreen;
   cursor: pointer;
   transform: translateY(-1px);
+}
+
+.fifty {
+  width: 50%;
 }
