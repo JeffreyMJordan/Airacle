@@ -94,7 +94,7 @@ componentDidMount() {
         .style("fill", "rgb(2, 175, 182)")
       }
     }
-    ```
+```
     
 ### Tooltips
 After debating whether or not to store tooltips in their own subsomponents, I opted to store them inside the bars component as I was still new to D3 and this provided greater control. I decided to render the tooltips alongside the bars, except with an opacity value of 0. Adding a `onMouseOver` and `onMouseOut` on each bar allowed me to change alter the opacity of each tooltip to reveal and hide the information on hovering.
@@ -117,5 +117,5 @@ renderAxis() {
       .style("text-anchor", "middle")
       .text(`${this.props.text}`);
   }
-  ```
+```
   
