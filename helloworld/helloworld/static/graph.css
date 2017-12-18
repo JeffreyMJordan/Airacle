@@ -7,11 +7,16 @@
   height: 100%;
   display: flex;
   justify-content: center;
-  background-size: cover;
-  background-image: url("/static/backgrounds/pexels-photo-6150601.jpeg");
+  /* background-size: 100% 100%;
+  background-image: url("/static/backgrounds/pexels-photo-6150601.jpeg"); */
   font-family: 'Roboto', sans-serif;
   /* min-height: 1010px; */
   /* margin: 0; */
+}
+
+html {
+  background-size: 100% 160%;
+  background-image: url("/static/backgrounds/pexels-photo-6150601.jpeg");
 }
 
 .graph-container {
