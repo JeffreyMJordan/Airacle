@@ -169,6 +169,7 @@ export const fetchPrediction = (paramsArr) => {
 
 ### Styling 
 Form page: I selected a background, font for the logo, created a short blurb and styled the page. 
+<br>
 Graph page: ^ selected a background, created the layout, styled the components and their hover effects. 
 
 ```css
