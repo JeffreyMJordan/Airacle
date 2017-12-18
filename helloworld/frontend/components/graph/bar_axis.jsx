@@ -12,8 +12,6 @@ export default class Axis extends React.Component {
 
   renderAxis() {
     let axis;
-    let arr = ["", 0, 15, 30, 45, 60];
-    // console.log(this.props)
     if(this.props.orient === 'left') {
       axis = d3.axisLeft().ticks(5).scale(this.props.scale);
     } else {
