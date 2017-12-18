@@ -123,7 +123,7 @@ renderAxis() {
 I tried to be the glue guy and contribute wherever it was needed. This included connecting the backend with the frontend, a majority of the styling, setting up the skeleton for the frontend, deploying to heroku and debugging assists.
 
 ### Setting up the app
-The first thing I needed to do was connect Edan and Jeff's work together. To do this, I created a discrete route to the view file (like a controlelr in ruby) Jeff created. I then created the form component and a corresponding redux cycle to take input from the form and pass it to Jeff's view. I then took the response from the view with the predictions and passed them on to Edan's D3 histogram. 
+The first thing I needed to do was connect Edan and Jeff's work together. To do this, I created a discrete route to the view file (like a controller in ruby) Jeff created. I then created the form component and a corresponding redux cycle to take input from the form and pass it to Jeff's view. I then took the response from the view with the predictions and passed them on to Edan's D3 histogram. 
 
 ```python
 // urls.py
@@ -169,6 +169,7 @@ export const fetchPrediction = (paramsArr) => {
 
 ### Styling 
 Form page: I selected a background, font for the logo, created a short blurb and styled the page. 
+<br>
 Graph page: ^ selected a background, created the layout, styled the components and their hover effects. 
 
 ```css
