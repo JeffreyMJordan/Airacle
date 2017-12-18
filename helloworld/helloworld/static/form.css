@@ -19,6 +19,14 @@ body {
   padding: 0;
 }
 
+.error-list{
+  color: red;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .params-form {
   display: flex;
   flex-direction: column;
