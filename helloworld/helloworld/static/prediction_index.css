@@ -1,5 +1,5 @@
 .prediction-index li{
-  font-size: 18px;
+  font-size: 14px;
   list-style: none;
   padding-top: 5px;
   padding-bottom: 5px;
@@ -32,8 +32,4 @@
 
 .delay-time-text{
   color: red;
-}
-
-.prediction-index {
-  /* float: left; */
 }
