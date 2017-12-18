@@ -29,6 +29,7 @@ body {
 }
 
 .params-form {
+  margin-top: 8%;
   display: flex;
   flex-direction: column;
   justify-content: center;
